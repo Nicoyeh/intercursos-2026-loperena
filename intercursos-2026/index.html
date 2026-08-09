@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INTERCURSOS 2026 — El Mundial del Loperena</title>
+  <meta name="description" content="Sitio oficial del torneo deportivo escolar INTERCURSOS 2026 — El Mundial del Loperena. Calendario, categorías, estadísticas y resultados del torneo.">
+  <meta name="theme-color" content="#05060b">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
+
+  <!-- Tipografía: Big Shoulders Display (titulares, herencia de números de camiseta deportiva) + IBM Plex Sans (texto, buen soporte de cifras tabulares para estadísticas) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+  <!-- Definiciones SVG compartidas (gradientes reutilizados por el emblema, el trofeo y el balón) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="emblemGradient" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="var(--accent-blue)"/>
+        <stop offset="100%" stop-color="var(--accent-violet)"/>
+      </linearGradient>
+      <linearGradient id="trophyGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="var(--accent-gold-soft)"/>
+        <stop offset="100%" stop-color="var(--accent-gold)"/>
+      </linearGradient>
+      <radialGradient id="ballGradient" cx="35%" cy="30%" r="75%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#c7d2e3"/>
+      </radialGradient>
+      <radialGradient id="ballGradientBasket" cx="35%" cy="30%" r="75%">
+        <stop offset="0%" stop-color="#ffcb8a"/>
+        <stop offset="55%" stop-color="var(--sport-baloncesto)"/>
+        <stop offset="100%" stop-color="#c2530f"/>
+      </radialGradient>
+      <radialGradient id="ballGradientVolley" cx="35%" cy="30%" r="75%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="var(--accent-gold-soft)"/>
+      </radialGradient>
+    </defs>
+  </svg>
+
+  <!-- ==================== NAVEGACIÓN ==================== -->
+  <header class="nav" id="mainNav" data-nav>
+    <div class="nav__inner container">
+
+      <a href="#inicio" class="nav__logo" aria-label="Intercursos 2026, ir al inicio">
+        <svg class="nav__emblem" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M24 2 L44 10 V24 C44 36 36 44 24 46 C12 44 4 36 4 24 V10 Z" fill="url(#emblemGradient)"/>
+          <path d="M24 14 L27 21 L35 21 L28.5 26 L31 34 L24 29 L17 34 L19.5 26 L13 21 L21 21 Z" fill="#ffffff" opacity="0.9"/>
+        </svg>
+        <span class="nav__wordmark">INTERCURSOS<span class="nav__year">2026</span></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#calendario">Calendario</a></li>
+          <li><a href="#categorias">Categorías</a></li>
+          <li><a href="#estadisticas">Estadísticas</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#reglamento">Reglamento</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Menú móvil (overlay a pantalla completa) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav aria-label="Navegación móvil">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#calendario">Calendario</a></li>
+        <li><a href="#categorias">Categorías</a></li>
+        <li><a href="#estadisticas">Estadísticas</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#reglamento">Reglamento</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="inicio">
+
+      <div class="hero__background" aria-hidden="true">
+        <canvas class="hero__particles" id="particlesCanvas"></canvas>
+        <span class="hero__glow hero__glow--blue"></span>
+        <span class="hero__glow hero__glow--gold"></span>
+        <span class="hero__glow hero__glow--violet"></span>
+        <span class="hero__grid"></span>
+        <span class="hero__vignette"></span>
+      </div>
+
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__trophy-wrap" data-parallax="0.4">
+          <div class="hero__trophy">
+            <svg class="trophy-svg" viewBox="0 0 200 260" focusable="false">
+              <path d="M46 58 C10 58 4 100 30 120 C40 128 52 128 58 122" fill="none" stroke="url(#trophyGradient)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M154 58 C190 58 196 100 170 120 C160 128 148 128 142 122" fill="none" stroke="url(#trophyGradient)" stroke-width="8" stroke-linecap="round"/>
+              <rect x="46" y="30" width="108" height="16" rx="8" fill="url(#trophyGradient)"/>
+              <path d="M50 40 H150 C150 110 130 150 100 150 C70 150 50 110 50 40 Z" fill="url(#trophyGradient)"/>
+              <path d="M100 70 L106 86 L123 86 L109 96 L114 113 L100 102 L86 113 L91 96 L77 86 L94 86 Z" fill="var(--bg-primary)" opacity="0.35"/>
+              <rect x="92" y="148" width="16" height="46" fill="url(#trophyGradient)"/>
+              <rect x="64" y="192" width="72" height="14" rx="7" fill="url(#trophyGradient)"/>
+              <rect x="50" y="206" width="100" height="16" rx="8" fill="url(#trophyGradient)"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="hero__ball-wrap hero__ball-wrap--futbol" data-parallax="0.65">
+          <div class="hero__ball hero__ball--futbol">
+            <svg class="ball-svg" viewBox="0 0 100 100" focusable="false">
+              <circle cx="50" cy="50" r="46" fill="url(#ballGradient)"/>
+              <path d="M50.00,32.00 L63.31,41.67 L58.23,57.33 L41.77,57.33 L36.69,41.67 Z" fill="var(--bg-primary)" opacity="0.92"/>
+              <path d="M50.00,32.00 L50.00,10.00 M63.31,41.67 L83.91,28.79 M58.23,57.33 L79.88,76.60 M41.77,57.33 L20.12,76.60 M36.69,41.67 L16.09,28.79" fill="none" stroke="var(--bg-primary)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+              <path d="M38.87,8.47 A43,43 0 0 1 61.13,8.47 M79.32,18.54 A43,43 0 0 1 91.12,37.41 M88.42,69.31 A43,43 0 0 1 73.62,85.93 M26.38,85.93 A43,43 0 0 1 11.58,69.31 M8.88,37.41 A43,43 0 0 1 20.68,18.54" fill="none" stroke="var(--bg-primary)" stroke-width="3.4" stroke-linecap="round" opacity="0.85"/>
+              <circle cx="50" cy="50" r="46" fill="none" stroke="var(--bg-primary)" stroke-width="2" opacity="0.3"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="hero__ball-wrap hero__ball-wrap--baloncesto" data-parallax="0.55">
+          <div class="hero__ball hero__ball--baloncesto">
+            <svg class="ball-svg" viewBox="0 0 100 100" focusable="false">
+              <circle cx="50" cy="50" r="46" fill="url(#ballGradientBasket)"/>
+              <path d="M6,50 Q50,58 94,50" fill="none" stroke="var(--bg-primary)" stroke-width="3.2" stroke-linecap="round" opacity="0.85"/>
+              <path d="M50,6 Q44,50 50,94" fill="none" stroke="var(--bg-primary)" stroke-width="3.2" stroke-linecap="round" opacity="0.85"/>
+              <path d="M32,8 Q6,50 32,92" fill="none" stroke="var(--bg-primary)" stroke-width="3.2" stroke-linecap="round" opacity="0.85"/>
+              <path d="M68,8 Q94,50 68,92" fill="none" stroke="var(--bg-primary)" stroke-width="3.2" stroke-linecap="round" opacity="0.85"/>
+              <circle cx="50" cy="50" r="46" fill="none" stroke="var(--bg-primary)" stroke-width="2" opacity="0.3"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="hero__ball-wrap hero__ball-wrap--voleibol" data-parallax="0.5">
+          <div class="hero__ball hero__ball--voleibol">
+            <svg class="ball-svg" viewBox="0 0 100 100" focusable="false">
+              <circle cx="50" cy="50" r="46" fill="url(#ballGradientVolley)"/>
+              <path d="M50.00,6.00 Q84.00,50.00 50.00,94.00 M88.11,72.00 Q33.00,79.44 11.89,28.00 M11.89,72.00 Q33.00,20.56 88.11,28.00" fill="none" stroke="var(--bg-primary)" stroke-width="3.2" stroke-linecap="round" opacity="0.8"/>
+              <circle cx="50" cy="50" r="46" fill="none" stroke="var(--bg-primary)" stroke-width="2" opacity="0.3"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__content container">
+
+        <!-- Elemento firma: badge estilo marcador de transmisión deportiva -->
+        <div class="hero-reveal hero__badge" style="--d:0.05s">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          <span class="hero__badge-label">Torneo oficial</span>
+          <span class="hero__badge-divider" aria-hidden="true"></span>
+          <span class="hero__badge-dates">21 AGO — 24 OCT</span>
+        </div>
+
+        <h1 class="hero__title">
+          <span class="hero-reveal" style="--d:0.18s">INTERCURSOS</span>
+          <span class="hero-reveal hero__title--accent" style="--d:0.32s">2026</span>
+        </h1>
+
+        <p class="hero-reveal hero__subtitle" style="--d:0.46s">El Mundial del Loperena</p>
+
+        <div class="hero-reveal hero__actions" style="--d:0.6s">
+          <a href="#calendario" class="btn btn--primary">Ver calendario</a>
+          <a href="#estadisticas" class="btn btn--ghost">Ver resultados</a>
+        </div>
+
+      </div>
+
+      <a href="#calendario" class="hero__scroll hero-reveal" style="--d:0.95s" aria-label="Desplázate para ver más contenido">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-text">Desliza</span>
+      </a>
+
+    </section>
+
+    <!-- ==================== CALENDARIO DEL TORNEO ==================== -->
+    <section class="section calendar" id="calendario">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Fase de grupos</span>
+          <h2 class="section-header__title">Calendario del Torneo</h2>
+          <p class="section-header__subtitle">Todos los partidos en un solo lugar. Filtra por deporte o por categoría.</p>
+        </div>
+
+        <div class="calendar__filters reveal">
+          <div class="filter-group" role="group" aria-label="Filtrar por deporte">
+            <button class="filter-pill is-active" type="button" data-filtro-deporte="todos">Todos</button>
+            <button class="filter-pill" type="button" data-filtro-deporte="futbol">⚽ Fútbol</button>
+            <button class="filter-pill" type="button" data-filtro-deporte="baloncesto">🏀 Baloncesto</button>
+            <button class="filter-pill" type="button" data-filtro-deporte="voleibol">🏐 Voleibol</button>
+          </div>
+          <div class="filter-group" role="group" aria-label="Filtrar por categoría">
+            <button class="filter-pill is-active" type="button" data-filtro-categoria="todas">Todas</button>
+            <button class="filter-pill" type="button" data-filtro-categoria="infantil">Infantil</button>
+            <button class="filter-pill" type="button" data-filtro-categoria="prejuvenil">Prejuvenil</button>
+            <button class="filter-pill" type="button" data-filtro-categoria="juvenil">Juvenil</button>
+          </div>
+          <div class="filter-group" role="group" aria-label="Filtrar por género">
+            <button class="filter-pill is-active" type="button" data-filtro-genero="todos">Todos</button>
+            <button class="filter-pill" type="button" data-filtro-genero="hombres">Hombres</button>
+            <button class="filter-pill" type="button" data-filtro-genero="mujeres">Mujeres</button>
+          </div>
+        </div>
+
+        <div class="calendar__grid" id="calendarioGrid">
+          <!-- Generado dinámicamente por js/calendar.js a partir de js/data.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== CATEGORÍAS ==================== -->
+    <section class="section categories" id="categorias">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Selecciones en competencia</span>
+          <h2 class="section-header__title">Categorías</h2>
+          <p class="section-header__subtitle">Cada categoría es su propia mini-liga: calendario, tabla y más.</p>
+        </div>
+
+        <div class="category-list" id="categoryList">
+          <!-- Generado dinámicamente por js/categories.js a partir de js/data.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== LLAVES DEL TORNEO ==================== -->
+    <section class="section bracket-section" id="llaves">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Fase eliminatoria</span>
+          <h2 class="section-header__title">Llaves del Torneo</h2>
+          <p class="section-header__subtitle">El camino a la final, categoría por categoría.</p>
+        </div>
+
+        <div class="calendar__filters reveal">
+          <div class="filter-group" role="group" aria-label="Elegir categoría de la llave">
+            <button class="filter-pill is-active" type="button" data-bracket-categoria="infantil">Infantil</button>
+            <button class="filter-pill" type="button" data-bracket-categoria="prejuvenil">Prejuvenil</button>
+            <button class="filter-pill" type="button" data-bracket-categoria="juvenil">Juvenil</button>
+          </div>
+        </div>
+
+        <div id="bracketContainer">
+          <!-- Generado dinámicamente por js/bracket.js a partir de js/data.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== GALERÍA ==================== -->
+    <section class="section gallery-section" id="galeria">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Momentos del torneo</span>
+          <h2 class="section-header__title">Galería</h2>
+          <p class="section-header__subtitle">Las fotos de cada partido, organizadas por deporte.</p>
+        </div>
+
+        <div class="calendar__filters reveal">
+          <div class="filter-group" role="group" aria-label="Elegir deporte">
+            <button class="filter-pill is-active" type="button" data-galeria-deporte="futbol">⚽ Fútbol</button>
+            <button class="filter-pill" type="button" data-galeria-deporte="baloncesto">🏀 Baloncesto</button>
+            <button class="filter-pill" type="button" data-galeria-deporte="voleibol">🏐 Voleibol</button>
+          </div>
+        </div>
+
+        <div id="galleryGrid">
+          <!-- Generado dinámicamente por js/gallery.js a partir de js/data.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== NOTICIAS ==================== -->
+    <section class="section news-section" id="noticias">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Prensa del torneo</span>
+          <h2 class="section-header__title">Noticias</h2>
+          <p class="section-header__subtitle">Lo último de cada cancha, actualizado partido a partido.</p>
+        </div>
+
+        <div id="newsContainer">
+          <!-- Generado dinámicamente por js/news.js a partir de js/data.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== LO MEJOR DEL DÍA ==================== -->
+    <section class="section" id="momentos">
+      <div class="container">
+        <div id="highlightContainer">
+          <!-- Generado dinámicamente por js/highlights.js a partir de js/data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ESTADÍSTICAS ==================== -->
+    <section class="section stats-section" id="estadisticas">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Números del torneo</span>
+          <h2 class="section-header__title">Estadísticas</h2>
+          <p class="section-header__subtitle">Lo mejor de cada deporte, en números.</p>
+        </div>
+
+        <div class="calendar__filters reveal">
+          <div class="filter-group" role="group" aria-label="Elegir deporte">
+            <button class="filter-pill is-active" type="button" data-stats-deporte="futbol">⚽ Fútbol</button>
+            <button class="filter-pill" type="button" data-stats-deporte="baloncesto">🏀 Baloncesto</button>
+            <button class="filter-pill" type="button" data-stats-deporte="voleibol">🏐 Voleibol</button>
+          </div>
+        </div>
+
+        <div id="statsContainer">
+          <!-- Generado dinámicamente por js/statistics.js a partir de js/data.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== ORGANIZACIÓN ==================== -->
+    <section class="section organization-section" id="organizacion">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Detrás del torneo</span>
+          <h2 class="section-header__title">Organización</h2>
+          <p class="section-header__subtitle">Los padrinos y madrinas que acompañan a cada selección.</p>
+        </div>
+
+        <div id="organizationGrid">
+          <!-- Generado dinámicamente por js/organization.js a partir de js/data.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== REGLAMENTO ==================== -->
+    <section class="section rules-section" id="reglamento">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-header__eyebrow">Antes de jugar</span>
+          <h2 class="section-header__title">Reglamento</h2>
+          <p class="section-header__subtitle">Todo lo que cada curso debe saber, en un solo lugar. Toca una tarjeta para ver el detalle.</p>
+        </div>
+
+        <div class="rules-list" id="rulesList">
+          <!-- Generado dinámicamente por js/rules.js a partir de js/data.js -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer reveal">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <svg class="footer__emblem" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M24 2 L44 10 V24 C44 36 36 44 24 46 C12 44 4 36 4 24 V10 Z" fill="url(#emblemGradient)"/>
+          <path d="M24 14 L27 21 L35 21 L28.5 26 L31 34 L24 29 L17 34 L19.5 26 L13 21 L21 21 Z" fill="#ffffff" opacity="0.9"/>
+        </svg>
+        <div>
+          <p class="footer__title">INTERCURSOS 2026</p>
+          <p class="footer__tagline">El Mundial del Loperena</p>
+        </div>
+      </div>
+
+      <nav class="footer__links" aria-label="Enlaces del pie de página">
+        <a href="#inicio">Inicio</a>
+        <a href="#calendario">Calendario</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#reglamento">Reglamento</a>
+      </nav>
+
+      <p class="footer__copy">© 2026 Intercursos 2026 — El Mundial del Loperena. Todos los derechos reservados.</p>
+
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/data.js" defer></script>
+  <script src="js/flags.js" defer></script>
+  <script src="js/calendar.js" defer></script>
+  <script src="js/bracket.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+  <script src="js/highlights.js" defer></script>
+  <script src="js/news.js" defer></script>
+  <script src="js/statistics.js" defer></script>
+  <script src="js/organization.js" defer></script>
+  <script src="js/rules.js" defer></script>
+  <script src="js/categories.js" defer></script>
+</body>
+</html>

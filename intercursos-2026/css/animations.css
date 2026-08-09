@@ -1,0 +1,93 @@
+/* ==========================================================================
+   INTERCURSOS 2026 — animations.css
+   Keyframes y sistema de animación. El reveal-on-scroll (.reveal) está
+   pensado para reutilizarse en TODAS las próximas fases: cualquier tarjeta,
+   bloque o sección nueva solo necesita la clase "reveal" para animarse.
+   ========================================================================== */
+
+/* -------------------- Entrada del Hero (una sola vez, al cargar) -------------------- */
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-reveal {
+  opacity: 0;
+  animation: heroReveal 1s var(--ease-premium) forwards;
+  animation-delay: var(--d, 0s);
+}
+
+/* -------------------- Reveal on scroll (contenido bajo el pliegue) --------------------
+   Se activa agregando la clase "is-visible" vía IntersectionObserver
+   (ver js/animations.js → función observeReveal, expuesta como
+   window.observeReveal para que futuras fases la reutilicen). */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-premium), transform 0.9s var(--ease-premium);
+  transition-delay: var(--d, 0s);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------------------- Luces ambientales del Hero -------------------- */
+@keyframes floatGlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(20px, -30px) scale(1.08); }
+}
+.hero__glow--blue   { animation: floatGlow 14s ease-in-out infinite; }
+.hero__glow--gold   { animation: floatGlow 16s ease-in-out infinite; animation-delay: -4s; }
+.hero__glow--violet { animation: floatGlow 18s ease-in-out infinite; animation-delay: -8s; }
+
+/* -------------------- Trofeo y balones flotando -------------------- */
+@keyframes floatSimple {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-16px); }
+}
+.hero__trophy        { animation: floatSimple 7s   ease-in-out infinite; }
+.hero__ball--futbol     { animation: floatSimple 6.5s ease-in-out infinite; animation-delay: -2s; }
+.hero__ball--baloncesto { animation: floatSimple 7.2s ease-in-out infinite; animation-delay: -4.5s; }
+.hero__ball--voleibol   { animation: floatSimple 5.8s ease-in-out infinite; animation-delay: -1s; }
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes spinSlowReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+.hero__ball--futbol .ball-svg     { animation: spinSlow 24s linear infinite; }
+.hero__ball--baloncesto .ball-svg { animation: spinSlowReverse 27s linear infinite; }
+.hero__ball--voleibol .ball-svg   { animation: spinSlow 20s linear infinite; }
+
+/* -------------------- Indicador "Desliza" -------------------- */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50%      { opacity: 1;   transform: scaleY(1); }
+}
+.hero__scroll-line { transform-origin: top; animation: scrollPulse 2s ease-in-out infinite; }
+
+/* -------------------- Punto pulsante del badge "en vivo" -------------------- */
+@keyframes pulseDot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(242, 193, 78, 0.5); }
+  50%      { box-shadow: 0 0 0 6px rgba(242, 193, 78, 0); }
+}
+.hero__badge-dot { animation: pulseDot 2s ease-in-out infinite; }
+
+/* -------------------- Cambio de pestaña dentro de un bloque de Categoría -------------------- */
+@keyframes panelFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------- Accesibilidad -------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
