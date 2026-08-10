@@ -269,7 +269,7 @@ const TORNEO_DATA = {
   // Organización: padrinos y madrinas del torneo. Vacío por ahora — todavía
   // no se ha asignado a nadie. No se debe completar con nombres inventados;
   // agrega aquí solo personas reales una vez que la organización las
-  // defina, con este formato ("curso" es el código del equipo en "equipos";
+  // defina, con este formato ("encargado del curso" es el código del equipo en "equipos";
   // el país y la bandera se toman de ahí automáticamente):
   //
    organizacion: [
