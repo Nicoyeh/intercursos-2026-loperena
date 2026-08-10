@@ -272,40 +272,37 @@ const TORNEO_DATA = {
   // defina, con este formato ("encargado del curso" es el código del equipo en "equipos";
   // el país y la bandera se toman de ahí automáticamente):
   //
-   organizacion: [
-    { nombre: 'Hilary Gamez y Sarai Mariote', encargado del curso: '6-01' },
-    { nombre: 'Gabriela Rodero y Alejandra Velasquez', encargado del curso: '6-02' },
-    { nombre: 'Mateo Oñate y Deiler Benavides', encargado del curso: '6-03' },  
-    { nombre: 'Zohe Mendoza y José Acosta', encargado del curso: '6-04' },
-    { nombre: 'Kaesee Márquez y Harryz Macías', encargado del curso: '7-01' },
-    { nombre: 'Daniel Valenzuela y Stefania Benitez', encargado del curso: '7-02' },
-    { nombre: 'Gina Mójica y Carlos Mazenett', encargado del curso: '7-03' },
-    { nombre: 'Eyleen Padilla y Manuel Pallares', encargado del curso: '7-04' },    
-    { nombre: 'Jaime Camargo y Giescy García', encargado del curso: '8-01' },
-    { nombre: 'Sharon Andrade y Santiago Roa', encargado del curso: '8-02' },
-    { nombre: 'Valeria Mendez y Obed Quiroz', encargado del curso: '8-03' },
-    { nombre: 'Nicole Palacio y Luis Manjarrez', encargado del curso: '9-01' },
-    { nombre: 'Laura Fernández y Joao López', encargado del curso: '9-02' },
-    { nombre: 'Esteban Martínez y Diego Araujo', encargado del curso: '9-03' },
-    { nombre: 'Mariangel Rincón y Samuel Gil', encargado del curso: '10-01' },
-    { nombre: 'Juan Tellez y Xavi Nieves', encargado del curso: '10-02' },
-    { nombre: 'Sara Mejía y Samuel Osorio', encargado del curso: '10-03' },
+   // organizacion: [
    
-  ]
-
-
-
-
-
-
   //   // foto: 'assets/images/nombre-apellido.jpg' cuando exista una foto real
   // ]
-  organizacion: [],
+  organizacion: [
+    
+    { nombre: 'Hilary Gamez y Sarai Mariote', curso: '6-01' },
+    { nombre: 'Gabriela Rodero y Alejandra Velasquez', curso: '6-02' },
+    { nombre: 'Mateo Oñate y Deiler Benavides', curso: '6-03' },  
+    { nombre: 'Zohe Mendoza y José Acosta', curso: '6-04' },
+    { nombre: 'Kaesee Márquez y Harryz Macías', curso: '7-01' },
+    { nombre: 'Daniel Valenzuela y Stefania Benitez', curso: '7-02' },
+    { nombre: 'Gina Mójica y Carlos Mazenett', curso: '7-03' },
+    { nombre: 'Eyleen Padilla y Manuel Pallares', curso: '7-04' },    
+    { nombre: 'Jaime Camargo y Giescy García', curso: '8-01' },
+    { nombre: 'Sharon Andrade y Santiago Roa', curso: '8-02' },
+    { nombre: 'Valeria Mendez y Obed Quiroz', curso: '8-03' },
+    { nombre: 'Nicole Palacio y Luis Manjarrez', curso: '9-01' },
+    { nombre: 'Laura Fernández y Joao López', curso: '9-02' },
+    { nombre: 'Esteban Martínez y Diego Araujo', curso: '9-03' },
+    { nombre: 'Mariangel Rincón y Samuel Gil', curso: '10-01' },
+    { nombre: 'Juan Tellez y Xavi Nieves', curso: '10-02' },
+    { nombre: 'Sara Mejía y Samuel Osorio', curso: '10-03' },
+  
+  ]
 
   // Reglamento, en tarjetas desplegables. El contenido de "arbitraje" y
   // "juego-limpio" es una PROPUESTA GENÉRICA (no vino en el brief original)
   // — revísala y ajústala antes de publicar el sitio. El resto de las
   // tarjetas usa el reglamento que sí definiste.
+  ,
   reglamento: [
    
     {
