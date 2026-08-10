@@ -283,28 +283,20 @@ const TORNEO_DATA = {
   // — revísala y ajústala antes de publicar el sitio. El resto de las
   // tarjetas usa el reglamento que sí definiste.
   reglamento: [
-    {
-      id: 'inscripcion', titulo: 'Inscripción', icono: '📝',
-      puntos: [
-        'Cada curso deberá cancelar un valor de $10.000 COP por cada partido disputado.',
-        'Este valor corresponde a la participación en el encuentro y será administrado por el respectivo curso.',
-        'El torneo inicia el 21 de agosto y finaliza aproximadamente el 24 de octubre.'
-      ]
-    },
+   
     {
       id: 'arbitraje', titulo: 'Arbitraje', icono: '🧑\u200d⚖️',
       puntos: [
-        'Las decisiones arbitrales son definitivas durante el desarrollo del partido.',
-        'Solo el padrino o madrina de cada curso puede dialogar con el árbitro ante una duda reglamentaria.',
-        'Cualquier reclamo sobre un fallo se presenta después del partido, nunca durante el juego.'
-      ]
+        'El valor del arbitraje será de 10.000 pesos por partido. El curso es el responsable de pagarlo (lo pagan entre todos).',
+
+      ]  
     },
     {
       id: 'uniforme', titulo: 'Uniforme', icono: '👕',
       puntos: [
         'Es obligatorio utilizar únicamente el uniforme correspondiente a la selección asignada.',
         'Las estudiantes deberán mantener el cabello recogido.',
-        'No se permite el uso de shorts ni faldas, ni modificar el uniforme introduciendo la camiseta dentro del brasier.'
+        'No se permite el uso de shorts ni faldas en la estudiantes.'
       ]
     },
     {
