@@ -37,19 +37,43 @@ function initOrganizacion() {
 function crearPadrinoHTML(persona) {
   const equipo = TORNEO_DATA.equipos[persona.curso];
 
+  const fotos = Array.isArray(persona.fotos)
+    ? persona.fotos
+    : persona.foto
+      ? [persona.foto]
+      : [];
+
+  const nombres = Array.isArray(persona.nombres)
+    ? persona.nombres
+    : persona.nombre
+      ? [persona.nombre]
+      : [];
+
   return `
     <article class="padrino-card reveal">
-      <div class="padrino-card__photo">
-        ${persona.foto
-          ? `<img src="${persona.foto}" alt="${persona.nombre}" loading="lazy">`
-          : '<span class="padrino-card__photo-icon" aria-hidden="true">👤</span>'}
+      <div class="padrino-card__photos">
+        ${fotos.map((foto, index) => `
+          <div class="padrino-card__photo">
+            <img 
+              src="${foto}" 
+              alt="${nombres[index] || 'Padrino o madrina'}" 
+              loading="lazy"
+            >
+          </div>
+        `).join('')}
       </div>
+
       <div class="padrino-card__body">
-        <p class="padrino-card__name">${persona.nombre}</p>
-        <p class="padrino-card__role">${persona.cargo}</p>
+        <p class="padrino-card__name">
+          ${nombres.join(' y ')}
+        </p>
+
+        <p class="padrino-card__role">${persona.cargo || ''}</p>
+
         ${equipo ? `
           <p class="padrino-card__meta">
-            ${banderaHTML(equipo, 'padrino-card__flag')} ${persona.curso} · ${equipo.pais}
+            ${banderaHTML(equipo, 'padrino-card__flag')} 
+            ${persona.curso} · ${equipo.pais}
           </p>
         ` : ''}
       </div>

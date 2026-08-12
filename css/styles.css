@@ -796,6 +796,28 @@ ul { list-style: none; }
 .padrino-card__meta { font-size: 0.82rem; color: var(--text-secondary); }
 .padrino-card__flag { width: 18px; height: 13.5px; }
 
+.padrino-card__photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.padrino-card__photos .padrino-card__photo {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.padrino-card__photos .padrino-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 /* ==========================================================================
    REGLAMENTO (Fase 10)
    ========================================================================== */
