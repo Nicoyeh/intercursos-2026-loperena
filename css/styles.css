@@ -776,18 +776,20 @@ ul { list-style: none; }
 .padrino-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); }
 
 .padrino-card__photo {
-  width: 84px;
-  height: 84px;
-  border-radius: 50%;
-  overflow: hidden;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: var(--bg-secondary);
-  border: 2px solid var(--glass-border);
-  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
 }
-.padrino-card__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.padrino-card__photo img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
 .padrino-card__photo-icon { font-size: 2rem; opacity: 0.5; }
 
 .padrino-card__body { display: flex; flex-direction: column; gap: 0.3rem; }
