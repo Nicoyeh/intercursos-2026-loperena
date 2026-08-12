@@ -295,8 +295,8 @@ const TORNEO_DATA = {
     { nombre: 'Mariangel Rincón y Samuel Gil', curso: '10-01' },
     { nombre: 'Juan Tellez y Xavi Nieves', curso: '10-02' },
     { nombre: 'Sara Mejía y Samuel Osorio', curso: '10-03' },
-    {nombre: 'Natalia Morales y Jerónimo Herrera', curso: '11-01' },
-    {nombre: 'Cristobal Rimón y Hernán Vecino', curso: '11-02' }
+    {nombre: 'Jerónimo Herrera', curso: '11-01' },
+    {nombre: 'Isabel Duarte', curso: '11-02' }
   ]
 
   // Reglamento, en tarjetas desplegables. El contenido de "arbitraje" y
