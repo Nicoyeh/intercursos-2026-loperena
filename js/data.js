@@ -285,7 +285,7 @@ const TORNEO_DATA = {
     { nombre: 'Kaesee Márquez y Harryz Macías', curso: '7-01' },
     { nombre: 'Daniel Valenzuela y Stefania Benitez', curso: '7-02' },
     { nombre: 'Gina Mójica y Carlos Mazenett', curso: '7-03' },
-    { nombre: 'Eyleen Padilla y Manuel Pallares', curso: '7-04' },    
+    { nombre: 'Eyleen Padilla y Manuel Pallares', curso: '7-04', fotos: ['assets/images/eyleen-padilla.jpg', 'assets/images/manuel-pallares.jpg'] },     
     { nombre: 'Jaime Camargo y Giescy García', curso: '8-01' },
     { nombre: 'Sharon Andrade y Santiago Roa', curso: '8-02' },
     { nombre: 'Valeria Mendez y Obed Quiroz', curso: '8-03', fotos: ['assets/images/valeria-mendez.jpg', 'assets/images/obed-quiroz.jpg'] },
