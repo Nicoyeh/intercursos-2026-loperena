@@ -336,12 +336,7 @@ const TORNEO_DATA = {
         'Cada participante deberá llevar su propio termo o comprar bebidas en la cafetería.'
       ]
     },
-    {
-      id: 'consentimientos', titulo: 'Consentimientos', icono: '✅',
-      puntos: [
-        'Cada padrino o madrina será responsable de recoger los consentimientos informados de su curso.'
-      ]
-    },
+    
     {
       id: 'juego-limpio', titulo: 'Juego limpio', icono: '🤝',
       puntos: [
