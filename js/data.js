@@ -288,7 +288,7 @@ const TORNEO_DATA = {
     { nombre: 'Eyleen Padilla y Manuel Pallares', curso: '7-04' },    
     { nombre: 'Jaime Camargo y Giescy García', curso: '8-01' },
     { nombre: 'Sharon Andrade y Santiago Roa', curso: '8-02' },
-    { nombre: 'Valeria Mendez y Obed Quiroz', curso: '8-03' },
+    { nombre: 'Valeria Mendez y Obed Quiroz', curso: '8-03' fotos: ['assets/images/valeria-mendez.jpg', 'assets/images/obed-quiroz.jpg'] },
     { nombre: 'Nicole Palacio y Luis Manjarrez', curso: '9-01' },
     { nombre: 'Laura Fernández y Joao López', curso: '9-02' },
     { nombre: 'Esteban Martínez y Diego Araujo', curso: '9-03' },
