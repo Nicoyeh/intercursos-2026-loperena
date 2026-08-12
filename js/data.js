@@ -317,6 +317,7 @@ const TORNEO_DATA = {
       id: 'uniforme', titulo: 'Uniforme', icono: '👕',
       puntos: [
         'Es obligatorio utilizar únicamente el uniforme correspondiente a la selección asignada.',
+        'En caso tal de no contar con el uniforme, se deberá utilizar el uniforme de educación física.',
         'Las estudiantes deberán mantener el cabello recogido.',
         'No se permite el uso de shorts ni faldas en la estudiantes.'
       ]
