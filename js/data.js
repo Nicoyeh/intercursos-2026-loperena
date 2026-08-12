@@ -296,7 +296,7 @@ const TORNEO_DATA = {
     { nombre: 'Juan Tellez y Xavi Nieves', curso: '10-02' },
     { nombre: 'Sara Mejía y Samuel Osorio', curso: '10-03' },
     {nombre: 'Jerónimo Herrera', curso: '11-01' },
-    {nombre: 'Isabel Duarte', curso: '11-02' }
+    {nombre: 'Isabel Duarte', curso: '11-02', fotos: ['assets/images/isabel-duarte.jpg'] }
   ]
 
   // Reglamento, en tarjetas desplegables. El contenido de "arbitraje" y
