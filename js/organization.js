@@ -51,7 +51,7 @@ function crearPadrinoHTML(persona) {
 
   return `
     <article class="padrino-card reveal">
-      <div class="padrino-card__photos">
+    <div class="padrino-card__photos ${fotos.length === 1 && persona.fotoGrupal ? 'foto-grupal' : ''}">
         ${fotos.map((foto, index) => `
           <div class="padrino-card__photo">
             <img 
