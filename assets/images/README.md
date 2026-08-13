@@ -9,3 +9,5 @@ para web (idealmente < 300 KB por imagen).
 ![alt text](isabel-duarte.jpg)
 ![alt text](eyleen-padilla.jpg)
 ![alt text](kaesee-marquez.jpg)
+![alt text](daniel-valenzuela.jpg)
+![alt text](stefania-benitez.jpg)
