@@ -272,7 +272,7 @@ const TORNEO_DATA = {
    
   //   // foto: 'assets/images/nombre-apellido.jpg' cuando exista una foto real
   // ]
-  organizacion: [
+  organizacion [
     
     { nombre: 'Hilary Gamez y Sarai Mariote', curso: '6-01', fotos: ['assets/images/hilary-gamez.jpg'], fotoGrupal: true },
     { nombre: 'Gabriela Rodero y Alejandra Velasquez', curso: '6-02' },
@@ -293,14 +293,14 @@ const TORNEO_DATA = {
     { nombre: 'Sara Mejía y Samuel Osorio', curso: '10-03' },
     {nombre: 'Jerónimo Herrera', curso: '11-01' },
     {nombre: 'Isabel Duarte', curso: '11-02', fotos: ['assets/images/isabel-duarte.jpg'] }
-  ]
+  ],
 
   // Reglamento, en tarjetas desplegables. El contenido de "arbitraje" y
   // "juego-limpio" es una PROPUESTA GENÉRICA (no vino en el brief original)
   // — revísala y ajústala antes de publicar el sitio. El resto de las
   // tarjetas usa el reglamento que sí definiste.
-  ,
-  reglamento: [
+
+  reglamento [
    
     {
       id: 'arbitraje', titulo: 'Arbitraje', icono: '🧑\u200d⚖️',
