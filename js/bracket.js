@@ -19,21 +19,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initLlaves() {
   const contenedor = document.getElementById('bracketContainer');
+
   if (!contenedor || typeof TORNEO_DATA === 'undefined') return;
 
-  const botones = document.querySelectorAll('[data-bracket-categoria]');
+  const botonesCategoria = document.querySelectorAll(
+    '[data-bracket-categoria]'
+  );
 
-  botones.forEach((boton) => {
+  const botonesDeporte = document.querySelectorAll(
+    '[data-bracket-deporte]'
+  );
+
+  let categoriaActual = 'infantil';
+  let deporteActual = 'futbol';
+
+  function actualizarLlave() {
+    contenedor.innerHTML = renderizarLlaveHTML(
+      categoriaActual,
+      deporteActual
+    );
+
+    if (typeof window.observeReveal === 'function') {
+      window.observeReveal(contenedor);
+    }
+  }
+
+  // ============================
+  // CAMBIAR CATEGORÍA
+  // ============================
+
+  botonesCategoria.forEach((boton) => {
     boton.addEventListener('click', () => {
-      if (boton.classList.contains('is-active')) return;
-      botones.forEach((b) => b.classList.toggle('is-active', b === boton));
-      contenedor.innerHTML = renderizarLlaveHTML(boton.dataset.bracketCategoria);
-      if (typeof window.observeReveal === 'function') window.observeReveal(contenedor);
+
+      categoriaActual = boton.dataset.bracketCategoria;
+
+      botonesCategoria.forEach((b) => {
+        b.classList.toggle(
+          'is-active',
+          b === boton
+        );
+      });
+
+      actualizarLlave();
     });
   });
 
-  contenedor.innerHTML = renderizarLlaveHTML('infantil');
-  if (typeof window.observeReveal === 'function') window.observeReveal(contenedor);
+  // ============================
+  // CAMBIAR DEPORTE
+  // ============================
+
+  botonesDeporte.forEach((boton) => {
+    boton.addEventListener('click', () => {
+
+      deporteActual = boton.dataset.bracketDeporte;
+
+      botonesDeporte.forEach((b) => {
+        b.classList.toggle(
+          'is-active',
+          b === boton
+        );
+      });
+
+      actualizarLlave();
+    });
+  });
+
+  // Primera llave
+  actualizarLlave();
 }
 
 /** Devuelve el código del equipo ganador de un partido, o null si no se ha decidido. */
@@ -110,10 +162,22 @@ function renderizarPartidoLlave(partido) {
   `;
 }
 
-function renderizarLlaveHTML(claveCategoria) {
-  const llave = TORNEO_DATA.llaves[claveCategoria];
-  if (!llave) {
+function renderizarLlaveHTML(claveCategoria, claveDeporte) {
+  const categoria = TORNEO_DATA.llaves[claveCategoria];
+
+  if (!categoria) {
     return '<p class="calendar__vacio panel-content">Las llaves de esta categoría todavía no están definidas.</p>';
+  }
+
+  const llave = categoria[claveDeporte];
+
+  if (!llave) {
+    return `
+      <p class="calendar__vacio panel-content">
+        Las llaves de ${claveDeporte} para la categoría ${claveCategoria}
+        todavía no están definidas.
+      </p>
+    `;
   }
 
   const rondas = construirRondas(llave);

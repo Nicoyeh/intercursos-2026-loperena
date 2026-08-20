@@ -283,16 +283,44 @@
         </div>
 
         <div class="calendar__filters reveal">
-          <div class="filter-group" role="group" aria-label="Elegir deporte">
-            <button class="filter-pill is-active" type="button" data-galeria-deporte="futbol">⚽ Fútbol</button>
-            <button class="filter-pill" type="button" data-galeria-deporte="baloncesto">🏀 Baloncesto</button>
-            <button class="filter-pill" type="button" data-galeria-deporte="voleibol">🏐 Voleibol</button>
-          </div>
-        </div>
 
-        <div id="galleryGrid">
-          <!-- Generado dinámicamente por js/gallery.js a partir de js/data.js -->
-        </div>
+  <!-- CATEGORÍAS -->
+  <div class="filter-group" role="group" aria-label="Elegir categoría de la llave">
+    <button class="filter-pill is-active" type="button" data-bracket-categoria="infantil">
+      Infantil
+    </button>
+
+    <button class="filter-pill" type="button" data-bracket-categoria="prejuvenil">
+      Prejuvenil
+    </button>
+
+    <button class="filter-pill" type="button" data-bracket-categoria="juvenil">
+      Juvenil
+    </button>
+  </div>
+
+  <!-- DEPORTES -->
+  <div class="filter-group bracket-sports-filter" role="group" aria-label="Elegir deporte de la llave">
+
+    <button class="filter-pill is-active" type="button" data-bracket-deporte="futbol">
+      ⚽ Fútbol
+    </button>
+
+    <button class="filter-pill" type="button" data-bracket-deporte="baloncesto">
+      🏀 Baloncesto
+    </button>
+
+    <button class="filter-pill" type="button" data-bracket-deporte="voleibol">
+      🏐 Voleibol
+    </button>
+
+  </div>
+
+</div>
+
+<div id="bracketContainer">
+  <!-- Generado dinámicamente por js/bracket.js a partir de js/data.js -->
+</div>
 
       </div>
     </section>
