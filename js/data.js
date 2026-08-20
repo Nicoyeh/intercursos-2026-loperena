@@ -279,21 +279,21 @@ const TORNEO_DATA = {
     { nombre: 'Hilary Gamez y Sarai Mariote', curso: '6-01', fotos: ['assets/images/hilary-gamez.jpg'], fotoGrupal: true },
     { nombre: 'Gabriela Rodero y Alejandra Velasquez', curso: '6-02', fotos: ['assets/images/gabriela-rodero.jpg', 'assets/images/alejandra-velasquez.jpg'] }, 
     { nombre: 'Mateo Oñate y Deiler Benavides', curso: '6-03', fotos: ['assets/images/mateo-oñate.jpg', 'assets/images/deiler-benavides.jpg'] },  
-    { nombre: 'Zohe Mendoza y José Acosta', curso: '6-04' },
-    { nombre: 'Kaesee Márquez y Harryz Macías', curso: '7-01', fotos: ['assets/images/kaesee-marquez.jpg'], fotoGrupal: true },
+    { nombre: 'Zohe Mendoza y José Acosta', curso: '6-04', fotos: ['assets/images/zohe-mendoza.jpg', 'assets/images/josé-acosta.jpg'] },
+    { nombre: 'Kaesee Márquez y Harryz Macías', curso: '7-01', fotos: ['assets/images/kaesee-marquez.jpg', 'assets/images/harryz-macias.jpg'] },
     { nombre: 'Daniel Valenzuela y Stefania Benitez', curso: '7-02', fotos: ['assets/images/daniel-valenzuela.jpg', 'assets/images/stefania-benitez.jpg'] },
-    { nombre: 'Gina Mójica y Carlos Mazenett', curso: '7-03' },
+    { nombre: 'Gina Mójica y Carlos Mazenett', curso: '7-03', fotos: ['assets/images/gina-mójica.jpg', 'assets/images/carlos-mazenett.jpg'] },
     { nombre: 'Eyleen Padilla y Manuel Pallares', curso: '7-04', fotos: ['assets/images/eyleen-padilla.jpg', 'assets/images/manuel-pallares.png'] },     
-    { nombre: 'Jaime Camargo y Giescy García', curso: '8-01' },
-    { nombre: 'Sharon Andrade y Santiago Roa', curso: '8-02' },
+    { nombre: 'Jaime Camargo y Giescy García', curso: '8-01', fotos: ['assets/images/jaime-camargo.jpg', 'assets/images/giescy-garcía.jpg'] },
+    { nombre: 'Sharon Andrade y Santiago Roa', curso: '8-02', fotos: ['assets/images/sharon-andrade.jpg', 'assets/images/santiago-roa.jpg'] },
     { nombre: 'Valeria Mendez y Obed Quiroz', curso: '8-03', fotos: ['assets/images/valeria-mendez.jpg', 'assets/images/obed-quiroz.jpg'] },
-    { nombre: 'Nicole Palacio y Luis Manjarrez', curso: '9-01' },
-    { nombre: 'Laura Fernández y Joao López', curso: '9-02' },
-    { nombre: 'Esteban Martínez y Diego Araujo', curso: '9-03' },
+    { nombre: 'Nicole Palacio y Luis Manjarrez', curso: '9-01', fotos: ['assets/images/nicole-palacio.jpg', 'assets/images/luis-manjarrez.jpg'] },
+    { nombre: 'Laura Fernández y Joao López', curso: '9-02', fotos: ['assets/images/laura-fernández.jpg', 'assets/images/joao-lópez.jpg'] },
+    { nombre: 'Esteban Martínez y Diego Araujo', curso: '9-03', fotos: ['assets/images/esteban-martínez.jpg', 'assets/images/diego-araujo.jpg'] },
     { nombre: 'Mariangel Rincón y Samuel Gil', curso: '10-01', fotos: ['assets/images/mariangel-rincon.jpg', 'assets/images/samuel-gil.jpg'] },
-    { nombre: 'Juan Tellez y Xavi Nieves', curso: '10-02' },
-    { nombre: 'Sara Mejía y Samuel Osorio', curso: '10-03' },
-    {nombre: 'Jerónimo Herrera', curso: '11-01' },
+    { nombre: 'Juan Tellez y Xavi Nieves', curso: '10-02', fotos: ['assets/images/juan-tellez.jpg', 'assets/images/xavi-nieves.jpg'] },
+    { nombre: 'Sara Mejía y Samuel Osorio', curso: '10-03', fotos: ['assets/images/sara-mejia.jpg', 'assets/images/samuel-osorio.jpg'] },
+    {nombre: 'Jerónimo Herrera', curso: '11-01', fotos: ['assets/images/jerónimo-herrera.jpg'] },
     {nombre: 'Isabel Duarte', curso: '11-02', fotos: ['assets/images/isabel-duarte.jpg'] }
   ],
 
@@ -312,6 +312,7 @@ const TORNEO_DATA = {
       ]  
     },
     {
+
       id: 'uniforme', titulo: 'Uniforme', icono: '👕',
       puntos: [
         'Es obligatorio utilizar únicamente el uniforme correspondiente a la selección asignada.',
