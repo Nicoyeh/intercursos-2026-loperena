@@ -204,24 +204,42 @@
         </div>
 
         <div class="calendar__filters reveal">
-          <div class="filter-group" role="group" aria-label="Filtrar por deporte">
-            <button class="filter-pill is-active" type="button" data-filtro-deporte="todos">Todos</button>
-            <button class="filter-pill" type="button" data-filtro-deporte="futbol">⚽ Fútbol</button>
-            <button class="filter-pill" type="button" data-filtro-deporte="baloncesto">🏀 Baloncesto</button>
-            <button class="filter-pill" type="button" data-filtro-deporte="voleibol">🏐 Voleibol</button>
-          </div>
-          <div class="filter-group" role="group" aria-label="Filtrar por categoría">
-            <button class="filter-pill is-active" type="button" data-filtro-categoria="todas">Todas</button>
-            <button class="filter-pill" type="button" data-filtro-categoria="infantil">Infantil</button>
-            <button class="filter-pill" type="button" data-filtro-categoria="prejuvenil">Prejuvenil</button>
-            <button class="filter-pill" type="button" data-filtro-categoria="juvenil">Juvenil</button>
-          </div>
-          <div class="filter-group" role="group" aria-label="Filtrar por género">
-            <button class="filter-pill is-active" type="button" data-filtro-genero="todos">Todos</button>
-            <button class="filter-pill" type="button" data-filtro-genero="hombres">Hombres</button>
-            <button class="filter-pill" type="button" data-filtro-genero="mujeres">Mujeres</button>
-          </div>
-        </div>
+
+  <!-- CATEGORÍAS -->
+  <div class="filter-group" role="group" aria-label="Elegir categoría de la llave">
+    <button class="filter-pill is-active" type="button" data-bracket-categoria="infantil">
+      Infantil
+    </button>
+
+    <button class="filter-pill" type="button" data-bracket-categoria="prejuvenil">
+      Prejuvenil
+    </button>
+
+    <button class="filter-pill" type="button" data-bracket-categoria="juvenil">
+      Juvenil
+    </button>
+  </div>
+
+  <!-- DEPORTES -->
+  <div class="filter-group" role="group" aria-label="Elegir deporte de la llave">
+    <button class="filter-pill is-active" type="button" data-bracket-deporte="futbol">
+      ⚽ Fútbol
+    </button>
+
+    <button class="filter-pill" type="button" data-bracket-deporte="baloncesto">
+      🏀 Baloncesto
+    </button>
+
+    <button class="filter-pill" type="button" data-bracket-deporte="voleibol">
+      🏐 Voleibol
+    </button>
+  </div>
+
+</div>
+
+<div id="bracketContainer">
+  <!-- Generado dinámicamente por js/bracket.js -->
+</div>
 
         <div class="calendar__grid" id="calendarioGrid">
           <!-- Generado dinámicamente por js/calendar.js a partir de js/data.js -->
