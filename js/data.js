@@ -122,6 +122,8 @@ const TORNEO_DATA = {
     { id: 'p27', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'infantil',    genero: 'hombres', local: '6-04', visitante: '6-01', estado: 'proximo' },
     { id: 'p28', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'hombres', local: '9-01', visitante: '9-03', estado: 'proximo' },
 
+  ],
+
   // ⚠️ DATOS DE EJEMPLO / DEMO — este cruce eliminatorio es INVENTADO,
   // solo para mostrar cómo se arman las llaves. Reemplázalo cuando el
   // cruce real esté definido. (Las llaves no se dividen por Hombres/
@@ -272,7 +274,7 @@ const TORNEO_DATA = {
    
   //   // foto: 'assets/images/nombre-apellido.jpg' cuando exista una foto real
   // ]
-  organizacion [
+  organizacion: [
     
     { nombre: 'Hilary Gamez y Sarai Mariote', curso: '6-01', fotos: ['assets/images/hilary-gamez.jpg'], fotoGrupal: true },
     { nombre: 'Gabriela Rodero y Alejandra Velasquez', curso: '6-02' },
@@ -300,7 +302,7 @@ const TORNEO_DATA = {
   // — revísala y ajústala antes de publicar el sitio. El resto de las
   // tarjetas usa el reglamento que sí definiste.
 
-  reglamento [
+  reglamento: [
    
     {
       id: 'arbitraje', titulo: 'Arbitraje', icono: '🧑\u200d⚖️',
