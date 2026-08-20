@@ -88,43 +88,39 @@ const TORNEO_DATA = {
   //   estado   → 'jugado' | 'proximo'; marcadorLocal/marcadorVisitante
   //              solo si 'jugado'.
   partidos: [
-    // ---- 21 de agosto ----
-    { id: 'p01', fecha: '2026-08-21', fechaTexto: '21 AGO', hora: '14:00', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-02',  lugar: 'Cancha 1', estado: 'jugado',  marcadorLocal: 3, marcadorVisitante: 1 },
-    { id: 'p02', fecha: '2026-08-21', fechaTexto: '21 AGO', hora: '14:00', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-03',  visitante: '6-04',  lugar: 'Cancha 2', estado: 'jugado',  marcadorLocal: 2, marcadorVisitante: 2 },
-    { id: 'p03', fecha: '2026-08-21', fechaTexto: '21 AGO', hora: '15:00', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '8-01',  visitante: '8-02',  lugar: 'Cancha 1', estado: 'jugado',  marcadorLocal: 1, marcadorVisitante: 0 },
-    { id: 'p04', fecha: '2026-08-21', fechaTexto: '21 AGO', hora: '16:00', deporte: 'futbol', categoria: 'juvenil',    genero: 'hombres', local: '11-02', visitante: '11-01', lugar: 'Cancha 1', estado: 'jugado',  marcadorLocal: 4, marcadorVisitante: 2, momentoDelDia: true },
-
+    
     // ---- 22 de agosto ----
-    { id: 'p05', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '14:00', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '7-01',  visitante: '7-02',  lugar: 'Cancha 2', estado: 'jugado',  marcadorLocal: 0, marcadorVisitante: 0 },
-    { id: 'p06', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '15:00', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '7-03',  visitante: '7-04',  lugar: 'Cancha 1', estado: 'proximo' },
-    { id: 'p07', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '15:00', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-01',  visitante: '9-02',  lugar: 'Cancha 2', estado: 'proximo' },
-    { id: 'p08', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '16:00', deporte: 'futbol', categoria: 'juvenil',    genero: 'hombres', local: '10-01', visitante: '10-02', lugar: 'Cancha 1', estado: 'proximo' },
+    { id: 'p01', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '7-01',  visitante: '7-02',  estado: 'proximo', },
+    { id: 'p02', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'juvenil',   genero: 'hombres', local: '10-02',  visitante: '10-01',  estado: 'proximo' },
+    { id: 'p03', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-04',  estado: 'proximo' },
+    { id: 'p04', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'infantil',    genero: 'hombres', local: '6-02', visitante: '6-04', estado: 'proximo' },
+    { id: 'p05', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'infantil',    genero: 'hombres', local: '6-03', visitante: '6-02', estado: 'proximo' },
+    { id: 'p06', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'infantil',    genero: 'hombres', local: '7-01', visitante: '7-02', estado: 'proximo' },
+    { id: 'p07', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil',    genero: 'hombres', local: '11-02', visitante: '10-02', estado: 'proximo' },
 
-    // ---- 23 de agosto ----
-    { id: 'p09', fecha: '2026-08-23', fechaTexto: '23 AGO', hora: '14:00', deporte: 'baloncesto', categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-03',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p10', fecha: '2026-08-23', fechaTexto: '23 AGO', hora: '15:00', deporte: 'baloncesto', categoria: 'infantil',   genero: 'mujeres', local: '6-02',  visitante: '6-04',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p11', fecha: '2026-08-23', fechaTexto: '23 AGO', hora: '16:00', deporte: 'futbol',     categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03',  lugar: 'Cancha 1', estado: 'proximo' },
-    { id: 'p12', fecha: '2026-08-23', fechaTexto: '23 AGO', hora: '16:00', deporte: 'futbol',     categoria: 'juvenil',    genero: 'mujeres', local: '10-03', visitante: '11-01', lugar: 'Cancha 2', estado: 'proximo' },
+    { id: 'p08', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-03',  estado: 'proximo', },
+    { id: 'p09', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-01',  visitante: '9-02',  estado: 'proximo' },
+    { id: 'p10', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-01',  visitante: '6-04',  estado: 'proximo' },
+    { id: 'p11', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'juvenil',    genero: 'hombres', local: '10-02', visitante: '10-03', estado: 'proximo' },
+    { id: 'p12', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'infantil',    genero: 'hombres', local: '7-03', visitante: '7-04', estado: 'proximo' },
+    { id: 'p13', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'prejuvenil',    genero: 'hombres', local: '8-01', visitante: '8-03', estado: 'proximo' },
+    { id: 'p14', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'infantil',    genero: 'mujeres', local: '7-01', visitante: '7-02', estado: 'proximo' },
 
-    // ---- 24 de agosto ----
-    { id: 'p13', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: '14:00', deporte: 'baloncesto', categoria: 'infantil',   genero: 'hombres', local: '7-01',  visitante: '7-03',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p14', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: '15:00', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '8-01',  visitante: '9-01',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p15', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: '16:00', deporte: 'baloncesto', categoria: 'juvenil',    genero: 'hombres', local: '10-01', visitante: '11-02', lugar: 'Coliseo', estado: 'proximo' },
+    { id: 'p15', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-04',  visitante: '7-03',  estado: 'proximo', },
+    { id: 'p16', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'proximo' },
+    { id: 'p17', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '6-02',  estado: 'proximo' },
+    { id: 'p18', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'infantil',    genero: 'hombres', local: '7-01', visitante: '7-02', estado: 'proximo' },
+    { id: 'p19', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil',    genero: 'mujeres', local: '10-01', visitante: '10-03', estado: 'proximo' },
+    { id: 'p20', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'mujeres', local: '9-02', visitante: '9-03', estado: 'proximo' },
+    { id: 'p21', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil',    genero: 'hombres', local: '11-01', visitante: '10-01', estado: 'proximo' },
 
-    // ---- 25 de agosto ----
-    { id: 'p16', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: '14:00', deporte: 'voleibol',   categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-04',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p17', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: '15:00', deporte: 'voleibol',   categoria: 'infantil',   genero: 'mujeres', local: '7-02',  visitante: '7-04',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p18', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: '16:00', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-02',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p19', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: '17:00', deporte: 'baloncesto', categoria: 'juvenil',    genero: 'mujeres', local: '10-02', visitante: '10-03', lugar: 'Coliseo', estado: 'proximo' },
-
-    // ---- 26 de agosto ----
-    { id: 'p20', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: '15:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p21', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: '16:00', deporte: 'voleibol', categoria: 'juvenil',    genero: 'mujeres', local: '10-01', visitante: '10-03', lugar: 'Coliseo', estado: 'proximo' },
-
-    // ---- 27 de agosto ----
-    { id: 'p22', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: '15:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-01',  visitante: '8-03',  lugar: 'Coliseo', estado: 'proximo' },
-    { id: 'p23', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: '16:00', deporte: 'voleibol', categoria: 'juvenil',    genero: 'hombres', local: '11-01', visitante: '11-02', lugar: 'Coliseo', estado: 'proximo' }
-  ],
+    { id: 'p22', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '6-02',  visitante: '6-04',  estado: 'proximo', },
+    { id: 'p23', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '7-03',  visitante: '7-04',  estado: 'proximo' },
+    { id: 'p24', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '8-01',  estado: 'proximo' },
+    { id: 'p25', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'mujeres', local: '9-01', visitante: '9-02', estado: 'proximo' },
+    { id: 'p26', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil',    genero: 'mujeres', local: '11-01', visitante: '11-02', estado: 'proximo' },
+    { id: 'p27', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'infantil',    genero: 'hombres', local: '6-04', visitante: '6-01', estado: 'proximo' },
+    { id: 'p28', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'hombres', local: '9-01', visitante: '9-03', estado: 'proximo' },
 
   // ⚠️ DATOS DE EJEMPLO / DEMO — este cruce eliminatorio es INVENTADO,
   // solo para mostrar cómo se arman las llaves. Reemplázalo cuando el
