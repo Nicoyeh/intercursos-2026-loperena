@@ -115,7 +115,6 @@ function calcularLideresEquipo(claveDeporte, incluirEmpates) {
     masPartidos: lider('pj'),
     masVictorias: lider('g'),
     masEmpates: incluirEmpates ? lider('e') : null,
-    masDerrotas: lider('p')
   };
 }
 
@@ -124,7 +123,6 @@ function crearTarjetasLideresHTML(lideres, incluirEmpates) {
     { clave: 'masPartidos', titulo: 'Más partidos jugados', icono: '📅', campo: 'pj', sufijo: 'partidos' },
     { clave: 'masVictorias', titulo: 'Más victorias', icono: '🏆', campo: 'g', sufijo: 'victorias' },
     incluirEmpates ? { clave: 'masEmpates', titulo: 'Más empates', icono: '🤝', campo: 'e', sufijo: 'empates' } : null,
-    { clave: 'masDerrotas', titulo: 'Más derrotas', icono: '📉', campo: 'p', sufijo: 'derrotas' }
   ].filter(Boolean);
 
   return tarjetas.map((t) => {
