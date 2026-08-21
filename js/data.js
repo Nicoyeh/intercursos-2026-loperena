@@ -136,131 +136,1155 @@ const TORNEO_DATA = {
   // un partido se juegue. "descanso: true" marca un pase directo: se usa en
   // Prejuvenil (6 equipos) y Juvenil (5 equipos), que no alcanzan a llenar
   // una llave pareja.
-  llaves: {
-    
-  infantil: {
+    llaves: {
 
-    futbol: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
+    /* ================================================================
+       INFANTIL — FÚTBOL — HOMBRES
+       ================================================================ */
+    infantil_futbol_hombres: {
+      categoria: 'infantil',
+      deporte: 'futbol',
+      genero: 'hombres',
+      titulo: 'Infantil · Fútbol · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
 
       partidos: [
-        // partidos de FÚTBOL INFANTIL
+        {
+          id: 'inf-fut-m-1',
+          ronda: 0,
+          local: '6-02',
+          visitante: '6-04',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-fut-m-2',
+          ronda: 0,
+          local: '6-03',
+          visitante: '6-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-fut-m-3',
+          ronda: 0,
+          local: '7-01',
+          visitante: '7-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-fut-m-4',
+          ronda: 0,
+          local: '6-03',
+          visitante: '6-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-fut-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-fut-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-fut-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
       ]
     },
 
-    baloncesto: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
+
+    /* ================================================================
+       INFANTIL — FÚTBOL — MUJERES
+       ================================================================ */
+    infantil_futbol_mujeres: {
+      categoria: 'infantil',
+      deporte: 'futbol',
+      genero: 'mujeres',
+      titulo: 'Infantil · Fútbol · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
 
       partidos: [
-        // partidos de BALONCESTO INFANTIL
+        {
+          id: 'inf-fut-f-1',
+          ronda: 0,
+          local: '7-01',
+          visitante: '7-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-fut-f-2',
+          ronda: 0,
+          local: '7-01',
+          visitante: '7-04',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-fut-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-fut-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-fut-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
       ]
     },
 
-    voleibol: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
+
+    /* ================================================================
+       INFANTIL — BALONCESTO — HOMBRES
+       ================================================================ */
+    infantil_baloncesto_hombres: {
+      categoria: 'infantil',
+      deporte: 'baloncesto',
+      genero: 'hombres',
+      titulo: 'Infantil · Baloncesto · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
 
       partidos: [
-        // partidos de VOLEIBOL INFANTIL
+        {
+          id: 'inf-bal-m-1',
+          ronda: 0,
+          local: '6-01',
+          visitante: '6-04',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-bal-m-2',
+          ronda: 0,
+          local: '7-03',
+          visitante: '7-04',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-bal-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-bal-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-bal-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       INFANTIL — BALONCESTO — MUJERES
+       ================================================================ */
+    infantil_baloncesto_mujeres: {
+      categoria: 'infantil',
+      deporte: 'baloncesto',
+      genero: 'mujeres',
+      titulo: 'Infantil · Baloncesto · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'inf-bal-f-1',
+          ronda: 0,
+          local: '6-01',
+          visitante: '6-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-bal-f-2',
+          ronda: 0,
+          local: '7-01',
+          visitante: '7-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-bal-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-bal-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-bal-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       INFANTIL — VOLEIBOL — HOMBRES
+       ================================================================ */
+    infantil_voleibol_hombres: {
+      categoria: 'infantil',
+      deporte: 'voleibol',
+      genero: 'hombres',
+      titulo: 'Infantil · Voleibol · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'inf-vol-m-1',
+          ronda: 0,
+          local: '7-04',
+          visitante: '7-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-vol-m-2',
+          ronda: 0,
+          local: '6-03',
+          visitante: '6-01',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-vol-m-3',
+          ronda: 0,
+          local: '7-01',
+          visitante: '7-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-vol-m-4',
+          ronda: 0,
+          local: '6-04',
+          visitante: '6-01',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-vol-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-vol-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-vol-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       INFANTIL — VOLEIBOL — MUJERES
+       ================================================================ */
+    infantil_voleibol_mujeres: {
+      categoria: 'infantil',
+      deporte: 'voleibol',
+      genero: 'mujeres',
+      titulo: 'Infantil · Voleibol · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'inf-vol-f-1',
+          ronda: 0,
+          local: '6-02',
+          visitante: '6-04',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-vol-f-2',
+          ronda: 0,
+          local: '7-03',
+          visitante: '7-04',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-vol-f-3',
+          ronda: 0,
+          local: '6-03',
+          visitante: '6-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-vol-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'inf-vol-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'inf-vol-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       PREJUVENIL — FÚTBOL — HOMBRES
+       ================================================================ */
+    prejuvenil_futbol_hombres: {
+      categoria: 'prejuvenil',
+      deporte: 'futbol',
+      genero: 'hombres',
+      titulo: 'Prejuvenil · Fútbol · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'pre-fut-m-1',
+          ronda: 0,
+          local: '8-01',
+          visitante: '8-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-fut-m-2',
+          ronda: 0,
+          local: '8-02',
+          visitante: '8-01',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'pre-fut-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-fut-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'pre-fut-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       PREJUVENIL — FÚTBOL — MUJERES
+       ================================================================ */
+    prejuvenil_futbol_mujeres: {
+      categoria: 'prejuvenil',
+      deporte: 'futbol',
+      genero: 'mujeres',
+      titulo: 'Prejuvenil · Fútbol · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'pre-fut-f-1',
+          ronda: 0,
+          local: '9-01',
+          visitante: '9-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-fut-f-2',
+          ronda: 0,
+          local: '9-02',
+          visitante: '9-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'pre-fut-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-fut-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'pre-fut-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       PREJUVENIL — BALONCESTO — HOMBRES
+       ================================================================ */
+    prejuvenil_baloncesto_hombres: {
+      categoria: 'prejuvenil',
+      deporte: 'baloncesto',
+      genero: 'hombres',
+      titulo: 'Prejuvenil · Baloncesto · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'pre-bal-m-1',
+          ronda: 0,
+          local: '8-01',
+          visitante: '8-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-bal-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-bal-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-bal-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       PREJUVENIL — BALONCESTO — MUJERES
+       ================================================================ */
+    prejuvenil_baloncesto_mujeres: {
+      categoria: 'prejuvenil',
+      deporte: 'baloncesto',
+      genero: 'mujeres',
+      titulo: 'Prejuvenil · Baloncesto · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'pre-bal-f-1',
+          ronda: 0,
+          local: '9-01',
+          visitante: '9-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-bal-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-bal-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-bal-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       PREJUVENIL — VOLEIBOL — HOMBRES
+       ================================================================ */
+    prejuvenil_voleibol_hombres: {
+      categoria: 'prejuvenil',
+      deporte: 'voleibol',
+      genero: 'hombres',
+      titulo: 'Prejuvenil · Voleibol · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'pre-vol-m-1',
+          ronda: 0,
+          local: '8-02',
+          visitante: '8-01',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-vol-m-2',
+          ronda: 0,
+          local: '9-01',
+          visitante: '9-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'pre-vol-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-vol-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'pre-vol-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       PREJUVENIL — VOLEIBOL — MUJERES
+       ================================================================ */
+    prejuvenil_voleibol_mujeres: {
+      categoria: 'prejuvenil',
+      deporte: 'voleibol',
+      genero: 'mujeres',
+      titulo: 'Prejuvenil · Voleibol · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'pre-vol-f-1',
+          ronda: 0,
+          local: '9-02',
+          visitante: '9-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-vol-f-2',
+          ronda: 0,
+          local: '9-01',
+          visitante: '9-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'pre-vol-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'pre-vol-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'pre-vol-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       JUVENIL — FÚTBOL — HOMBRES
+       ================================================================ */
+    juvenil_futbol_hombres: {
+      categoria: 'juvenil',
+      deporte: 'futbol',
+      genero: 'hombres',
+      titulo: 'Juvenil · Fútbol · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'juv-fut-m-1',
+          ronda: 0,
+          local: '10-02',
+          visitante: '10-01',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-fut-m-2',
+          ronda: 0,
+          local: '11-02',
+          visitante: '10-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-fut-m-3',
+          ronda: 0,
+          local: '11-01',
+          visitante: '10-01',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-fut-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-fut-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-fut-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       JUVENIL — FÚTBOL — MUJERES
+       ================================================================ */
+    juvenil_futbol_mujeres: {
+      categoria: 'juvenil',
+      deporte: 'futbol',
+      genero: 'mujeres',
+      titulo: 'Juvenil · Fútbol · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'juv-fut-f-1',
+          ronda: 0,
+          local: '10-01',
+          visitante: '10-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-fut-f-2',
+          ronda: 0,
+          local: '11-01',
+          visitante: '11-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-fut-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-fut-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-fut-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       JUVENIL — BALONCESTO — HOMBRES
+       ================================================================ */
+    juvenil_baloncesto_hombres: {
+      categoria: 'juvenil',
+      deporte: 'baloncesto',
+      genero: 'hombres',
+      titulo: 'Juvenil · Baloncesto · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'juv-bal-m-1',
+          ronda: 0,
+          local: '10-02',
+          visitante: '10-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-bal-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-bal-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-bal-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       JUVENIL — BALONCESTO — MUJERES
+       ================================================================ */
+    juvenil_baloncesto_mujeres: {
+      categoria: 'juvenil',
+      deporte: 'baloncesto',
+      genero: 'mujeres',
+      titulo: 'Juvenil · Baloncesto · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'juv-bal-f-1',
+          ronda: 0,
+          local: '7-01',
+          visitante: '7-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-bal-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-bal-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-bal-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       JUVENIL — VOLEIBOL — HOMBRES
+       ================================================================ */
+    juvenil_voleibol_hombres: {
+      categoria: 'juvenil',
+      deporte: 'voleibol',
+      genero: 'hombres',
+      titulo: 'Juvenil · Voleibol · Hombres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'juv-vol-m-1',
+          ronda: 0,
+          local: '11-01',
+          visitante: '10-01',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-vol-m-2',
+          ronda: 0,
+          local: '9-01',
+          visitante: '9-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-vol-m-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-vol-m-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-vol-m-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
+      ]
+    },
+
+
+    /* ================================================================
+       JUVENIL — VOLEIBOL — MUJERES
+       ================================================================ */
+    juvenil_voleibol_mujeres: {
+      categoria: 'juvenil',
+      deporte: 'voleibol',
+      genero: 'mujeres',
+      titulo: 'Juvenil · Voleibol · Mujeres',
+
+      rondas: ['Fase inicial', 'Semifinal', 'Final'],
+
+      partidos: [
+        {
+          id: 'juv-vol-f-1',
+          ronda: 0,
+          local: '10-01',
+          visitante: '10-03',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-vol-f-2',
+          ronda: 0,
+          local: '11-01',
+          visitante: '11-02',
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-vol-f-sf-1',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+        {
+          id: 'juv-vol-f-sf-2',
+          ronda: 1,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        },
+
+        {
+          id: 'juv-vol-f-f',
+          ronda: 2,
+          local: null,
+          visitante: null,
+          marcadorLocal: null,
+          marcadorVisitante: null,
+          ganador: null
+        }
       ]
     }
 
   },
-
-
-  prejuvenil: {
-
-    futbol: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
-
-      partidos: [
-        // partidos de FÚTBOL PREJUVENIL
-      ]
-    },
-
-    baloncesto: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
-
-      partidos: [
-        // partidos de BALONCESTO PREJUVENIL
-      ]
-    },
-
-    voleibol: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
-
-      partidos: [
-        // partidos de VOLEIBOL PREJUVENIL
-      ]
-    }
-
-  },
-
-
-  juvenil: {
-
-    futbol: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
-
-      partidos: [
-        // partidos de FÚTBOL JUVENIL
-      ]
-    },
-
-    baloncesto: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
-
-      partidos: [
-        // partidos de BALONCESTO JUVENIL
-      ]
-    },
-
-    voleibol: {
-      rondas: [
-        'Cuartos de Final',
-        'Semifinal',
-        'Final'
-      ],
-
-      partidos: [
-        // partidos de VOLEIBOL JUVENIL
-      ]
-    }
-
-  }
-
-},
 
   // Galería de fotos por partido. Vacío por ahora — el torneo todavía no se
   // ha jugado, así que no hay fotos reales que mostrar. Mientras un partido

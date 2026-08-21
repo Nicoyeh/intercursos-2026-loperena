@@ -4,13 +4,22 @@
    INTERCURSOS 2026 — bracket.js
 
    Estructura:
-   Categoría → Deporte → Llave
 
-   Ejemplo:
-   TORNEO_DATA.llaves.infantil.futbol
-   TORNEO_DATA.llaves.infantil.baloncesto
-   TORNEO_DATA.llaves.infantil.voleibol
+   CATEGORÍA
+      ↓
+   DEPORTE
+      ↓
+   GÉNERO
+      ↓
+   LLAVE
+      ↓
+   RONDAS
+      ↓
+   CAMPEÓN
+
+   No se inventan cruces. Todo sale de TORNEO_DATA.llaves.
    ========================================================================== */
+
 
 document.addEventListener('DOMContentLoaded', () => {
   initLlaves();
@@ -19,72 +28,90 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let categoriaActual = 'infantil';
 let deporteActual = 'futbol';
+let generoActual = 'hombres';
 
+
+/* ==========================================================================
+   INICIALIZACIÓN
+   ========================================================================== */
 
 function initLlaves() {
 
   const contenedor = document.getElementById('bracketContainer');
 
-  if (!contenedor || typeof TORNEO_DATA === 'undefined') return;
+  if (!contenedor || typeof TORNEO_DATA === 'undefined') {
+    return;
+  }
 
 
-  /* =========================
-     BOTONES DE CATEGORÍA
-     ========================= */
+  /* ---------------- CATEGORÍAS ---------------- */
 
-  const botonesCategoria =
-    document.querySelectorAll('[data-bracket-categoria]');
+  document
+    .querySelectorAll('[data-bracket-categoria]')
+    .forEach((boton) => {
 
+      boton.addEventListener('click', () => {
 
-  botonesCategoria.forEach((boton) => {
+        categoriaActual =
+          boton.dataset.bracketCategoria;
 
-    boton.addEventListener('click', () => {
-
-      categoriaActual = boton.dataset.bracketCategoria;
-
-      botonesCategoria.forEach((b) => {
-        b.classList.toggle(
-          'is-active',
-          b === boton
+        actualizarBotones(
+          '[data-bracket-categoria]',
+          boton
         );
+
+        renderizarLlaveActual();
+
       });
 
-      renderizarLlaveActual();
     });
 
-  });
 
+  /* ---------------- DEPORTES ---------------- */
 
-  /* =========================
-     BOTONES DE DEPORTE
-     ========================= */
+  document
+    .querySelectorAll('[data-bracket-deporte]')
+    .forEach((boton) => {
 
-  const botonesDeporte =
-    document.querySelectorAll('[data-bracket-deporte]');
+      boton.addEventListener('click', () => {
 
+        deporteActual =
+          boton.dataset.bracketDeporte;
 
-  botonesDeporte.forEach((boton) => {
-
-    boton.addEventListener('click', () => {
-
-      deporteActual = boton.dataset.bracketDeporte;
-
-      botonesDeporte.forEach((b) => {
-        b.classList.toggle(
-          'is-active',
-          b === boton
+        actualizarBotones(
+          '[data-bracket-deporte]',
+          boton
         );
+
+        renderizarLlaveActual();
+
       });
 
-      renderizarLlaveActual();
     });
 
-  });
 
+  /* ---------------- GÉNEROS ---------------- */
 
-  /* =========================
-     LLAVE INICIAL
-     ========================= */
+  document
+    .querySelectorAll('[data-bracket-genero]')
+    .forEach((boton) => {
+
+      boton.addEventListener('click', () => {
+
+        generoActual =
+          boton.dataset.bracketGenero;
+
+        actualizarBotones(
+          '[data-bracket-genero]',
+          boton
+        );
+
+        renderizarLlaveActual();
+
+      });
+
+    });
+
 
   renderizarLlaveActual();
 
@@ -92,7 +119,44 @@ function initLlaves() {
 
 
 /* ==========================================================================
-   RENDERIZAR LA LLAVE ACTUAL
+   ACTUALIZAR BOTONES
+   ========================================================================== */
+
+function actualizarBotones(selector, botonActivo) {
+
+  document
+    .querySelectorAll(selector)
+    .forEach((boton) => {
+
+      boton.classList.toggle(
+        'is-active',
+        boton === botonActivo
+      );
+
+    });
+
+}
+
+
+/* ==========================================================================
+   OBTENER LLAVE ACTUAL
+   ========================================================================== */
+
+function obtenerLlaveActual() {
+
+  return (
+    TORNEO_DATA
+      .llaves
+      ?. [categoriaActual]
+      ?. [deporteActual]
+      ?. [generoActual]
+  );
+
+}
+
+
+/* ==========================================================================
+   RENDERIZAR LLAVE ACTUAL
    ========================================================================== */
 
 function renderizarLlaveActual() {
@@ -100,20 +164,51 @@ function renderizarLlaveActual() {
   const contenedor =
     document.getElementById('bracketContainer');
 
-  if (!contenedor) return;
+  if (!contenedor) {
+    return;
+  }
 
 
-  const llave =
-    TORNEO_DATA.llaves?.[categoriaActual]?.[deporteActual];
+  const llave = obtenerLlaveActual();
 
 
-  if (!llave) {
+  /* ---------------- LLAVE NO DEFINIDA ---------------- */
+
+  if (!llave || !Array.isArray(llave.partidos) || !llave.partidos.length) {
+
+    const categoria =
+      TORNEO_DATA.categorias?.[categoriaActual]?.nombre
+      || categoriaActual;
+
+    const deporte =
+      TORNEO_DATA.deportes?.[deporteActual]?.nombre
+      || deporteActual;
+
+    const genero =
+      TORNEO_DATA.generos?.[generoActual]?.nombre
+      || generoActual;
+
 
     contenedor.innerHTML = `
-      <p class="calendar__vacio panel-content">
-        Las llaves de esta categoría y deporte
-        todavía no están definidas.
-      </p>
+
+      <div class="panel-placeholder panel-content">
+
+        <div class="panel-placeholder__icon">
+          ${TORNEO_DATA.deportes?.[deporteActual]?.icono || '🏆'}
+        </div>
+
+        <p class="panel-placeholder__text">
+          La llave de
+          <strong>${deporte}</strong>
+          ·
+          <strong>${categoria}</strong>
+          ·
+          <strong>${genero}</strong>
+          todavía no ha sido definida.
+        </p>
+
+      </div>
+
     `;
 
     return;
@@ -121,7 +216,11 @@ function renderizarLlaveActual() {
 
 
   contenedor.innerHTML =
-    renderizarLlaveHTML(categoriaActual, deporteActual);
+    renderizarLlaveHTML(
+      categoriaActual,
+      deporteActual,
+      generoActual
+    );
 
 
   if (typeof window.observeReveal === 'function') {
@@ -132,7 +231,7 @@ function renderizarLlaveActual() {
 
 
 /* ==========================================================================
-   GANADOR
+   CALCULAR GANADOR
    ========================================================================== */
 
 function calcularGanador(partido) {
@@ -146,6 +245,7 @@ function calcularGanador(partido) {
   }
 
   return null;
+
 }
 
 
@@ -157,9 +257,12 @@ function construirRondas(llave) {
 
   const rondasPorIndice =
     llave.rondas.map((_, indiceRonda) =>
+
       llave.partidos.filter(
-        (p) => p.ronda === indiceRonda
+        (partido) =>
+          partido.ronda === indiceRonda
       )
+
     );
 
 
@@ -181,6 +284,7 @@ function construirRondas(llave) {
         });
 
         return;
+
       }
 
 
@@ -190,24 +294,24 @@ function construirRondas(llave) {
         rondasPorIndice[indiceRonda - 1];
 
 
-      partidosRonda.forEach((partido, i) => {
+      partidosRonda.forEach((partido, indice) => {
 
-        const feederA =
-          rondaAnterior[i * 2];
+        const partidoAnteriorA =
+          rondaAnterior[indice * 2];
 
-        const feederB =
-          rondaAnterior[i * 2 + 1];
+        const partidoAnteriorB =
+          rondaAnterior[indice * 2 + 1];
 
 
         partido._local =
-          feederA
-            ? calcularGanador(feederA)
+          partidoAnteriorA
+            ? calcularGanador(partidoAnteriorA)
             : null;
 
 
         partido._visitante =
-          feederB
-            ? calcularGanador(feederB)
+          partidoAnteriorB
+            ? calcularGanador(partidoAnteriorB)
             : null;
 
       });
@@ -217,162 +321,229 @@ function construirRondas(llave) {
 
 
   return rondasPorIndice;
+
 }
 
 
 /* ==========================================================================
-   PARTIDO
+   RENDERIZAR EQUIPO
    ========================================================================== */
 
-function renderizarPartidoLlave(partido) {
+function renderizarEquipo(
+  codigo,
+  partido,
+  esLocal,
+  esDescanso
+) {
+
+  if (!codigo) {
+
+    return `
+
+      <div class="bracket-match__team bracket-match__team--tbd">
+
+        <span class="bracket-match__name">
+          ${esDescanso ? 'Descanso' : 'Por definir'}
+        </span>
+
+      </div>
+
+    `;
+
+  }
+
+
+  const equipo =
+    TORNEO_DATA.equipos?.[codigo];
+
 
   const ganador =
     calcularGanador(partido);
 
 
-  const filaEquipo =
-    (codigo, esDescanso) => {
-
-      if (!codigo) {
-
-        return `
-          <div class="bracket-match__team bracket-match__team--tbd">
-            <span class="bracket-match__name">
-              ${esDescanso ? 'Descanso' : 'Por definir'}
-            </span>
-          </div>
-        `;
-
-      }
+  const esGanador =
+    ganador === codigo;
 
 
-      const equipo =
-        TORNEO_DATA.equipos[codigo];
+  let marcador = '';
 
 
-      const esGanador =
-        ganador === codigo;
+  const hayMarcador =
+    partido.marcadorLocal !== null &&
+    partido.marcadorVisitante !== null &&
+    partido.marcadorLocal !== undefined &&
+    partido.marcadorVisitante !== undefined;
 
 
-      const hayMarcador =
-        partido.marcadorLocal !== null &&
-        partido.marcadorVisitante !== null &&
-        partido.marcadorLocal !== undefined &&
-        partido.marcadorVisitante !== undefined;
+  if (hayMarcador) {
 
+    marcador = `
 
-      const marcador =
-        hayMarcador
-          ? `
-            <span class="bracket-match__score">
-              ${
-                codigo === partido._local
-                  ? partido.marcadorLocal
-                  : partido.marcadorVisitante
-              }
-            </span>
-          `
-          : '';
+      <span class="bracket-match__score">
+        ${
+          esLocal
+            ? partido.marcadorLocal
+            : partido.marcadorVisitante
+        }
+      </span>
 
+    `;
 
-      return `
-        <div class="bracket-match ${
-          esGanador
-            ? 'bracket-match--ganador'
-            : ''
-        }">
-
-          <div class="bracket-match__team ${
-            esGanador
-              ? 'bracket-match__team--ganador'
-              : ''
-          }">
-
-            <span class="bracket-match__name">
-              ${
-                equipo
-                  ? banderaHTML(
-                      equipo,
-                      'bracket-match__flag'
-                    )
-                  : ''
-              }
-
-              ${codigo}
-            </span>
-
-            ${marcador}
-
-          </div>
-
-        </div>
-      `;
-
-    };
+  }
 
 
   return `
-    <div class="bracket-match">
 
-      ${filaEquipo(
-        partido._local,
-        false
-      )}
+    <div class="
+      bracket-match__team
+      ${esGanador ? 'bracket-match__team--ganador' : ''}
+    ">
 
-      <div class="bracket-match__divider"></div>
+      <span class="bracket-match__name">
 
-      ${filaEquipo(
-        partido._visitante,
-        !!partido.descanso
-      )}
+        ${
+          equipo
+            ? banderaHTML(
+                equipo,
+                'bracket-match__flag'
+              )
+            : ''
+        }
+
+        ${codigo}
+
+      </span>
+
+      ${marcador}
 
     </div>
+
   `;
 
 }
 
 
 /* ==========================================================================
-   RENDERIZAR LLAVE
+   RENDERIZAR PARTIDO
+   ========================================================================== */
+
+function renderizarPartidoLlave(partido) {
+
+  return `
+
+    <div class="bracket-match">
+
+      ${renderizarEquipo(
+        partido._local,
+        partido,
+        true,
+        false
+      )}
+
+      <div class="bracket-match__divider"></div>
+
+      ${renderizarEquipo(
+        partido._visitante,
+        partido,
+        false,
+        !!partido.descanso
+      )}
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==========================================================================
+   RENDERIZAR LLAVE COMPLETA
    ========================================================================== */
 
 function renderizarLlaveHTML(
   claveCategoria,
-  claveDeporte
+  claveDeporte,
+  claveGenero
 ) {
 
   const llave =
     TORNEO_DATA
-      .llaves?.[claveCategoria]?.[claveDeporte];
+      .llaves
+      ?. [claveCategoria]
+      ?. [claveDeporte]
+      ?. [claveGenero];
 
 
   if (!llave) {
 
     return `
-      <p class="calendar__vacio panel-content">
-        Las llaves de esta categoría y deporte
-        todavía no están definidas.
-      </p>
+
+      <div class="panel-placeholder panel-content">
+
+        <div class="panel-placeholder__icon">
+          🏆
+        </div>
+
+        <p class="panel-placeholder__text">
+          Esta llave todavía no está definida.
+        </p>
+
+      </div>
+
     `;
 
   }
 
+
+  const categoria =
+    TORNEO_DATA
+      .categorias?.[claveCategoria]?.nombre
+      || claveCategoria;
+
+
+  const deporte =
+    TORNEO_DATA
+      .deportes?.[claveDeporte]?.nombre
+      || claveDeporte;
+
+
+  const genero =
+    TORNEO_DATA
+      .generos?.[claveGenero]?.nombre
+      || claveGenero;
+
+
+  const icono =
+    TORNEO_DATA
+      .deportes?.[claveDeporte]?.icono
+      || '🏆';
+
+
+  /* ---------------- RONDAS ---------------- */
 
   const rondas =
     construirRondas(llave);
 
 
   const columnas =
-    rondas.map(
-      (partidosRonda, indiceRonda) => {
+    rondas
+      .map((partidosRonda, indiceRonda) => {
 
         const nombreRonda =
           llave.rondas[indiceRonda];
 
 
+        if (!partidosRonda.length) {
+          return '';
+        }
+
+
+        /* FINAL */
+
         if (partidosRonda.length === 1) {
 
           return `
+
             <div class="bracket__round">
 
               <p class="bracket__round-title">
@@ -384,10 +555,13 @@ function renderizarLlaveHTML(
               )}
 
             </div>
+
           `;
 
         }
 
+
+        /* RESTO DE RONDAS */
 
         const pares = [];
 
@@ -407,51 +581,51 @@ function renderizarLlaveHTML(
 
 
         return `
+
           <div class="bracket__round">
 
             <p class="bracket__round-title">
               ${nombreRonda}
             </p>
 
-            ${pares.map(([a, b]) => `
+            ${pares
+              .map(([a, b]) => `
 
-              <div class="bracket__pair">
+                <div class="bracket__pair">
 
-                ${
-                  a
-                    ? renderizarPartidoLlave(a)
-                    : ''
-                }
+                  ${
+                    a
+                      ? renderizarPartidoLlave(a)
+                      : ''
+                  }
 
-                ${
-                  b
-                    ? renderizarPartidoLlave(b)
-                    : ''
-                }
+                  ${
+                    b
+                      ? renderizarPartidoLlave(b)
+                      : ''
+                  }
 
-              </div>
+                </div>
 
-            `).join('')}
+              `)
+              .join('')}
 
           </div>
+
         `;
 
-      }
-    ).join('');
+      })
+      .join('');
 
 
-  /* =========================
-     CAMPEÓN
-     ========================= */
+  /* ---------------- CAMPEÓN ---------------- */
 
   const ultimaRonda =
     rondas[rondas.length - 1];
 
 
   const partidoFinal =
-    ultimaRonda
-      ? ultimaRonda[0]
-      : null;
+    ultimaRonda?.[0];
 
 
   const campeon =
@@ -462,52 +636,36 @@ function renderizarLlaveHTML(
 
   const equipoCampeon =
     campeon
-      ? TORNEO_DATA.equipos[campeon]
+      ? TORNEO_DATA.equipos?.[campeon]
       : null;
 
 
-  const columnaCampeon = `
+  return `
 
-    <div class="bracket__round bracket__round--campeon">
+    <div class="bracket-header">
 
-      <p class="bracket__round-title">
-        Campeón
-      </p>
+      <div class="bracket-header__icon">
+        ${icono}
+      </div>
 
-      <div class="bracket__champion">
+      <div>
 
-        <span
-          class="bracket__champion-icon"
-          aria-hidden="true"
-        >
-          🏆
-        </span>
+        <p class="bracket-header__eyebrow">
+          Llave del torneo
+        </p>
 
-        <span class="bracket__champion-team">
+        <h3 class="bracket-header__title">
+          ${deporte} · ${categoria}
+        </h3>
 
-          ${
-            equipoCampeon
-              ? `
-                ${banderaHTML(
-                  equipoCampeon,
-                  'bracket-match__flag'
-                )}
-
-                ${campeon}
-              `
-              : 'Por definir'
-          }
-
-        </span>
+        <p class="bracket-header__subtitle">
+          ${genero}
+        </p>
 
       </div>
 
     </div>
 
-  `;
-
-
-  return `
 
     <div class="bracket-wrap panel-content">
 
@@ -515,7 +673,44 @@ function renderizarLlaveHTML(
 
         ${columnas}
 
-        ${columnaCampeon}
+
+        <!-- CAMPEÓN -->
+
+        <div class="bracket__round bracket__round--campeon">
+
+          <p class="bracket__round-title">
+            Campeón
+          </p>
+
+          <div class="bracket__champion">
+
+            <span
+              class="bracket__champion-icon"
+              aria-hidden="true"
+            >
+              🏆
+            </span>
+
+            <span class="bracket__champion-team">
+
+              ${
+                equipoCampeon
+                  ? `
+                    ${banderaHTML(
+                      equipoCampeon,
+                      'bracket-match__flag'
+                    )}
+
+                    ${campeon}
+                  `
+                  : 'Por definir'
+              }
+
+            </span>
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -525,6 +720,10 @@ function renderizarLlaveHTML(
 
 }
 
+
+/* ==========================================================================
+   HACERLA DISPONIBLE PARA categories.js
+   ========================================================================== */
 
 window.renderizarLlaveHTML =
   renderizarLlaveHTML;
