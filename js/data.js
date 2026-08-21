@@ -122,6 +122,33 @@ const TORNEO_DATA = {
     { id: 'p27', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'infantil',    genero: 'hombres', local: '6-04', visitante: '6-01', estado: 'proximo' },
     { id: 'p28', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'hombres', local: '9-01', visitante: '9-03', estado: 'proximo' },
 
+    { id: 'p29', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'proximo', },
+    { id: 'p30', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'baloncesto', categoria: 'infantil',   genero: 'hombres', local: '7-01',  visitante: '7-02',  estado: 'proximo', },
+    { id: 'p31', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-01',  visitante: '8-02',  estado: 'proximo', },
+    { id: 'p32', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '10-02',  estado: 'proximo', },
+    { id: 'p33', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Por confirmar', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'hombres', local: '8-01',  visitante: '8-02',  estado: 'proximo', },
+    { id: 'p34', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Por confirmar', deporte: 'baloncesto', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'proximo', },
+    { id: 'p35', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-04',  estado: 'proximo', },
+    { id: 'p36', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'juvenil',   genero: 'mujeres', local: '10-02',  visitante: '10-03',  estado: 'proximo' },
+
+    { id: 'p37', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Por confirmar', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-02',  visitante: '9-03',  estado: 'proximo', },
+    { id: 'p38', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Por confirmar', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'hombres', local: '9-01',  visitante: '9-02',  estado: 'proximo', },
+    { id: 'p39', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '6-03',  visitante: '6-04',  estado: 'proximo', },
+    { id: 'p40', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-03',  estado: 'proximo', },
+
+    { id: 'p41', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: 'Por confirmar', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-04',  estado: 'proximo', },
+    { id: 'p42', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: 'Por confirmar', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-02',  visitante: '8-03',  estado: 'proximo', },
+    { id: 'p43', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '7-01',  visitante: '7-04',  estado: 'proximo', },
+    { id: 'p44', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'hombres', local: '9-02',  visitante: '9-03',  estado: 'proximo', },
+
+    { id: 'p45', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Por confirmar', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '10-01',  visitante: '10-03', estado: 'proximo', },
+    { id: 'p46', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Por confirmar', deporte: 'baloncesto', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-04',  estado: 'proximo', },
+    { id: 'p47', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-02',  estado: 'proximo', },
+    { id: 'p48', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-02',  visitante: '8-03',  estado: 'proximo', }
+
+
+
+
   ],
 
   // ⚠️ DATOS DE EJEMPLO / DEMO — este cruce eliminatorio es INVENTADO,
