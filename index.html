@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>INTERCURSOS 2026 — El Mundial del Loperena</title>
-  <meta name="description" content="Sitio oficial del torneo deportivo escolar INTERCURSOS 2026 — El Mundial del Loperena. Calendario, categorías, estadísticas y resultados del torneo.">
+  <meta name="description" content="Sitio oficial del torneo deportivo escolar INTERCURSOS 2026 — El Mundial del Loperena.">
   <meta name="theme-color" content="#05060b">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%86%3C/text%3E%3C/svg%3E">
 
-  <!-- Tipografía: Big Shoulders Display (titulares, herencia de números de camiseta deportiva) + IBM Plex Sans (texto, buen soporte de cifras tabulares para estadísticas) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +20,6 @@
 
   <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
 
-  <!-- Definiciones SVG compartidas (gradientes reutilizados por el emblema, el trofeo y el balón) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
       <linearGradient id="emblemGradient" x1="0" y1="0" x2="1" y2="1">
@@ -48,10 +46,8 @@
     </defs>
   </svg>
 
-  <!-- ==================== NAVEGACIÓN ==================== -->
   <header class="nav" id="mainNav" data-nav>
     <div class="nav__inner container">
-
       <a href="#inicio" class="nav__logo" aria-label="Intercursos 2026, ir al inicio">
         <svg class="nav__emblem" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <path d="M24 2 L44 10 V24 C44 36 36 44 24 46 C12 44 4 36 4 24 V10 Z" fill="url(#emblemGradient)"/>
@@ -69,18 +65,15 @@
           <li><a href="#galeria">Galería</a></li>
           <li><a href="#reglamento">Reglamento</a></li>
           <li><a href="#organizacion">Padrinos</a></li>
-
         </ul>
       </nav>
 
       <button class="nav__toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
-
     </div>
   </header>
 
-  <!-- Menú móvil (overlay a pantalla completa) -->
   <div class="mobile-menu" id="mobileMenu">
     <nav aria-label="Navegación móvil">
       <ul>
@@ -91,16 +84,13 @@
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#reglamento">Reglamento</a></li>
         <li><a href="#organizacion">Padrinos</a></li>
-
       </ul>
     </nav>
   </div>
 
   <main id="main-content">
 
-    <!-- ==================== HERO ==================== -->
     <section class="hero" id="inicio">
-
       <div class="hero__background" aria-hidden="true">
         <canvas class="hero__particles" id="particlesCanvas"></canvas>
         <span class="hero__glow hero__glow--blue"></span>
@@ -163,8 +153,6 @@
       </div>
 
       <div class="hero__content container">
-
-        <!-- Elemento firma: badge estilo marcador de transmisión deportiva -->
         <div class="hero-reveal hero__badge" style="--d:0.05s">
           <span class="hero__badge-dot" aria-hidden="true"></span>
           <span class="hero__badge-label">Torneo oficial</span>
@@ -183,20 +171,17 @@
           <a href="#calendario" class="btn btn--primary">Ver calendario</a>
           <a href="#estadisticas" class="btn btn--ghost">Ver resultados</a>
         </div>
-
       </div>
 
       <a href="#calendario" class="hero__scroll hero-reveal" style="--d:0.95s" aria-label="Desplázate para ver más contenido">
         <span class="hero__scroll-line"></span>
         <span class="hero__scroll-text">Desliza</span>
       </a>
-
     </section>
 
-    <!-- ==================== CALENDARIO DEL TORNEO ==================== -->
+    <!-- CALENDARIO -->
     <section class="section calendar" id="calendario">
       <div class="container">
-
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Fase de grupos</span>
           <h2 class="section-header__title">Calendario del Torneo</h2>
@@ -204,186 +189,77 @@
         </div>
 
         <div class="calendar__filters reveal">
+          <div class="filter-group" role="group" aria-label="Elegir categoría">
+            <button class="filter-pill is-active" type="button" data-categoria="infantil">Infantil</button>
+            <button class="filter-pill" type="button" data-categoria="prejuvenil">Prejuvenil</button>
+            <button class="filter-pill" type="button" data-categoria="juvenil">Juvenil</button>
+          </div>
 
-  <!-- ================= CATEGORÍAS ================= -->
-  <div class="filter-group" role="group" aria-label="Elegir categoría">
+          <div class="filter-group" role="group" aria-label="Elegir deporte">
+            <button class="filter-pill is-active" type="button" data-deporte="futbol">⚽ Fútbol</button>
+            <button class="filter-pill" type="button" data-deporte="baloncesto">🏀 Baloncesto</button>
+            <button class="filter-pill" type="button" data-deporte="voleibol">🏐 Voleibol</button>
+          </div>
 
-    <button
-      class="filter-pill is-active"
-      type="button"
-      data-bracket-categoria="infantil">
-      Infantil
-    </button>
+          <div class="filter-group" role="group" aria-label="Elegir género">
+            <button class="filter-pill is-active" type="button" data-genero="hombres">👨 Hombres</button>
+            <button class="filter-pill" type="button" data-genero="mujeres">👩 Mujeres</button>
+          </div>
+        </div>
 
-    <button
-      class="filter-pill"
-      type="button"
-      data-bracket-categoria="prejuvenil">
-      Prejuvenil
-    </button>
+        <div id="calendarContainer" class="calendar__matches"></div>
+      </div>
+    </section>
 
-    <button
-      class="filter-pill"
-      type="button"
-      data-bracket-categoria="juvenil">
-      Juvenil
-    </button>
-
-  </div>
-
-
-  <!-- ================= DEPORTES ================= -->
-  <div class="filter-group" role="group" aria-label="Elegir deporte">
-
-    <button
-      class="filter-pill is-active"
-      type="button"
-      data-bracket-deporte="futbol">
-      ⚽ Fútbol
-    </button>
-
-    <button
-      class="filter-pill"
-      type="button"
-      data-bracket-deporte="baloncesto">
-      🏀 Baloncesto
-    </button>
-
-    <button
-      class="filter-pill"
-      type="button"
-      data-bracket-deporte="voleibol">
-      🏐 Voleibol
-    </button>
-
-  </div>
-
-
-  <!-- ================= GÉNERO ================= -->
-  <div class="filter-group" role="group" aria-label="Elegir género">
-
-    <button
-      class="filter-pill is-active"
-      type="button"
-      data-bracket-genero="hombres">
-      👨 Hombres
-    </button>
-
-    <button
-      class="filter-pill"
-      type="button"
-      data-bracket-genero="mujeres">
-      👩 Mujeres
-    </button>
-
-  </div>
-
-</div>
-
-
-
-    <!-- ==================== CATEGORÍAS ==================== -->
+    <!-- CATEGORÍAS -->
     <section class="section categories" id="categorias">
       <div class="container">
-
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Selecciones en competencia</span>
           <h2 class="section-header__title">Categorías</h2>
           <p class="section-header__subtitle">Cada categoría es su propia mini-liga: calendario, tabla y más.</p>
         </div>
 
-        <div class="category-list" id="categoryList">
-          <!-- Generado dinámicamente por js/categories.js a partir de js/data.js -->
-        </div>
-
+        <div class="category-list" id="categoryList"></div>
       </div>
     </section>
 
-   
-
-    <!-- ==================== GALERÍA ==================== -->
+    <!-- GALERÍA -->
     <section class="section gallery-section" id="galeria">
       <div class="container">
-
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Momentos del torneo</span>
           <h2 class="section-header__title">Galería</h2>
           <p class="section-header__subtitle">Las fotos de cada partido, organizadas por deporte.</p>
         </div>
 
-        <div class="calendar__filters reveal">
-
-  <!-- CATEGORÍAS -->
-  <div class="filter-group" role="group" aria-label="Elegir categoría de la llave">
-    <button class="filter-pill is-active" type="button" data-bracket-categoria="infantil">
-      Infantil
-    </button>
-
-    <button class="filter-pill" type="button" data-bracket-categoria="prejuvenil">
-      Prejuvenil
-    </button>
-
-    <button class="filter-pill" type="button" data-bracket-categoria="juvenil">
-      Juvenil
-    </button>
-  </div>
-
-  <!-- DEPORTES -->
-  <div class="filter-group bracket-sports-filter" role="group" aria-label="Elegir deporte de la llave">
-
-    <button class="filter-pill is-active" type="button" data-bracket-deporte="futbol">
-      ⚽ Fútbol
-    </button>
-
-    <button class="filter-pill" type="button" data-bracket-deporte="baloncesto">
-      🏀 Baloncesto
-    </button>
-
-    <button class="filter-pill" type="button" data-bracket-deporte="voleibol">
-      🏐 Voleibol
-    </button>
-
-  </div>
-
-</div>
-
-<div id="bracketContainer">
-  <!-- Generado dinámicamente por js/bracket.js a partir de js/data.js -->
-</div>
-
+        <div id="galleryContainer"></div>
       </div>
     </section>
 
-    <!-- ==================== NOTICIAS ==================== -->
+    <!-- NOTICIAS -->
     <section class="section news-section" id="noticias">
       <div class="container">
-
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Prensa del torneo</span>
           <h2 class="section-header__title">Noticias</h2>
           <p class="section-header__subtitle">Lo último de cada cancha, actualizado partido a partido.</p>
         </div>
 
-        <div id="newsContainer">
-          <!-- Generado dinámicamente por js/news.js a partir de js/data.js -->
-        </div>
-
+        <div id="newsContainer"></div>
       </div>
     </section>
 
-    <!-- ==================== LO MEJOR DEL DÍA ==================== -->
+    <!-- LO MEJOR DEL DÍA -->
     <section class="section" id="momentos">
       <div class="container">
-        <div id="highlightContainer">
-          <!-- Generado dinámicamente por js/highlights.js a partir de js/data.js -->
-        </div>
+        <div id="highlightContainer"></div>
       </div>
     </section>
 
-    <!-- ==================== ESTADÍSTICAS ==================== -->
+    <!-- ESTADÍSTICAS -->
     <section class="section stats-section" id="estadisticas">
       <div class="container">
-
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Números del torneo</span>
           <h2 class="section-header__title">Estadísticas</h2>
@@ -398,53 +274,40 @@
           </div>
         </div>
 
-        <div id="statsContainer">
-          <!-- Generado dinámicamente por js/statistics.js a partir de js/data.js -->
-        </div>
-
+        <div id="statsContainer"></div>
       </div>
     </section>
 
-    <!-- ==================== ORGANIZACIÓN ==================== -->
+    <!-- ORGANIZACIÓN -->
     <section class="section organization-section" id="organizacion">
       <div class="container">
-
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Detrás del torneo</span>
           <h2 class="section-header__title">Padrinos</h2>
           <p class="section-header__subtitle">Los padrinos y madrinas que acompañan a cada selección.</p>
         </div>
 
-        <div id="organizationGrid">
-          <!-- Generado dinámicamente por js/organization.js a partir de js/data.js -->
-        </div>
-
+        <div id="organizationGrid"></div>
       </div>
     </section>
 
-    <!-- ==================== REGLAMENTO ==================== -->
+    <!-- REGLAMENTO -->
     <section class="section rules-section" id="reglamento">
       <div class="container">
-
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Antes de jugar</span>
           <h2 class="section-header__title">Reglamento</h2>
           <p class="section-header__subtitle">Todo lo que cada curso debe saber, en un solo lugar. Toca una tarjeta para ver el detalle.</p>
         </div>
 
-        <div class="rules-list" id="rulesList">
-          <!-- Generado dinámicamente por js/rules.js a partir de js/data.js -->
-        </div>
-
+        <div class="rules-list" id="rulesList"></div>
       </div>
     </section>
 
   </main>
 
-  <!-- ==================== FOOTER ==================== -->
   <footer class="footer reveal">
     <div class="container footer__inner">
-
       <div class="footer__brand">
         <svg class="footer__emblem" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <path d="M24 2 L44 10 V24 C44 36 36 44 24 46 C12 44 4 36 4 24 V10 Z" fill="url(#emblemGradient)"/>
@@ -464,7 +327,6 @@
       </nav>
 
       <p class="footer__copy">© 2026 Intercursos 2026 — El Mundial del Loperena. Todos los derechos reservados.</p>
-
     </div>
   </footer>
 
