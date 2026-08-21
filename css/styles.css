@@ -890,3 +890,25 @@ ul { list-style: none; }
 .footer__links a { font-size: 0.85rem; color: var(--text-secondary); transition: color var(--transition-fast); }
 .footer__links a:hover { color: var(--text-primary); }
 .footer__copy { width: 100%; text-align: center; margin-top: var(--space-lg); font-size: 0.75rem; color: var(--text-muted); }
+
+
+/* Forzar que la sección del calendario reciba los eventos del mouse */
+.calendar {
+  position: relative;
+  z-index: 10;
+}
+
+/* Asegurar que los contenedores de filtros estén activos */
+.calendar__filters,
+.filter-pill {
+  position: relative;
+  z-index: 11;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Evitar que el área decorativa del hero intercepte los clics fuera de su área */
+.hero__art,
+.hero__background {
+  pointer-events: none !important;
+}

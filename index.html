@@ -190,24 +190,28 @@
 
         <div class="calendar__filters reveal">
           <div class="filter-group" role="group" aria-label="Elegir categoría">
-            <button class="filter-pill is-active" type="button" data-categoria="infantil">Infantil</button>
-            <button class="filter-pill" type="button" data-categoria="prejuvenil">Prejuvenil</button>
-            <button class="filter-pill" type="button" data-categoria="juvenil">Juvenil</button>
+            <button class="filter-pill is-active" type="button" data-filtro-categoria="todas">Todas</button>
+            <button class="filter-pill" type="button" data-filtro-categoria="infantil">Infantil</button>
+            <button class="filter-pill" type="button" data-filtro-categoria="prejuvenil">Prejuvenil</button>
+            <button class="filter-pill" type="button" data-filtro-categoria="juvenil">Juvenil</button>
           </div>
 
           <div class="filter-group" role="group" aria-label="Elegir deporte">
-            <button class="filter-pill is-active" type="button" data-deporte="futbol">⚽ Fútbol</button>
-            <button class="filter-pill" type="button" data-deporte="baloncesto">🏀 Baloncesto</button>
-            <button class="filter-pill" type="button" data-deporte="voleibol">🏐 Voleibol</button>
+            <button class="filter-pill is-active" type="button" data-filtro-deporte="todos">Todos</button>
+            <button class="filter-pill" type="button" data-filtro-deporte="futbol">⚽ Fútbol</button>
+            <button class="filter-pill" type="button" data-filtro-deporte="baloncesto">🏀 Baloncesto</button>
+            <button class="filter-pill" type="button" data-filtro-deporte="voleibol">🏐 Voleibol</button>
           </div>
 
           <div class="filter-group" role="group" aria-label="Elegir género">
-            <button class="filter-pill is-active" type="button" data-genero="hombres">👨 Hombres</button>
-            <button class="filter-pill" type="button" data-genero="mujeres">👩 Mujeres</button>
+            <button class="filter-pill is-active" type="button" data-filtro-genero="todos">Todos</button>
+            <button class="filter-pill" type="button" data-filtro-genero="hombres">👨 Hombres</button>
+            <button class="filter-pill" type="button" data-filtro-genero="mujeres">👩 Mujeres</button>
           </div>
         </div>
 
-        <div id="calendarContainer" class="calendar__matches"></div>
+        <!-- AQUÍ RENDERIZA CALENDAR.JS -->
+        <div id="calendarioGrid" class="calendar__matches"></div>
       </div>
     </section>
 
@@ -344,3 +348,4 @@
   <script src="js/categories.js" defer></script>
 </body>
 </html>
+
