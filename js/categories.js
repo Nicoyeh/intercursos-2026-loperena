@@ -70,7 +70,6 @@ function crearBloqueCategoria(claveCategoria, categoria) {
     <div class="category-block__tabs" role="tablist" aria-label="Secciones de ${categoria.nombre}">
       <button class="tab-btn is-active" type="button" data-tab="calendario" role="tab" aria-selected="true">Calendario</button>
       <button class="tab-btn" type="button" data-tab="tabla" role="tab" aria-selected="false">Tabla</button>
-      <button class="tab-btn" type="button" data-tab="llaves" role="tab" aria-selected="false">Llaves</button>
       <button class="tab-btn" type="button" data-tab="galeria" role="tab" aria-selected="false">Galería</button>
       <button class="tab-btn" type="button" data-tab="estadisticas" role="tab" aria-selected="false">Estadísticas</button>
     </div>
