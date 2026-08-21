@@ -110,7 +110,7 @@ const TORNEO_DATA = {
     { id: 'p16', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'proximo' },
     { id: 'p17', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '6-02',  estado: 'proximo' },
     { id: 'p18', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'infantil',    genero: 'hombres', local: '7-01', visitante: '7-02', estado: 'proximo' },
-    { id: 'p19', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'mujeres', local: '8-02', visitante: '8-03', estado: 'proximo' },
+    { id: 'p19', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil',    genero: 'mujeres', local: '10-01', visitante: '10-03', estado: 'proximo' },
     { id: 'p20', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'mujeres', local: '9-02', visitante: '9-03', estado: 'proximo' },
     { id: 'p21', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil',    genero: 'hombres', local: '11-01', visitante: '10-01', estado: 'proximo' },
 
@@ -137,43 +137,130 @@ const TORNEO_DATA = {
   // Prejuvenil (6 equipos) y Juvenil (5 equipos), que no alcanzan a llenar
   // una llave pareja.
   llaves: {
-    infantil: {
-      rondas: ['Cuartos de Final', 'Semifinal', 'Final'],
+    
+  infantil: {
+
+    futbol: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
       partidos: [
-        { id: 'inf-cf-1', ronda: 0, local: '6-01', visitante: '6-02', marcadorLocal: 2,    marcadorVisitante: 1,    ganador: '6-01' },
-        { id: 'inf-cf-2', ronda: 0, local: '6-03', visitante: '6-04', marcadorLocal: 1,    marcadorVisitante: 3,    ganador: '6-04' },
-        { id: 'inf-cf-3', ronda: 0, local: '7-01', visitante: '7-02', marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'inf-cf-4', ronda: 0, local: '7-03', visitante: '7-04', marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'inf-sf-1', ronda: 1, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'inf-sf-2', ronda: 1, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'inf-f-1',  ronda: 2, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null }
+        // partidos de FÚTBOL INFANTIL
       ]
     },
-    prejuvenil: {
-      rondas: ['Cuartos de Final', 'Semifinal', 'Final'],
+
+    baloncesto: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
       partidos: [
-        { id: 'prej-cf-1', ronda: 0, local: '8-01', visitante: '8-02', marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'prej-cf-2', ronda: 0, local: '9-03', visitante: null,   descanso: true, marcadorLocal: null, marcadorVisitante: null, ganador: '9-03' },
-        { id: 'prej-cf-3', ronda: 0, local: '8-03', visitante: '9-01', marcadorLocal: 2, marcadorVisitante: 0, ganador: '8-03' },
-        { id: 'prej-cf-4', ronda: 0, local: '9-02', visitante: null,   descanso: true, marcadorLocal: null, marcadorVisitante: null, ganador: '9-02' },
-        { id: 'prej-sf-1', ronda: 1, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'prej-sf-2', ronda: 1, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'prej-f-1',  ronda: 2, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null }
+        // partidos de BALONCESTO INFANTIL
       ]
     },
-    juvenil: {
-      rondas: ['Cuartos de Final', 'Semifinal', 'Final'],
+
+    voleibol: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
       partidos: [
-        { id: 'juv-cf-1', ronda: 0, local: '11-01', visitante: '11-02', marcadorLocal: 3, marcadorVisitante: 2, ganador: '11-01' },
-        { id: 'juv-cf-2', ronda: 0, local: '10-01', visitante: null, descanso: true, marcadorLocal: null, marcadorVisitante: null, ganador: '10-01' },
-        { id: 'juv-cf-3', ronda: 0, local: '10-02', visitante: null, descanso: true, marcadorLocal: null, marcadorVisitante: null, ganador: '10-02' },
-        { id: 'juv-cf-4', ronda: 0, local: '10-03', visitante: null, descanso: true, marcadorLocal: null, marcadorVisitante: null, ganador: '10-03' },
-        { id: 'juv-sf-1', ronda: 1, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'juv-sf-2', ronda: 1, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null },
-        { id: 'juv-f-1',  ronda: 2, local: null, visitante: null, marcadorLocal: null, marcadorVisitante: null, ganador: null }
+        // partidos de VOLEIBOL INFANTIL
       ]
     }
+
   },
+
+
+  prejuvenil: {
+
+    futbol: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
+      partidos: [
+        // partidos de FÚTBOL PREJUVENIL
+      ]
+    },
+
+    baloncesto: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
+      partidos: [
+        // partidos de BALONCESTO PREJUVENIL
+      ]
+    },
+
+    voleibol: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
+      partidos: [
+        // partidos de VOLEIBOL PREJUVENIL
+      ]
+    }
+
+  },
+
+
+  juvenil: {
+
+    futbol: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
+      partidos: [
+        // partidos de FÚTBOL JUVENIL
+      ]
+    },
+
+    baloncesto: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
+      partidos: [
+        // partidos de BALONCESTO JUVENIL
+      ]
+    },
+
+    voleibol: {
+      rondas: [
+        'Cuartos de Final',
+        'Semifinal',
+        'Final'
+      ],
+
+      partidos: [
+        // partidos de VOLEIBOL JUVENIL
+      ]
+    }
+
+  }
+
+},
 
   // Galería de fotos por partido. Vacío por ahora — el torneo todavía no se
   // ha jugado, así que no hay fotos reales que mostrar. Mientras un partido
