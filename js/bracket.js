@@ -141,16 +141,11 @@ function actualizarBotones(selector, botonActivo) {
 /* ==========================================================================
    OBTENER LLAVE ACTUAL
    ========================================================================== */
-
 function obtenerLlaveActual() {
 
-  return (
-    TORNEO_DATA
-      .llaves
-      ?. [categoriaActual]
-      ?. [deporteActual]
-      ?. [generoActual]
-  );
+  const clave = `${categoriaActual}_${deporteActual}_${generoActual}`;
+
+  return TORNEO_DATA.llaves?.[clave];
 
 }
 
@@ -466,12 +461,11 @@ function renderizarLlaveHTML(
   claveGenero
 ) {
 
-  const llave =
-    TORNEO_DATA
-      .llaves
-      ?. [claveCategoria]
-      ?. [claveDeporte]
-      ?. [claveGenero];
+  const claveLlave =
+  `${claveCategoria}_${claveDeporte}_${claveGenero}`;
+
+const llave =
+  TORNEO_DATA.llaves?.[claveLlave];
 
 
   if (!llave) {
