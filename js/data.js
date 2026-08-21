@@ -55,7 +55,7 @@ const TORNEO_DATA = {
     '6-04': { pais: 'Francia',    bandera: 'assets/flags/france.svg',   categoria: 'infantil' },
     '7-01': { pais: 'Portugal',   bandera: 'assets/flags/portugal.svg', categoria: 'infantil' },
     '7-02': { pais: 'Colombia',   bandera: 'assets/flags/colombia.svg', categoria: 'infantil' },
-    '7-03': { pais: 'Bélgica',    bandera: 'assets/flags/belgium.svg',  categoria: 'infantil' },
+    '7-03': { pais: 'Estados Unidos',    bandera: 'assets/flags/estadosunidoss.svg',  categoria: 'infantil' },
     '7-04': { pais: 'Inglaterra', bandera: 'assets/flags/england.svg',  categoria: 'infantil' },
 
     // ---- Prejuvenil ----
