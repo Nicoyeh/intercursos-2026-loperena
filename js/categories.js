@@ -70,7 +70,6 @@ function crearBloqueCategoria(claveCategoria, categoria) {
     <div class="category-block__tabs" role="tablist" aria-label="Secciones de ${categoria.nombre}">
       <button class="tab-btn is-active" type="button" data-tab="calendario" role="tab" aria-selected="true">Calendario</button>
       <button class="tab-btn" type="button" data-tab="tabla" role="tab" aria-selected="false">Tabla</button>
-      <button class="tab-btn" type="button" data-tab="galeria" role="tab" aria-selected="false">Galería</button>
       <button class="tab-btn" type="button" data-tab="estadisticas" role="tab" aria-selected="false">Estadísticas</button>
     </div>
 
@@ -119,12 +118,7 @@ function renderizarPanel(claveCategoria, estadoLocal, panel) {
     panel.innerHTML = crearTablasPosiciones(claveCategoria, genero);
   } else if (tab === 'llaves' && typeof window.renderizarLlaveHTML === 'function') {
     panel.innerHTML = window.renderizarLlaveHTML(claveCategoria);
-  } else if (tab === 'galeria' && typeof window.renderizarGaleriaFiltradaHTML === 'function') {
-    panel.innerHTML = window.renderizarGaleriaFiltradaHTML(
-      (partido) => partido.categoria === claveCategoria && partido.genero === genero,
-      'Todavía no hay fotos de esta categoría.',
-      '📷'
-    );
+    
     if (typeof window.initCarruseles === 'function') window.initCarruseles(panel);
   } else {
     const texto = tab === 'estadisticas'
