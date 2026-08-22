@@ -567,28 +567,7 @@ ul { list-style: none; }
 .bracket__champion-icon { font-size: 2rem; }
 .bracket__champion-team { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; text-align: center; }
 
-/* ==========================================================================
-   GALERÍA (Fase 5)
-   ========================================================================== */
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
 
-.gallery-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-.gallery-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); }
-
-.gallery-card__header { padding: 1rem 1.15rem 1.15rem; display: flex; flex-direction: column; gap: 0.35rem; }
-.gallery-card__date { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: var(--sport-color); text-transform: uppercase; }
-.gallery-card__teams { font-family: var(--font-display); font-weight: 700; font-size: 1rem; display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
-.gallery-card__flag { width: 20px; height: 15px; }
-.gallery-card__score { font-variant-numeric: tabular-nums; color: var(--text-secondary); margin: 0 0.3rem; }
-.gallery-card__category { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
 /* -------------------- Carrusel (reutilizable) -------------------- */
 .carousel { position: relative; overflow: hidden; aspect-ratio: 4 / 3; background: var(--bg-secondary); touch-action: pan-y; }
