@@ -5,16 +5,26 @@
    ========================================================================== */
 
 function banderaHTML(equipoCodigo, clase = 'match-card__flag') {
-  if (!equipoCodigo) {
+  if (!equipoCodigo || !TORNEO_DATA || !TORNEO_DATA.equipos) {
     return `<span class="${clase} flag-placeholder"></span>`;
   }
 
-  // Si el equipo existe en TORNEO_DATA
-  if (TORNEO_DATA && TORNEO_DATA.equipos && TORNEO_DATA.equipos[equipoCodigo]) {
-    const equipo = TORNEO_DATA.equipos[equipoCodigo];
-    return `<img src="${equipo.bandera}" alt="${equipo.pais}" class="${clase}" loading="lazy">`;
+  // 1. Buscar coincidencia exacta (ej. "6-01")
+  let equipo = TORNEO_DATA.equipos[equipoCodigo];
+
+  // 2. Si no lo encuentra, limpiar el código por si tiene sufijos (ej. "6-01-F" -> "6-01")
+  if (!equipo) {
+    const codigoLimpio = equipoCodigo.split('-').slice(0, 2).join('-');
+    equipo = TORNEO_DATA.equipos[codigoLimpio];
   }
 
-  // Respaldo por si el código no está en la lista de equipos
-  return `<span class="${clase} flag-placeholder"></span>`;
+  // 3. Si sigue sin existir, retornar placeholder
+  if (!equipo) {
+    return `<span class="${clase} flag-placeholder"></span>`;
+  }
+
+  // Asegurar que la ruta no tenga barras extra al inicio
+  const rutaBandera = equipo.bandera.replace(/^(\.\/|\/)/, '');
+
+  return `<img src="${rutaBandera}" alt="${equipo.pais}" class="${clase}" loading="lazy">`;
 }
