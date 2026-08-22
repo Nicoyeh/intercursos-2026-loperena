@@ -926,3 +926,18 @@ img[src*="assets/flags/"] {
   vertical-align: middle;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
+/* Forzar tamaño visible a las banderas SVG */
+.match-card__flag,
+.match-row__flag,
+.flag-placeholder,
+img[src*="assets/flags/"] {
+  width: 28px !important;
+  height: 20px !important;
+  min-width: 28px !important;
+  min-height: 20px !important;
+  display: inline-block !important;
+  object-fit: cover !important;
+  border-radius: 3px !important;
+  vertical-align: middle !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
