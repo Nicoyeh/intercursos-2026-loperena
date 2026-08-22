@@ -776,20 +776,18 @@ ul { list-style: none; }
 .padrino-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-elevated); }
 
 .padrino-card__photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.padrino-card__photo img {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 2px solid var(--glass-border);
+  flex-shrink: 0;
 }
+.padrino-card__photo img { width: 100%; height: 100%; object-fit: cover; }
 .padrino-card__photo-icon { font-size: 2rem; opacity: 0.5; }
 
 .padrino-card__body { display: flex; flex-direction: column; gap: 0.3rem; }
@@ -798,28 +796,6 @@ ul { list-style: none; }
 .padrino-card__meta { font-size: 0.82rem; color: var(--text-secondary); }
 .padrino-card__flag { width: 18px; height: 13.5px; }
 
-.padrino-card__photos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.padrino-card__photos .padrino-card__photo {
-  width: 72px;
-  height: 72px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.padrino-card__photos .padrino-card__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 /* ==========================================================================
    REGLAMENTO (Fase 10)
    ========================================================================== */
@@ -890,54 +866,3 @@ ul { list-style: none; }
 .footer__links a { font-size: 0.85rem; color: var(--text-secondary); transition: color var(--transition-fast); }
 .footer__links a:hover { color: var(--text-primary); }
 .footer__copy { width: 100%; text-align: center; margin-top: var(--space-lg); font-size: 0.75rem; color: var(--text-muted); }
-
-
-/* Forzar que la sección del calendario reciba los eventos del mouse */
-.calendar {
-  position: relative;
-  z-index: 10;
-}
-
-/* Asegurar que los contenedores de filtros estén activos */
-.calendar__filters,
-.filter-pill {
-  position: relative;
-  z-index: 11;
-  pointer-events: auto !important;
-  cursor: pointer !important;
-}
-
-/* Evitar que el área decorativa del hero intercepte los clics fuera de su área */
-.hero__art,
-.hero__background {
-  pointer-events: none !important;
-}
-
-/* Forzar tamaño visible para todas las banderas SVG */
-.match-card__flag,
-.match-row__flag,
-.flag-placeholder,
-img[src*="assets/flags/"] {
-  width: 24px !important;
-  height: 16px !important;
-  object-fit: cover;
-  border-radius: 2px;
-  display: inline-block;
-  vertical-align: middle;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-/* Forzar tamaño visible a las banderas SVG */
-.match-card__flag,
-.match-row__flag,
-.flag-placeholder,
-img[src*="assets/flags/"] {
-  width: 28px !important;
-  height: 20px !important;
-  min-width: 28px !important;
-  min-height: 20px !important;
-  display: inline-block !important;
-  object-fit: cover !important;
-  border-radius: 3px !important;
-  vertical-align: middle !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
-}
