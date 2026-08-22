@@ -59,7 +59,6 @@ const TORNEO_DATA = {
     '7-04': { pais: 'Inglaterra', bandera: 'assets/flags/england.svg',  categoria: 'infantil' },
 
     // ---- Prejuvenil ----
-    '8-01': { pais: 'Portugal',   bandera: 'assets/flags/portugal.svg', categoria: 'prejuvenil' },
     '8-02': { pais: 'Brasil',     bandera: 'assets/flags/brazil.svg',   categoria: 'prejuvenil' },
     '8-03': { pais: 'Francia',    bandera: 'assets/flags/france.svg',   categoria: 'prejuvenil' },
     '9-01': { pais: 'Noruega',    bandera: 'assets/flags/norway.svg',   categoria: 'prejuvenil' },
@@ -122,7 +121,7 @@ const TORNEO_DATA = {
     { id: 'p27', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'infantil',    genero: 'hombres', local: '6-04', visitante: '6-01', estado: 'proximo' },
     { id: 'p28', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'hombres', local: '9-01', visitante: '9-03', estado: 'proximo' },
 
-    { id: 'p29', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'proximo', },
+  /*{ id: 'p29', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'proximo', },
     { id: 'p30', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'baloncesto', categoria: 'infantil',   genero: 'hombres', local: '7-01',  visitante: '7-02',  estado: 'proximo', },
     { id: 'p31', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-01',  visitante: '8-02',  estado: 'proximo', },
     { id: 'p32', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '10-02',  estado: 'proximo', },
@@ -146,7 +145,7 @@ const TORNEO_DATA = {
     { id: 'p47', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-02',  estado: 'proximo', },
     { id: 'p48', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Por confirmar', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-02',  visitante: '8-03',  estado: 'proximo', }
 
-
+*/
 
 
   ],
