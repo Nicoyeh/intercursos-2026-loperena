@@ -1447,7 +1447,9 @@ const TORNEO_DATA = {
         'Es obligatorio utilizar únicamente el uniforme correspondiente a la selección asignada.',
         'En caso tal de no contar con el uniforme, se deberá utilizar el uniforme de educación física.',
         'Las estudiantes deberán mantener el cabello recogido.',
-        'No se permite el uso de shorts ni faldas en las estudiantes.'
+        'No se permite el uso de shorts ni faldas en las estudiantes.',
+        'No se permite el uso de accesorios como cadenas, relojes, aretes grandes o cualquier objeto que pueda causar accidentes.'
+
       ]
     },
     {
@@ -1471,7 +1473,25 @@ const TORNEO_DATA = {
       puntos: [
         'Se espera respeto hacia rivales, compañeros, árbitros y público en todo momento.',
         'No se toleran insultos ni conductas antideportivas.',
+        'Quien incurra en faltas graves será expulsado del torneo y podrá generar la eliminación de su equipo.',
         'Más allá del resultado, el espíritu de INTERCURSOS 2026 es la sana competencia entre cursos.'
+      ]
+    },
+
+    {
+      id: 'reglamento-general', titulo: 'Reglamento general', icono: '📜',
+      puntos: [
+        'Cada curso debe inscribir a su equipo en la fecha establecida y entregar la planilla con nombres completos.',
+        'Cada equipo debe presentarse a tiempo (5 minutos antes), de lo contrario perderá el encuentro por inasistencia.',
+        'Al plantel educativo solo se permite el ingreso de los estudiantes al momento de los juegos, queda totalmente prohibido la entrada de personas externas a estudiantes y  profesores del colegio.'
+
+      ]
+    },
+
+    {id: 'hinchas-y-barras', titulo: 'Hinchas y barras', icono: '👥',
+      puntos: [
+        'Las barras deben alentar con respeto, evitando insultos, groserías o comportamientos agresivos.',
+        'No se permite el uso de objetos que puedan causar daño, interrumpir el desarrollo del partido o perturbar la integridad de los jugadores y espectadores.',
       ]
     }
   ]
