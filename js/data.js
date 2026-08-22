@@ -1319,14 +1319,7 @@ const TORNEO_DATA = {
   // archivos a assets/images/ y agrega una entrada así, usando el mismo id
   // del partido en "partidos":
   //
-  // galeria: {
-  //   'p01': { fotos: [
-  //     { tipo: 'foto', src: 'assets/images/p01-1.jpg', alt: '6-01 celebra el primer gol' },
-  //     { tipo: 'foto', src: 'assets/images/p01-2.jpg', alt: 'Jugada en el mediocampo' }
-  //   ] }
-  // }
-  galeria: {},
-
+ 
   // ⚠️ INTERRUPTOR DE NOTICIAS ⚠️
   // Mientras esto esté en false, la sección "Noticias" de la página NO
   // muestra las noticias de ejemplo de más abajo — en su lugar aparece el
