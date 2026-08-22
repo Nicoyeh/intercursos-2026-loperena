@@ -866,3 +866,24 @@ ul { list-style: none; }
 .footer__links a { font-size: 0.85rem; color: var(--text-secondary); transition: color var(--transition-fast); }
 .footer__links a:hover { color: var(--text-primary); }
 .footer__copy { width: 100%; text-align: center; margin-top: var(--space-lg); font-size: 0.75rem; color: var(--text-muted); }
+
+/* Poner las fotos de los padrinos una al lado de la otra */
+.padrino-card__avatars,
+.padrino-card__photos,
+.padrino-avatars {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important; /* Espacio entre las dos fotos */
+}
+
+/* Ajustar el tamaño para que no se salgan de la tarjeta */
+.padrino-card__avatars img,
+.padrino-card__photos img,
+.padrino-avatars img {
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
