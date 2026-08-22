@@ -912,3 +912,17 @@ ul { list-style: none; }
 .hero__background {
   pointer-events: none !important;
 }
+
+/* Forzar tamaño visible para todas las banderas SVG */
+.match-card__flag,
+.match-row__flag,
+.flag-placeholder,
+img[src*="assets/flags/"] {
+  width: 24px !important;
+  height: 16px !important;
+  object-fit: cover;
+  border-radius: 2px;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
