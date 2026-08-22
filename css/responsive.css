@@ -83,3 +83,30 @@
   .hero__badge-label { font-size: 0.68rem; letter-spacing: 0.1em; }
   .hero__badge-dates { font-size: 0.68rem; }
 }
+/* ==========================================================================
+   PARCHE DE REPARACIÓN MÓVIL (Padrinos, Calendario y Categorías)
+   ========================================================================== */
+@media (max-width: 640px) {
+  /* Fija el tamaño de las fotos para que no desaparezcan al cargar */
+  .padrino-card__photo,
+  .padrino-card__photos .padrino-card__photo {
+    width: 72px !important;
+    height: 72px !important;
+    min-width: 72px;
+    min-height: 72px;
+  }
+
+  /* Fuerza a los contenedores a mantenerse visibles aunque el JS tarde */
+  .calendar__grid, 
+  .category-list, 
+  .organization-grid {
+    display: grid !important;
+    width: 100% !important;
+    min-height: 150px;
+  }
+
+  /* Evita que los textos largos rompan la tabla de partidos */
+  .match-row {
+    overflow-x: auto;
+  }
+}
