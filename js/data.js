@@ -1313,69 +1313,7 @@ const TORNEO_DATA = {
 
   },
 
-  // Galería de fotos por partido. Vacío por ahora — el torneo todavía no se
-  // ha jugado, así que no hay fotos reales que mostrar. Mientras un partido
-  // no tenga entrada aquí, su carrusel muestra "foto pendiente de subir"
-  // automáticamente (ver js/gallery.js). Para agregar fotos reales: sube los
-  // archivos a assets/images/ y agrega una entrada así, usando el mismo id
-  // del partido en "partidos":
-  //
- 
-  // ⚠️ INTERRUPTOR DE NOTICIAS ⚠️
-  // Mientras esto esté en false, la sección "Noticias" de la página NO
-  // muestra las noticias de ejemplo de más abajo — en su lugar aparece el
-  // mensaje "Todavía no hay noticias publicadas.", ya integrado al diseño
-  // actual (no queda ninguna tarjeta vacía). El arreglo "noticias" sigue
-  // intacto en el código, listo para reutilizarse como plantilla.
-  //
-  // Cuando tengas noticias reales para publicar: reemplaza (o agrega a)
-  // el arreglo "noticias" de abajo y cambia esta línea a:
-  //   mostrarNoticias: true,
-  mostrarNoticias: false,
-
-  // ⚠️ DATOS DE EJEMPLO / DEMO — titulares y resultados INVENTADOS, solo
-  // para mostrar cómo se ve la sección de Noticias (destacada + cuadrícula,
-  // ver js/news.js). No se publican mientras "mostrarNoticias" esté en
-  // false. Para publicar una noticia real, agrega un objeto a este mismo
-  // arreglo (puedes conservar o borrar los de ejemplo).
-  noticias: [
-    {
-      id: 'n01',
-      titular: '11-01 se venga en la llave y elimina a 11-02',
-      resumen: 'En la fase de grupos había caído 4-2 frente a 11-02, pero en los Cuartos de Final de la llave de Juvenil, 11-01 dio vuelta la historia con un contundente 3-2 y avanza a semifinal.',
-      fecha: '2026-08-21', fechaTexto: '21 de agosto', categoria: 'juvenil', deporte: 'futbol', destacada: true
-    },
-    {
-      id: 'n02',
-      titular: '6-01 arranca goleando 3-1 en la fase de grupos',
-      resumen: 'Buen inicio de torneo para 6-01, que se impuso 3-1 sobre 6-02 en la primera fecha de Infantil y toma ventaja en la tabla de posiciones.',
-      fecha: '2026-08-21', fechaTexto: '21 de agosto', categoria: 'infantil', deporte: 'futbol'
-    },
-    {
-      id: 'n03',
-      titular: '8-03 golea 2-0 y avanza en la llave de Prejuvenil',
-      resumen: '8-03 no dio ventajas frente a 9-01 y se quedó con un cómodo 2-0 en Cuartos de Final, asegurando su cupo en semifinal.',
-      fecha: '2026-08-21', fechaTexto: '21 de agosto', categoria: 'prejuvenil', deporte: 'futbol'
-    },
-    {
-      id: 'n04',
-      titular: '9-02 y 9-03 esperan en semifinal tras un pase directo',
-      resumen: 'Con seis equipos en Prejuvenil, la llave no cerraba pareja: 9-02 y 9-03 avanzaron directo a semifinal sin jugar, mientras el resto de la categoría se define en la cancha.',
-      fecha: '2026-08-21', fechaTexto: '21 de agosto', categoria: 'prejuvenil', deporte: 'futbol'
-    },
-    {
-      id: 'n05',
-      titular: '6-03 y 6-04 no se sacaron ventaja: empate 2-2',
-      resumen: 'Partido parejo entre 6-03 y 6-04, que se repartieron los puntos con un 2-2 que deja abierta la pelea por el primer lugar de su grupo.',
-      fecha: '2026-08-21', fechaTexto: '21 de agosto', categoria: 'infantil', deporte: 'futbol'
-    },
-    {
-      id: 'n06',
-      titular: '7-01 y 7-02 firman tablas sin goles',
-      resumen: 'Sin goles para ninguno de los dos lados, 7-01 y 7-02 se repartieron un punto en un partido de pocas ocasiones claras.',
-      fecha: '2026-08-22', fechaTexto: '22 de agosto', categoria: 'infantil', deporte: 'futbol'
-    }
-  ],
+  
 
   // Estadísticas individuales (MVP, goleadores, mejor arquero, máximos
   // anotadores). Vacío por ahora — esto requiere que alguien registre estos
