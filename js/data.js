@@ -167,15 +167,36 @@ const TORNEO_DATA = {
   // no están aquí — esas se calculan solas desde "partidos" en
   // js/statistics.js. Formato una vez que haya datos individuales reales:
   //
-  futbol: {
-    mvp: { nombre: 'Manuel Pallares', equipo: '11-02' }
-    // goleadores: [ { nombre: 'Nombre', equipo: '6-01', goles: 5 } ],
-    // mejorArquero: { nombre: 'Nombre', equipo: '7-02' }
-  },
+  // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
-    futbol: { mvp: { nombre: 'Angel Camargo', equipo: '6-01' }, goleadores: [ { nombre: 'Angel Camargo', equipo: '6-01', goles: 5 }, { nombre: 'Hellen Quintero', equipo: '7-01', goles: 3 }, { nombre: 'Manuel Pallares', equipo: '11-02', goles: 3}, { nombre: 'Sebastian Conrado', equipo: '6-04', goles: 2 }, { nombre: 'Isabela Rodriguez', equipo: '7-01', goles: 2 } ], mejorArquero: { nombre: 'Duvan Riccioly', equipo: '10-02' } },
-    baloncesto: { mvp: { nombre: 'Angelis Pacheco', equipo: '9-02', canastas: 6 }, maximosAnotadores: [ { nombre: 'Angelis Pacheco', equipo: '9-02', canastas: 6 }, { nombre: 'Hellen Quintero', equipo: '7-01', canastas: 2}, { nombre: 'Oriana Rosado', equipo: '7-02', canastas: 2 }, { nombre: 'Maira Barros', equipo: '6-03', canastas: 2 }, { nombre: 'Felipe Zúñiga', equipo: '10-02', canastas: 2 }, { nombre: 'Duvan Riccioly', equipo: '10-02', canastas: 2 }, { nombre: 'Yesbeli Guzmán', equipo: '8-02', canastas: 2 }, { nombre: 'Azana Gomez', equipo: '8-03', canastas: 2 } ] },
-    voleibol: { mvp: null, maximosAnotadores: [] }
+    futbol: {
+      mvp: { nombre: 'Angel Camargo', equipo: '6-01' },
+      goleadores: [
+        { nombre: 'Angel Camargo', equipo: '6-01', goles: 5 },
+        { nombre: 'Hellen Quintero', equipo: '7-01', goles: 3 },
+        { nombre: 'Manuel Pallares', equipo: '11-02', goles: 3 },
+        { nombre: 'Sebastian Conrado', equipo: '6-04', goles: 2 },
+        { nombre: 'Isabela Rodriguez', equipo: '7-01', goles: 2 }
+      ],
+      mejorArquero: { nombre: 'Duvan Riccioly', equipo: '10-02' }
+    },
+    baloncesto: {
+      mvp: { nombre: 'Angelis Pacheco', equipo: '9-02', canastas: 6 },
+      maximosAnotadores: [
+        { nombre: 'Angelis Pacheco', equipo: '9-02', canastas: 6 },
+        { nombre: 'Hellen Quintero', equipo: '7-01', canastas: 2 },
+        { nombre: 'Oriana Rosado', equipo: '7-02', canastas: 2 },
+        { nombre: 'Maira Barros', equipo: '6-03', canastas: 2 },
+        { nombre: 'Felipe Zúñiga', equipo: '10-02', canastas: 2 },
+        { nombre: 'Duvan Riccioly', equipo: '10-02', canastas: 2 },
+        { nombre: 'Yesbeli Guzmán', equipo: '8-02', canastas: 2 },
+        { nombre: 'Azana Gomez', equipo: '8-03', canastas: 2 }
+      ]
+    },
+    voleibol: {
+      mvp: null,
+      maximosAnotadores: []
+    }
   },
 
   // Organización: padrinos y madrinas del torneo. Vacío por ahora — todavía
