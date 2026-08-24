@@ -168,7 +168,7 @@ const TORNEO_DATA = {
   // js/statistics.js. Formato una vez que haya datos individuales reales:
   //
   // Si tu script consume directamente el objeto de estadísticas individuales:
-  estadisticasIndividuales: {
+  estadisticasindividuales: {
     futbol: {
       mvp: { nombre: 'Angel Camargo', equipo: '6-01' },
       goleadores: [
