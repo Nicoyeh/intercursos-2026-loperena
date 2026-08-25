@@ -60,7 +60,8 @@ function crearEstadisticasHTML(claveDeporte) {
   const lideres = calcularLideresEquipo(claveDeporte, config.empates);
   const tarjetasEquipo = crearTarjetasLideresHTML(lideres, config.empates);
 
-  return `<div class="stats-grid">${tarjetasIndividuales}${tarjetasEquipo}</div>`;
+  // Se añade style para alinear al inicio (align-items: start)
+  return `<div class="stats-grid" style="align-items: start; height: auto;">${tarjetasIndividuales}${tarjetasEquipo}</div>`;
 }
 
 function crearTarjetaIndividualHTML(clave, valor) {
@@ -115,8 +116,8 @@ function crearTarjetaIndividualHTML(clave, valor) {
     `;
   }
 
-  return `
-    <div class="stat-card reveal">
+   return `
+    <div class="stat-card reveal" style="height: auto; justify-content: flex-start; gap: 12px;">
       <div class="stat-card__header">
         <span class="stat-card__icon" aria-hidden="true">${etiqueta.icono}</span>
         <span class="stat-card__title">${etiqueta.titulo}</span>
@@ -124,6 +125,8 @@ function crearTarjetaIndividualHTML(clave, valor) {
       ${contenidoHTML}
     </div>
   `;
+
+ 
 }
 /** Calcula, para un deporte, qué equipo lidera en partidos jugados, victorias, empates y derrotas. */
 function calcularLideresEquipo(claveDeporte, incluirEmpates) {
@@ -175,13 +178,13 @@ function crearTarjetasLideresHTML(lideres, incluirEmpates) {
   return tarjetas.map((t) => {
     const equipo = lideres[t.clave];
     return `
-      <div class="stat-card reveal">
+      <div class="stat-card reveal" style="height: auto; justify-content: flex-start; gap: 12px;">
         <div class="stat-card__header">
           <span class="stat-card__icon" aria-hidden="true">${t.icono}</span>
           <span class="stat-card__title">${t.titulo}</span>
         </div>
         ${equipo
-          ? `<div class="stat-card__leader">
+          ? `<div class="stat-card__leader" style="margin-top: 8px;">
               ${banderaHTML(TORNEO_DATA.equipos[equipo.codigo], 'stat-card__leader-flag')}
               <span class="stat-card__leader-code">${equipo.codigo}</span>
               <span class="stat-card__leader-value">${equipo[t.campo]} ${t.sufijo}</span>
