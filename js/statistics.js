@@ -72,39 +72,45 @@ function crearTarjetaIndividualHTML(clave, valor) {
   if (listaVacia) {
     contenidoHTML = '<p class="stat-card__pending">Se cargará cuando la organización registre este dato.</p>';
   } else if (Array.isArray(valor)) {
-    // Genera listas para goleadores y máximos anotadores
+    // Lista de goleadores / anotadores
     const items = valor.map((item) => {
       const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
       const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__flag') : '';
       const metrica = item.goles !== undefined ? `${item.goles} goles` : `${item.canastas} canastas`;
 
       return `
-        <li class="stat-card__item" style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
-          <div style="display:flex; align-items:center; gap:8px;">
-            ${bandera}
-            <strong>${item.nombre}</strong>
-            <span style="opacity:0.75; font-size:0.9em;">(${item.equipo})</span>
+        <li style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+          <div style="display: flex; align-items: center; gap: 8px; overflow: hidden;">
+            <div style="width: 24px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 2px;">
+              ${bandera}
+            </div>
+            <div style="display: flex; flex-direction: column; min-width: 0;">
+              <span style="font-weight: 600; font-size: 0.88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.nombre}</span>
+              <span style="font-size: 0.75rem; opacity: 0.6;">${item.equipo}</span>
+            </div>
           </div>
-          <span class="stat-card__leader-value">${metrica}</span>
+          <span style="font-weight: 700; font-size: 0.85rem; color: #f39c12; flex-shrink: 0;">${metrica}</span>
         </li>
       `;
     }).join('');
 
-    contenidoHTML = `<ul class="stat-card__list" style="list-style:none; padding:0; margin:0;">${items}</ul>`;
+    contenidoHTML = `<ul style="list-style: none; padding: 0; margin: 12px 0 0 0;">${items}</ul>`;
   } else {
-    // Genera la tarjeta para MVP o Mejor Arquero
+    // MVP o Mejor Arquero (Objeto único)
     const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[valor.equipo] : null;
     const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__leader-flag') : '';
-    const extra = valor.canastas ? `<span class="stat-card__leader-value">${valor.canastas} canastas</span>` : '';
+    const extra = valor.canastas ? `<span style="font-weight: 700; font-size: 0.85rem; color: #f39c12;">${valor.canastas} canastas</span>` : '';
 
     contenidoHTML = `
-      <div class="stat-card__leader" style="display:flex; align-items:center; gap:10px;">
-        ${bandera}
-        <div>
-          <strong class="stat-card__leader-code" style="display:block;">${valor.nombre}</strong>
-          <span style="opacity:0.8; font-size:0.85em;">${valor.equipo}</span>
+      <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
+        <div style="width: 32px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 3px;">
+          ${bandera}
         </div>
-        ${extra}
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-weight: 700; font-size: 1rem;">${valor.nombre}</span>
+          <span style="font-size: 0.8rem; opacity: 0.7;">Grado ${valor.equipo}</span>
+          ${extra}
+        </div>
       </div>
     `;
   }
