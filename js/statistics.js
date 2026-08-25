@@ -67,17 +67,58 @@ function crearTarjetaIndividualHTML(clave, valor) {
   const etiqueta = ETIQUETAS_INDIVIDUALES[clave];
   const listaVacia = Array.isArray(valor) ? valor.length === 0 : !valor;
 
+  let contenidoHTML = '';
+
+  if (listaVacia) {
+    contenidoHTML = '<p class="stat-card__pending">Se cargará cuando la organización registre este dato.</p>';
+  } else if (Array.isArray(valor)) {
+    // Genera listas para goleadores y máximos anotadores
+    const items = valor.map((item) => {
+      const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
+      const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__flag') : '';
+      const metrica = item.goles !== undefined ? `${item.goles} goles` : `${item.canastas} canastas`;
+
+      return `
+        <li class="stat-card__item" style="display:flex; align-items:center; justify-content:space-between; margin-top:8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            ${bandera}
+            <strong>${item.nombre}</strong>
+            <span style="opacity:0.75; font-size:0.9em;">(${item.equipo})</span>
+          </div>
+          <span class="stat-card__leader-value">${metrica}</span>
+        </li>
+      `;
+    }).join('');
+
+    contenidoHTML = `<ul class="stat-card__list" style="list-style:none; padding:0; margin:0;">${items}</ul>`;
+  } else {
+    // Genera la tarjeta para MVP o Mejor Arquero
+    const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[valor.equipo] : null;
+    const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__leader-flag') : '';
+    const extra = valor.canastas ? `<span class="stat-card__leader-value">${valor.canastas} canastas</span>` : '';
+
+    contenidoHTML = `
+      <div class="stat-card__leader" style="display:flex; align-items:center; gap:10px;">
+        ${bandera}
+        <div>
+          <strong class="stat-card__leader-code" style="display:block;">${valor.nombre}</strong>
+          <span style="opacity:0.8; font-size:0.85em;">${valor.equipo}</span>
+        </div>
+        ${extra}
+      </div>
+    `;
+  }
+
   return `
     <div class="stat-card reveal">
       <div class="stat-card__header">
         <span class="stat-card__icon" aria-hidden="true">${etiqueta.icono}</span>
         <span class="stat-card__title">${etiqueta.titulo}</span>
       </div>
-      ${listaVacia ? '<p class="stat-card__pending">Se cargará cuando la organización registre este dato.</p>' : ''}
+      ${contenidoHTML}
     </div>
   `;
 }
-
 /** Calcula, para un deporte, qué equipo lidera en partidos jugados, victorias, empates y derrotas. */
 function calcularLideresEquipo(claveDeporte, incluirEmpates) {
   const stats = {};
