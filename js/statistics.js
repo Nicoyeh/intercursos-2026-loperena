@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const CONFIG_DEPORTE_STATS = {
   futbol:     { statsIndividuales: ['mvp', 'goleadores', 'mejorArquero'], empates: true },
   baloncesto: { statsIndividuales: ['mvp', 'maximosAnotadores'], empates: false },
-  voleibol:   { statsIndividuales: ['mvp', 'maximosAnotadores'], empates: false }
+  voleibol:   { statsIndividuales: ['mvp'], empates: false }
 };
 
 const ETIQUETAS_INDIVIDUALES = {

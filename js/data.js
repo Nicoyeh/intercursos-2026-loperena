@@ -195,8 +195,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: null,
-      maximosAnotadores: []
+      mvp: { nombre: 'Faby Márquez', equipo: '9-01' }
     }
   },
 
@@ -302,4 +301,4 @@ const TORNEO_DATA = {
       ]
     }
   ]
-};
+}
