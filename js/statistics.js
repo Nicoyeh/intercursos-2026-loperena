@@ -81,16 +81,16 @@ function crearTarjetaIndividualHTML(clave, valor) {
 
       return `
         <li style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-          <div style="display: flex; align-items: center; gap: 8px; overflow: hidden;">
+          <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
             <div style="width: 24px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 2px;">
               ${bandera}
             </div>
-            <div style="display: flex; flex-direction: column; min-width: 0;">
-              <span style="font-weight: 600; font-size: 0.88rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.nombre}</span>
-              <span style="font-size: 0.75rem; opacity: 0.6;">${item.equipo}</span>
+            <div style="display: flex; flex-direction: column; flex: 1; min-width: 0;">
+              <span style="font-weight: 600; font-size: 0.82rem; line-height: 1.2; word-break: break-word;">${item.nombre}</span>
+              <span style="font-size: 0.72rem; opacity: 0.6;">${item.equipo}</span>
             </div>
           </div>
-          <span style="font-weight: 700; font-size: 0.85rem; color: #f39c12; flex-shrink: 0;">${metrica}</span>
+          <span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${metrica}</span>
         </li>
       `;
     }).join('');
