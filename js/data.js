@@ -171,9 +171,9 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: { nombre: 'Angel Camargo', equipo: '6-01' },
+      mvp: { nombre: 'Angel Camargo', equipo: '6-02' },
       goleadores: [
-        { nombre: 'Angel Camargo', equipo: '6-01', goles: 5 },
+        { nombre: 'Angel Camargo', equipo: '6-02', goles: 5 },
         { nombre: 'Hellen Quintero', equipo: '7-01', goles: 3 },
         { nombre: 'Manuel Pallares', equipo: '11-02', goles: 3 },
         { nombre: 'Sebastian Conrado', equipo: '6-04', goles: 2 },
