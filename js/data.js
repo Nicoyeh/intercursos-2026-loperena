@@ -129,15 +129,15 @@ const TORNEO_DATA = {
     { id: 'p31', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2, sets: [{local: 3, visitante: 15}, {local: 9, visitante: 15 }]},
     { id: 'p32', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1, sets: [{local: 15, visitante: 13}, {local: 11, visitante: 15}, {local: 5, visitante: 4}]},
 
-    { id: 'p33', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'hombres', local: '8-02',  visitante: '8-03',  estado: 'proximo', },
-    { id: 'p34', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'proximo', },
-    { id: 'p35', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-04',  estado: 'proximo', },
-    { id: 'p36', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'mujeres', local: '10-02',  visitante: '10-03',  estado: 'proximo' },
+    { id: 'p33', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'hombres', local: '8-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p34', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p35', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p36', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'mujeres', local: '10-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
 
-    { id: 'p37', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-02',  visitante: '9-03',  estado: 'proximo', },
-    { id: 'p38', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'hombres', local: '8-02',  visitante: '9-01',  estado: 'proximo', },
-    { id: 'p39', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '6-03',  visitante: '6-04',  estado: 'proximo', },
-    { id: 'p40', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-03',  estado: 'proximo', },
+    { id: 'p37', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 5 },
+    { id: 'p38', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'hombres', local: '8-02',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 8 },
+    { id: 'p39', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '6-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p40', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
 
     { id: 'p41', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-04',  estado: 'proximo', },
     { id: 'p42', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-03',  visitante: '9-01',  estado: 'proximo', },
