@@ -73,11 +73,20 @@ function crearTarjetaIndividualHTML(clave, valor) {
   if (listaVacia) {
     contenidoHTML = '<p class="stat-card__pending">Se cargará cuando la organización registre este dato.</p>';
   } else if (Array.isArray(valor)) {
-    // Lista de goleadores / anotadores
+    // Lista de MVP, goleadores o anotadores
     const items = valor.map((item) => {
       const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
       const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__flag') : '';
-      const metrica = item.goles !== undefined ? `${item.goles} goles` : `${item.canastas} canastas`;
+      
+      // Mostrar métrica únicamente si no es MVP y tiene goles o canastas definidos
+      let metricaHTML = '';
+      if (clave !== 'mvp') {
+        if (item.goles !== undefined) {
+          metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.goles} goles</span>`;
+        } else if (item.canastas !== undefined) {
+          metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.canastas} canastas</span>`;
+        }
+      }
 
       return `
         <li style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
@@ -90,7 +99,7 @@ function crearTarjetaIndividualHTML(clave, valor) {
               <span style="font-size: 0.72rem; opacity: 0.6;">${item.equipo}</span>
             </div>
           </div>
-          <span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${metrica}</span>
+          ${metricaHTML}
         </li>
       `;
     }).join('');
@@ -100,7 +109,6 @@ function crearTarjetaIndividualHTML(clave, valor) {
     // MVP o Mejor Arquero (Objeto único)
     const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[valor.equipo] : null;
     const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__leader-flag') : '';
-    const extra = valor.canastas ? `<span style="font-weight: 700; font-size: 0.85rem; color: #f39c12;">${valor.canastas} canastas</span>` : '';
 
     contenidoHTML = `
       <div style="display: flex; align-items: center; gap: 12px; margin-top: 16px;">
@@ -110,13 +118,12 @@ function crearTarjetaIndividualHTML(clave, valor) {
         <div style="display: flex; flex-direction: column;">
           <span style="font-weight: 700; font-size: 1rem;">${valor.nombre}</span>
           <span style="font-size: 0.8rem; opacity: 0.7;">Grado ${valor.equipo}</span>
-          ${extra}
         </div>
       </div>
     `;
   }
 
-   return `
+  return `
     <div class="stat-card reveal" style="height: auto; justify-content: flex-start; gap: 12px;">
       <div class="stat-card__header">
         <span class="stat-card__icon" aria-hidden="true">${etiqueta.icono}</span>
@@ -125,9 +132,8 @@ function crearTarjetaIndividualHTML(clave, valor) {
       ${contenidoHTML}
     </div>
   `;
-
- 
 }
+
 /** Calcula, para un deporte, qué equipo lidera en partidos jugados, victorias, empates y derrotas. */
 function calcularLideresEquipo(claveDeporte, incluirEmpates) {
   const stats = {};
