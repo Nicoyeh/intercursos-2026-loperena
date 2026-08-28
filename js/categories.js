@@ -2,22 +2,18 @@
 
 /* ==========================================================================
    INTERCURSOS 2026 — categories.js
-   Genera los tres bloques de categoría a partir de TORNEO_DATA (data.js) y
-   controla sus pestañas internas: Calendario, Tabla, Llaves, Galería,
-   Estadísticas. Las dos primeras ya funcionan con los datos reales; las
-   otras tres muestran en qué fase estarán disponibles.
+   Genera los bloques de categoría a partir de TORNEO_DATA (data.js) y
+   controla sus pestañas internas: Calendario y Tabla.
 
    Cada bloque también tiene un selector Hombres/Mujeres (mismo estilo que
-   los filtros de Calendario) que se aplica a las pestañas Calendario,
-   Tabla y Galería — así "cada deporte" queda dividido por género dentro
+   los filtros de Calendario) que se aplica a las pestañas Calendario
+   y Tabla — así "cada deporte" queda dividido por género dentro
    de cada categoría, sin duplicar toda la interfaz.
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initCategorias();
 });
-
-const TEXTO_PROXIMA_FASE_ESTADISTICAS = 'Las estadísticas se muestran por deporte, no por categoría — consulta la sección "Estadísticas" más abajo.';
 
 function initCategorias() {
   const contenedor = document.getElementById('categoryList');
@@ -70,7 +66,6 @@ function crearBloqueCategoria(claveCategoria, categoria) {
     <div class="category-block__tabs" role="tablist" aria-label="Secciones de ${categoria.nombre}">
       <button class="tab-btn is-active" type="button" data-tab="calendario" role="tab" aria-selected="true">Calendario</button>
       <button class="tab-btn" type="button" data-tab="tabla" role="tab" aria-selected="false">Tabla</button>
-      <button class="tab-btn" type="button" data-tab="estadisticas" role="tab" aria-selected="false">Estadísticas</button>
     </div>
 
     <div class="category-block__panel" data-panel role="tabpanel"></div>
@@ -121,13 +116,9 @@ function renderizarPanel(claveCategoria, estadoLocal, panel) {
     
     if (typeof window.initCarruseles === 'function') window.initCarruseles(panel);
   } else {
-    const texto = tab === 'estadisticas'
-      ? TEXTO_PROXIMA_FASE_ESTADISTICAS
-      : 'No se pudo cargar esta pestaña.';
     panel.innerHTML = `
       <div class="panel-placeholder panel-content">
-        <div class="panel-placeholder__icon">🏆</div>
-        <p class="panel-placeholder__text">${texto}</p>
+        <p class="panel-placeholder__text">No se pudo cargar esta pestaña.</p>
       </div>
     `;
   }
