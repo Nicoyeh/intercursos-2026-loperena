@@ -132,7 +132,7 @@ const TORNEO_DATA = {
     { id: 'p33', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'hombres', local: '8-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     { id: 'p34', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     { id: 'p35', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    { id: 'p36', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'mujeres', local: '10-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p36', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'mujeres', local: '10-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     { id: 'p37', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 5 },
     { id: 'p38', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'hombres', local: '8-02',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 8 },
