@@ -188,7 +188,7 @@ const TORNEO_DATA = {
 
 
       ],
-      mejorArquero: { nombre: null }
+      mejorArquero: null
     },
     baloncesto: {
       mvp: [{ nombre: 'Luis Linares', equipo: '7-02'}, { nombre: 'Taliana Galindo', equipo: '6-01'}, { nombre: 'Alfonso García', equipo: '9-01'}, { nombre: 'Sara Olivares', equipo: '8-03'}],
