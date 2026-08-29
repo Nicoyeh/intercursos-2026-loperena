@@ -204,7 +204,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{ nombre: 'Ivanna Fajardo', equipo: '6-02' }, { nombre: 'Luisfer Barraza', equipo: '8-02'}, { nombre: 'Jhondaylis Briceño', equipo: '9-03'}, { nombre: 'Cristian Criales', equipo: '6-04'}],
+      mvp: [{ nombre: 'Ivanna Fajardo', equipo: '6-02' }, { nombre: 'Luisfer Barraza', equipo: '8-02'}, { nombre: 'Jhondaylis Briceño', equipo: '9-03'}, { nombre: 'Cristian Criales', equipo: '6-04'}, { nombre: 'Nicole Rumie', equipo: '10-03'}],
 
       goleadores: [
         { nombre: 'Shaylen Salas', equipo: '6-02', goles: 1 },
@@ -218,13 +218,15 @@ const TORNEO_DATA = {
         { nombre: 'Cristian Criales', equipo: '6-04', goles: 2},
         { nombre: 'Brandon Lascarro', equipo: '6-04', goles: 1},
         { nombre: 'Juan Escudero', equipo: '6-04', goles: 1},
+        { nombre: 'Nicole Rumie', equipo: '10-03', goles: 1},
+        { nombre: 'Maria José Díaz', equipo: '10-01', goles: 1},
 
 
       ],
       mejorArquero: null
     },
     baloncesto: {
-      mvp: [{ nombre: 'Luis Linares', equipo: '7-02'}, { nombre: 'Taliana Galindo', equipo: '6-01'}, { nombre: 'Alfonso García', equipo: '9-01'}, { nombre: 'Sara Olivares', equipo: '8-03'}],
+      mvp: [{ nombre: 'Luis Linares', equipo: '7-02'}, { nombre: 'Taliana Galindo', equipo: '6-01'}, { nombre: 'Alfonso García', equipo: '9-01'}, { nombre: 'Sara Olivares', equipo: '8-03'}, { nombre: 'Juan de Dios Escudero', equipo: '6-04'} ],
       maximosAnotadores: [
         { nombre: 'Luis Linares', equipo: '7-02', canastas: 1 },
         { nombre: 'Juan Buelvas', equipo: '7-02', canastas: 1 },
@@ -238,13 +240,14 @@ const TORNEO_DATA = {
         { nombre: 'Talia Ramos', equipo: '8-03', canastas: 1 },
         { nombre: 'Valery Mendoza', equipo: '8-02', canastas: 1 },
         { nombre: 'Yesbelis Guzmán', equipo: '8-02', canastas: 2 },
-
+        { nombre: 'Juan de Dios Escudero', equipo: '6-04', canastas: 1 },
+        { nombre: 'Jose Miguel Ochoa', equipo: '6-04', canastas: 1 },
 
 
       ]
     },
     voleibol: {
-      mvp: [{ nombre: 'Carlos Reyes', equipo: '10-01' }, { nombre: 'Jherainis Reales', equipo: '9-02' }, { nombre: 'Nicole Rumie', equipo: '10-03' }, { nombre: 'Juan Buelvas', equipo: '7-02' }, { nombre: 'Thaliana Gamarra', equipo: '6-03' }, { nombre: 'Jaliq Pastrana', equipo: '9-02' }, { nombre: 'Hellen Quintero', equipo: '7-01' }],
+      mvp: [{ nombre: 'Carlos Reyes', equipo: '10-01' }, { nombre: 'Jherainis Reales', equipo: '9-02' }, { nombre: 'Nicole Rumie', equipo: '10-03' }, { nombre: 'Juan Buelvas', equipo: '7-02' }, { nombre: 'Thaliana Gamarra', equipo: '6-03' }, { nombre: 'Jaliq Pastrana', equipo: '9-02' }, { nombre: 'Hellen Quintero', equipo: '7-01' }, { nombre: 'David Rojas', equipo: '6-02' }, { nombre: 'Valery Mendoza', equipo: '8-02' }],
 
     }
   },
