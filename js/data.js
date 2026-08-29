@@ -203,6 +203,10 @@ const TORNEO_DATA = {
         { nombre: 'Valery Gómez', equipo: '8-03', canastas: 2 },
         { nombre: 'Sara Olivares', equipo: '8-03', canastas: 2 },
         { nombre: 'Talia Ramos', equipo: '8-03', canastas: 1 },
+        { nombre: 'Valery Mendoza', equipo: '8-02', canastas: 1 },
+        { nombre: 'Yesbelis Guzmán', equipo: '8-02', canastas: 2 },
+
+
 
       ]
     },
