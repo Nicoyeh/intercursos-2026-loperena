@@ -199,7 +199,7 @@ const TORNEO_DATA = {
         { nombre: 'Taliana Galindo', equipo: '6-01', canastas: 1 },
         { nombre: 'Alfonso García', equipo: '9-01', canastas: 2 },
         { nombre: 'Juan Vega', equipo: '9-01', canastas: 2 },
-        { nombre: 'Sebastian Pérez', equipo: '9-02', canastas: 1 },
+        { nombre: 'Sebastian Pérez', equipo: '8-02', canastas: 1 },
         { nombre: 'Valery Gómez', equipo: '8-03', canastas: 2 },
         { nombre: 'Sara Olivares', equipo: '8-03', canastas: 2 },
         { nombre: 'Talia Ramos', equipo: '8-03', canastas: 1 },
