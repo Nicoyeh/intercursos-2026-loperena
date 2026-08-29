@@ -147,8 +147,41 @@ const TORNEO_DATA = {
     { id: 'p45', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '10-01',  visitante: '10-03', estado: 'proximo', },
     { id: 'p46', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-04',  estado: 'proximo', },
     { id: 'p47', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-02',  estado: 'proximo', },
-    { id: 'p48', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-02',  visitante: '8-03',  estado: 'proximo', }
+    { id: 'p48', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-02',  visitante: '8-03',  estado: 'proximo', },
 
+    // --- semana 2 sabados ----
+
+    { id: 'p49', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-04',  visitante: '6-01',  estado: 'proximo', },
+    { id: 'p50', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-03',  estado: 'proximo', },
+    { id: 'p51', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-03',  visitante: '8-02',  estado: 'proximo', },
+    { id: 'p52', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '11-01',  estado: 'proximo', },
+    { id: 'p53', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'proximo', },
+    { id: 'p54', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '11-01',  visitante: '10-01',  estado: 'proximo', },
+    { id: 'p55', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-01',  visitante: '9-03',  estado: 'proximo', },
+
+    { id: 'p56', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03',  estado: 'proximo', },
+    { id: 'p57', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '6-04',  estado: 'proximo', },
+    { id: 'p58', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '7-01',  estado: 'proximo', },
+    { id: 'p59', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-02',  visitante: '8-03',  estado: 'proximo', },
+    { id: 'p60', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '11-02',  visitante: '10-02',  estado: 'proximo', },
+    { id: 'p61', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '11-02',  estado: 'proximo', },
+    { id: 'p62  ', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '10-03',  estado: 'proximo', },
+
+    { id: 'p63', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '10-03',  estado: 'proximo', },
+    { id: 'p64', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-02',  estado: 'proximo', },
+    { id: 'p65', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '6-03',  estado: 'proximo', },
+    { id: 'p66', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-03',  estado: 'proximo', },
+    { id: 'p67', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '7-01',  visitante: '7-04',  estado: 'proximo', },
+    { id: 'p68', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '8-03',  estado: 'proximo', },
+    { id: 'p69', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '11-02',  estado: 'proximo', },
+
+    { id: 'p70', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-02',  visitante: '7-03',  estado: 'proximo', },
+    { id: 'p71', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02',  estado: 'proximo', },
+    { id: 'p72', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-01',  visitante: '6-04',  estado: 'proximo', },
+    { id: 'p73', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-03',  estado: 'proximo', },
+    { id: 'p74', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-03',  estado: 'proximo', },
+    { id: 'p75', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '6-01',  estado: 'proximo', },
+    { id: 'p76', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-02',  estado: 'proximo', },
 
   ],
 
