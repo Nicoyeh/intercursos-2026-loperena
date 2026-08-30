@@ -274,7 +274,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: [{ nombre: 'Carlos Reyes', equipo: '10-01' }, { nombre: 'Jherainis Reales', equipo: '9-02' }, { nombre: 'Nicole Rumie', equipo: '10-03' }, { nombre: 'Juan Buelvas', equipo: '7-02' }, { nombre: 'Thaliana Gamarra', equipo: '6-03' }, { nombre: 'Jaliq Pastrana', equipo: '9-02' }, { nombre: 'Hellen Quintero', equipo: '7-01' }, { nombre: 'David Rojas', equipo: '6-02' }, { nombre: 'Valery Mendoza', equipo: '8-02' }],
+      mvp: [{ nombre: 'Luis Díaz', equipo: '11-02' }, { nombre: 'Sebastian Franco', equipo: '10-03' }, { nombre: 'Juan Vega', equipo: '9-01' }, { nombre: 'David Rojas', equipo: '6-02' }, { nombre: 'Jose Trujillo', equipo: '9-03' }, { nombre: 'Juan David Rodriguez', equipo: '7-04' }, { nombre: 'Jaliq Pastrana', equipo: '9-02' }, { nombre: 'Oriana Rosado', equipo: '7-02' }, { nombre: 'Nicole Rumie', equipo: '10-03' }, { nombre: 'Eilin Hernandez', equipo: '6-04' }, { nombre: 'Hanna Nieves', equipo: '7-03' }, { nombre: 'Antonella Lopez', equipo: '6-01' }, { nombre: 'Jherainis Reales', equipo: '9-02' }],
 
     }
   },
