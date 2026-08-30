@@ -2,7 +2,7 @@
 
 /* ==========================================================================
    INTERCURSOS 2026 — statistics.js
-   Estadísticas por deporte, en pestañas. MVP / Goleadores / Mejor arquero /
+   Estadísticas por deporte, en pestañas. MVP / Goleadores /
    Máximos anotadores dependen de que alguien registre datos por jugador —
    mientras TORNEO_DATA.estadisticasIndividuales no los tenga, se muestran
    como pendientes (nunca se inventan nombres). Los líderes de equipo
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const CONFIG_DEPORTE_STATS = {
-  futbol:     { statsIndividuales: ['mvp', 'goleadores', 'mejorArquero'], empates: true },
+  futbol:     { statsIndividuales: ['mvp', 'goleadores'], empates: true }, // 'mejorArquero' eliminado
   baloncesto: { statsIndividuales: ['mvp', 'maximosAnotadores'], empates: false },
   voleibol:   { statsIndividuales: ['mvp'], empates: false }
 };
@@ -73,8 +73,15 @@ function crearTarjetaIndividualHTML(clave, valor) {
   if (listaVacia) {
     contenidoHTML = '<p class="stat-card__pending">Se cargará cuando la organización registre este dato.</p>';
   } else if (Array.isArray(valor)) {
+    // Clonar y ordenar de mayor a menor por goles o canastas
+    const listaOrdenada = [...valor].sort((a, b) => {
+      const cantidadA = a.goles ?? a.canastas ?? 0;
+      const cantidadB = b.goles ?? b.canastas ?? 0;
+      return cantidadB - cantidadA;
+    });
+
     // Lista de MVP, goleadores o anotadores
-    const items = valor.map((item) => {
+    const items = listaOrdenada.map((item) => {
       const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
       const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__flag') : '';
       
@@ -106,7 +113,7 @@ function crearTarjetaIndividualHTML(clave, valor) {
 
     contenidoHTML = `<ul style="list-style: none; padding: 0; margin: 12px 0 0 0;">${items}</ul>`;
   } else {
-    // MVP o Mejor Arquero (Objeto único)
+    // Objeto único en caso de requerirse
     const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[valor.equipo] : null;
     const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__leader-flag') : '';
 
