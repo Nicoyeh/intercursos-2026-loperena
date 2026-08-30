@@ -237,7 +237,7 @@ const TORNEO_DATA = {
         { nombre: 'Maria Jose Diaz', equipo: '10-01', goles: 1},
 
       ],
-      mejorArquero: null
+      
     },
     baloncesto: {
       mvp: [{ nombre: 'Andrea Torrijo', equipo: '10-02'}, { nombre: 'Laura Romo', equipo: '10-01'}, { nombre: 'Jhonder Chourio', equipo: '9-03'}, { nombre: 'Emanuel Paramo', equipo: '6-02'}, { nombre: 'Hellen Quintero', equipo: '7-01'}, { nombre: 'Angeli Pachecho', equipo: '9-02'}, { nombre: 'Sebastian Madariaga', equipo: '11-01'}],
