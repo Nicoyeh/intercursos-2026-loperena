@@ -151,13 +151,13 @@ const TORNEO_DATA = {
 
     // --- semana 2 sabados ----
 
-    { id: 'p49', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-04',  visitante: '6-01',  estado: 'proximo', },
-    { id: 'p50', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-03',  estado: 'proximo', },
-    { id: 'p51', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-03',  visitante: '8-02',  estado: 'proximo', },
-    { id: 'p52', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '11-01',  estado: 'proximo', },
-    { id: 'p53', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'proximo', },
-    { id: 'p54', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '11-01',  visitante: '10-01',  estado: 'proximo', },
-    { id: 'p55', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-01',  visitante: '9-03',  estado: 'proximo', },
+    { id: 'p49', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-04',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 2 },
+    { id: 'p50', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 5 },
+    { id: 'p51', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-03',  visitante: '8-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p52', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 11, marcadorVisitante: 7 },
+    { id: 'p53', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 4 },
+    { id: 'p54', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '11-01',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
+    { id: 'p55', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 1 },
 
     { id: 'p56', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03',  estado: 'proximo', },
     { id: 'p57', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '6-04',  estado: 'proximo', },
@@ -204,23 +204,37 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{ nombre: 'Ivanna Fajardo', equipo: '6-02' }, { nombre: 'Luisfer Barraza', equipo: '8-02'}, { nombre: 'Jhondaylis Briceño', equipo: '9-03'}, { nombre: 'Cristian Criales', equipo: '6-04'}, { nombre: 'Nicole Rumie', equipo: '10-03'}],
+      mvp: [{ nombre: 'Harold Buelvas', equipo: '10-01' }, { nombre: 'Valery Guarin', equipo: '6-04'}, { nombre: 'Yesbelis Guzman', equipo: '8-02'}, { nombre: 'Luis Orozco', equipo: '7-03'}, { nombre: 'Veronik Vizcaino', equipo: '9-01'}, { nombre: 'Daniel Yirene', equipo: '6-03'}, { nombre: 'Valeria Sierra', equipo: '10-01'}],
 
       goleadores: [
-        { nombre: 'Shaylen Salas', equipo: '6-02', goles: 1 },
-        { nombre: 'Luisfer Barraza', equipo: '8-02', goles: 1 },
-        { nombre: 'Santiago Quintero', equipo: '8-02', goles: 1 },
-        { nombre: 'Jhondailys Briceño', equipo: '9-03', goles: 2 },
-        { nombre: 'Isabella Zarate', equipo: '9-03', goles: 1 },
-        { nombre: 'Carolina Cantillo', equipo: '9-03', goles: 1 },
-        { nombre: 'Danna Gutierrez', equipo: '9-03', goles: 1},
-        { nombre: 'Juan Guillen', equipo: '6-01', goles: 1},
-        { nombre: 'Cristian Criales', equipo: '6-04', goles: 2},
-        { nombre: 'Brandon Lascarro', equipo: '6-04', goles: 1},
-        { nombre: 'Juan Escudero', equipo: '6-04', goles: 1},
-        { nombre: 'Nicole Rumie', equipo: '10-03', goles: 1},
-        { nombre: 'Maria José Díaz', equipo: '10-01', goles: 1},
-
+        { nombre: 'Andrea Segovia', equipo: '9-01', goles: 1 },
+        { nombre: 'Sara Gonzales', equipo: '9-03', goles: 1 },
+        { nombre: 'Santiago Montes', equipo: '7-03', goles: 2 },
+        { nombre: 'Josue Tarazona', equipo: '7-03', goles: 1 },
+        { nombre: 'Luis Orozco', equipo: '7-03', goles: 2 },
+        { nombre: 'Luis Linares', equipo: '7-02', goles: 1 },
+        { nombre: 'Yesbelis Guzman', equipo: '8-02', goles: 2},
+        { nombre: 'Valeria Dugarte', equipo: '6-01', goles: 1},
+        { nombre: 'Valery Guarin', equipo: '6-04', goles: 3},
+        { nombre: 'Eilin Hernandez', equipo: '6-04', goles: 1},
+        { nombre: 'Daniel Valenzuela', equipo: '11-01', goles: 2},
+        { nombre: 'Cristobal Rimon', equipo: '11-01', goles: 2},
+        { nombre: 'Mateo Oñate', equipo: '11-01', goles: 2},
+        { nombre: 'Andres Calderon', equipo: '11-01', goles: 1},
+        { nombre : 'Elias Gutierrez', equipo: '10-01', goles: 2},
+        { nombre: 'Harold Buelvas', equipo: '10-01', goles: 5},
+        { nombre: 'Santiago Carillo', equipo: '10-01', goles: 3},
+        { nombre: 'Andres Perez', equipo: '10-01', goles: 1},
+        { nombre: 'Matias Paez', equipo: '6-01', goles: 2},
+        { nombre: 'Daniel Yirene', equipo: '6-03', goles: 4},
+        { nombre: 'Jesus Vega', equipo: '6-03', goles: 3},
+        { nombre: 'Samuel Mendoza', equipo: '6-03', goles: 1},
+        { nombre: 'Matias Castañeda', equipo: '6-03', goles: 1},
+        { nombre: 'Luis Mercado', equipo: '6-03', goles: 1},
+        { nombre: 'Zohe Mendoza', equipo: '11-01', goles: 1},
+        { nombre: 'Gabriela Lemus', equipo: '11-01', goles: 1},
+        { nombre: 'Valeria Sierra', equipo: '10-01', goles: 1},
+        { nombre: 'Maria Jose Diaz', equipo: '10-01', goles: 1},
 
       ],
       mejorArquero: null
