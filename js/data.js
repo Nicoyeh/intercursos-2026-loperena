@@ -234,7 +234,7 @@ const TORNEO_DATA = {
         { nombre: 'Zohe Mendoza', equipo: '11-01', goles: 1},
         { nombre: 'Gabriela Lemus', equipo: '11-01', goles: 1},
         { nombre: 'Valeria Sierra', equipo: '10-01', goles: 1},
-        { nombre: 'Maria Jose Diaz', equipo: '10-01', goles: 1},
+        { nombre: 'Maria Jose Diaz', equipo: '10-01', goles: 2},
 
       ],
       
