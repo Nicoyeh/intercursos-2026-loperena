@@ -269,6 +269,7 @@ const TORNEO_DATA = {
         { nombre: 'Luis Angarita', equipo: '11-02', canastas: 2 },
         { nombre: 'Juan Pablo Guerrero', equipo: '11-02', canastas: 2 },
         { nombre: 'Edinson Parra', equipo: '11-02', canastas: 1 },
+        { nombre: 'Juan David Rodriguez', equipo: '7-04', canastas: 1 },
 
 
       ]
