@@ -188,12 +188,12 @@ const TORNEO_DATA = {
     { id: 'p77', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 3 },
     { id: 'p78', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-02',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 2 },
     { id: 'p79', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p80', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p80', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     { id: 'p81', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 2 },
     { id: 'p82', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     { id: 'p83', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p84', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p84', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     { id: 'p85', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 4 },
     { id: 'p86', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 6 },
