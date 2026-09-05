@@ -224,7 +224,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{ nombre: 'Andrea Torrijo', equipo: '10-02' }, { nombre: 'Jose Trujillo (2 veces MVP)', equipo: '9-03'}],
+      mvp: [{ nombre: 'Andrea Torrijo', equipo: '10-02' }, { nombre: 'Jose Trujillo (2 veces MVP)', equipo: '9-03'}, {nombre: 'Simon Garcia', equipo: '6-01'}, {nombre: 'Sebastian Barcinilla', equipo: '11-02'}],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -238,6 +238,21 @@ const TORNEO_DATA = {
         { nombre: 'Jose Trujillo', equipo: '9-03', goles: 5},
         { nombre: 'Sergio Colon', equipo: '9-03', goles: 1},
         { nombre: 'Juan Alvarez', equipo: '9-01', goles: 1},
+        { nombre: 'Angel Camargo', equipo: '6-02', goles: 1},
+        { nombre: 'Sebastian Barcinilla', equipo: '11-02', goles: 4},
+        { nombre: 'Thiago Arzuaga', equipo: '6-02', goles: 2},
+        { nombre: 'Jaime Camargo', equipo: '11-02', goles: 3},
+        { nombre: 'Giescy Garcia', equipo: '11-02', goles: 1},
+        { nombre: 'Orlando Rondon', equipo: '11-02', goles: 1},
+        { nombre: 'Manuel Pallares', equipo: '11-02', goles: 1},
+        { nombre: 'Juan Tellez', equipo: '11-02', goles: 1},
+        { nombre: 'Xavi Nieves', equipo: '11-02', goles: 1},
+        { nombre: 'Julio De la rosa', equipo: '11-01', goles: 3},
+        { nombre: 'Daniel Valenzuela', equipo: '11-01', goles: 1},
+
+
+
+
       ],
       
     },
