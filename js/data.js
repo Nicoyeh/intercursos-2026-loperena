@@ -257,7 +257,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Luis Daniel Linares', equipo: '7-02'}, { nombre: 'Maria Barros', equipo: '6-03'}, { nombre: 'Isabella Zarate', equipo: '9-03'}],
+      mvp: [{ nombre: 'Luis Daniel Linares', equipo: '7-02'}, { nombre: 'Maria Barros', equipo: '6-03'}, { nombre: 'Isabella Zarate', equipo: '9-03'}, { nombre: 'Thiago Gonzales', equipo: '6-01'}, { nombre: 'Angel Anteliz', equipo: '8-03'}],
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 1 },
         { nombre: 'Juan David Rodriguez', equipo: '7-04', canastas: 1 },
@@ -265,6 +265,10 @@ const TORNEO_DATA = {
         { nombre: 'Isabella Zarate', equipo: '9-03', canastas: 1 },
         { nombre: 'Gabriela Angarita', equipo: '9-03', canastas: 1 },
         { nombre: 'Elizabeth Benavides', equipo: '9-03', canastas: 1 },
+        { nombre: 'Thiago Gonzales', equipo: '6-01', canastas: 1 },
+        { nombre: 'Angel Anteliz', equipo: '8-03', canastas: 1 },
+        { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 1 },
+        { nombre: 'Sebastian Perez', equipo: '8-02', canastas: 1 },
         
 
       ]
