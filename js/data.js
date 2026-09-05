@@ -202,6 +202,15 @@ const TORNEO_DATA = {
     { id: 'p89', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     { id: 'p90', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
 
+    { id: 'p91', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
+    { id: 'p92', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 12 },
+    { id: 'p93', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p94', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
+    { id: 'p95', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2},
+    { id: 'p96', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+
+
+ 
 
   ],
 
