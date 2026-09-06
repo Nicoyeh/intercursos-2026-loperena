@@ -283,7 +283,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: [{ nombre: 'Abigail Rangel (2 veces MVP)', equipo: '9-03' }, { nombre: 'Luis Orozco', equipo: '7-03' }, { nombre: 'Antonella Lopez', equipo: '6-01' }, { nombre: 'Emanuel Barros', equipo: '10-03' }, { nombre: 'Mariana Ruidiaz (2 veces MVP)', equipo: '7-02' }, { nombre: 'Valery Barbosa', equipo: '7-04' }, { nombre: 'Luis Carlos Diaz', equipo: '11-02' }, { nombre: 'Angel Camargo', equipo: '6-02' }, { nombre: 'Esmelin Izquierdo', equipo: '6-04' }],
+      mvp: [{ nombre: 'Abigail Rangel (2 veces MVP)', equipo: '9-03' }, { nombre: 'Luis Orozco', equipo: '7-03' }, { nombre: 'Antonella Lopez', equipo: '6-01' }, { nombre: 'Emanuel Barros', equipo: '10-03' }, { nombre: 'Mariana Ruidiaz', equipo: '7-02' }, { nombre: 'Valery Barbosa', equipo: '7-04' }, { nombre: 'Luis Carlos Diaz', equipo: '11-02' }, { nombre: 'Angel Camargo', equipo: '6-02' }, { nombre: 'Esmelin Izquierdo', equipo: '6-04' }, { nombre: 'Mariana Rois', equipo: '7-02' }],
 
     }
   },
