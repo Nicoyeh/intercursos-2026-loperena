@@ -344,7 +344,7 @@ const TORNEO_DATA = {
   organizacion: [
     
     { nombre: 'Hilary Gamez y Sarai Mariote', curso: '6-01', fotos: ['assets/images/hilary-gamez.jpg'], fotoGrupal: true },
-    { nombre: 'Gabriela Rodero y Alejandra Velasquez', curso: '6-02', fotos: ['assets/images/gabriela-rodero.jpg', 'assets/images/alejandra-velasquez.jpg'] }, 
+    { nombre: 'Gabriela Rodero y Danna Viña', curso: '6-02', fotos: ['assets/images/gabriela-rodero.jpg', 'assets/images/danna-viña.jpg'] }, 
     { nombre: 'Mateo Oñate y Deiler Benavides', curso: '6-03', fotos: ['assets/images/mateo-oñate.jpg', 'assets/images/deiler-benavides.jpg'] },  
     { nombre: 'Zohe Mendoza y José Acosta', curso: '6-04', fotos: ['assets/images/zohe-mendoza.jpg', 'assets/images/jose-acosta.jpg'] },
     { nombre: 'Kaesee Márquez y Harryz Macías', curso: '7-01', fotos: ['assets/images/kaesee-marquez.jpg', 'assets/images/harryz-macias.jpg'] },
