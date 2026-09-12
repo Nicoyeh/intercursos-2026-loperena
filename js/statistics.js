@@ -23,7 +23,6 @@ const CONFIG_DEPORTE_STATS = {
 const ETIQUETAS_INDIVIDUALES = {
   mvp: { titulo: 'MVP', icono: '⭐' },
   goleadores: { titulo: 'Goleadores', icono: '🥅' },
-  mejorArquero: { titulo: 'Mejor arquero', icono: '🧤' },
   maximosAnotadores: { titulo: 'Máximos anotadores', icono: '🎯' }
 };
 
@@ -206,4 +205,9 @@ function crearTarjetasLideresHTML(lideres, incluirEmpates) {
       </div>
     `;
   }).join('');
+
+
+
+
+  
 }
