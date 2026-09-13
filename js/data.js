@@ -240,18 +240,33 @@ const TORNEO_DATA = {
         { nombre: 'Nathaly Moscote', equipo: '10-03', goles: 2 },
         { nombre: 'Nicole Rumie', equipo: '10-03', goles: 1 },
         { nombre: 'Kasami Gonzales', equipo: '10-03', goles: 1 },
+
         { nombre: 'Andrea Torrijo', equipo: '10-02', goles: 2 },
+        { nombre: 'Daniel Ramos', equipo: '10-02', goles: 2 },
+        { nombre: 'Duvan Riccioly', equipo: '10-02', goles: 2 },
+        { nombre: 'Martin Vizcaino', equipo: '10-02', goles: 1 },
         { nombre: 'Mariana Soto', equipo: '10-02', goles: 1 },
+
         { nombre: 'Juan Villar', equipo: '9-01', goles: 1},
         { nombre: 'Faby Marquez', equipo: '9-01', goles: 1},
+        { nombre: 'Veronik Vizcaino', equipo: '9-01', goles: 1},
+
         { nombre: 'Jose Trujillo', equipo: '9-03', goles: 5},
         { nombre: 'Sergio Colon', equipo: '9-03', goles: 1},
+        { nombre: 'Jhondailys Briceño', equipo: '9-03', goles: 2},
+        { nombre: 'Carolina Cantillo', equipo: '9-03', goles: 1},
+        { nombre: 'Isabella Zarate', equipo: '9-03', goles: 1},
+        { nombre: 'Danna Gutierrez', equipo: '9-03', goles: 1},
+        { nombre: 'Sara Gonzales', equipo: '9-03', goles: 1}, 
+
         { nombre: 'Juan Alvarez', equipo: '9-01', goles: 1},
+
         { nombre: 'Angel Camargo', equipo: '6-02', goles: 6},
-        { nombre: 'Sebastian Barcinilla', equipo: '11-02', goles: 4},
         { nombre: 'Thiago Arzuaga', equipo: '6-02', goles: 4},
         { nombre: 'David Rojas', equipo: '6-02', goles: 1},
         { nombre: 'Shaylen Salas', equipo: '6-02', goles: 1},
+
+        { nombre: 'Sebastian Barcinilla', equipo: '11-02', goles: 4},
         { nombre: 'Jaime Camargo', equipo: '11-02', goles: 3},
         { nombre: 'Giescy Garcia', equipo: '11-02', goles: 1},
         { nombre: 'Orlando Rondon', equipo: '11-02', goles: 2},
@@ -259,12 +274,56 @@ const TORNEO_DATA = {
         { nombre: 'Juan Tellez', equipo: '11-02', goles: 2},
         { nombre: 'Xavi Nieves', equipo: '11-02', goles: 1},
         { nombre: 'Diego Camargo', equipo: '11-02', goles: 1},
+
         { nombre: 'Julio De la rosa', equipo: '11-01', goles: 5},
         { nombre: 'Daniel Valenzuela', equipo: '11-01', goles: 3},
         { nombre: 'Andres Calderon', equipo: '11-01', goles: 1},
         { nombre: 'Mateo Oñate', equipo: '11-01', goles: 2},
         { nombre: 'Zohe Mendoza', equipo: '11-01', goles: 1},
         { nombre: 'Gabriela Lemus', equipo: '11-01', goles: 1},
+
+        { nombre: 'Valeria Sierra', equipo: '10-01', goles: 1},
+        { nombre: 'Maria Jose Diaz', equipo: '10-01', goles: 3},
+        { nombre: 'Elias Gutierrez', equipo: '10-01', goles: 2},
+        { nombre: 'Harold Buelvas', equipo: '10-01', goles: 6},
+        { nombre: 'Santiago Carillo', equipo: '10-01', goles: 4},
+        { nombre: 'Andres Perez', equipo: '10-01', goles: 2},
+
+        { nombre: 'Valery Guarin', equipo: '6-04', goles: 3},
+        { nombre: 'Brandon Lascarro', equipo: '6-04', goles: 2},
+        { nombre: 'Cristian Criales', equipo: '6-04', goles: 1}, 
+        { nombre: 'Eilin Hernandez', equipo: '6-04', goles: 1}, 
+
+        { nombre: 'Julian Santodomingo', equipo: '6-03', goles: 1}, 
+        { nombre: 'Samuel Mendoza', equipo: '6-03', goles: 1}, 
+        { nombre: 'Luis Mercado', equipo: '6-03', goles: 1}, 
+        { nombre: 'Jesus Vega', equipo: '6-03', goles: 3}, 
+        { nombre: 'Matias Castañeda', equipo: '6-03', goles: 2},
+        { nombre: 'Daniel Yirene', equipo: '6-03', goles: 5},
+        
+        { nombre: 'Valeria Dugarte', equipo: '6-01', goles: 1}, 
+        { nombre: 'Yeshua Gamez', equipo: '6-01', goles: 1}, 
+        { nombre: 'Mathias Paez', equipo: '6-01', goles: 2}, 
+        
+        { nombre: 'Luis Rojas', equipo: '7-01', goles: 1}, 
+        { nombre: 'Isabella Rodriguez', equipo: '7-01', goles: 3},
+        { nombre: 'Hellen Quintero', equipo: '7-01', goles: 5}, 
+
+        { nombre: 'Luis Jose Moreno', equipo: '7-02', goles: 1}, 
+        { nombre: 'Sebastian Buelvas', equipo: '7-02', goles: 2}, 
+        { nombre: 'Luis Linares', equipo: '7-02', goles: 2},
+        
+        { nombre: 'Josue Tarazona', equipo: '7-03', goles: 1},
+        { nombre: 'Luis Orozco', equipo: '7-03', goles: 2}, 
+        { nombre: 'Santiago Montes', equipo: '7-03', goles: 2}, 
+
+        { nombre: 'Santiago Quintero', equipo: '8-02', goles: 1},
+        { nombre: 'Luifer Barraza', equipo: '8-02', goles: 1},
+        { nombre: 'Yesbelis Guzman', equipo: '8-02', goles: 2},
+
+
+
+
 
 
 
