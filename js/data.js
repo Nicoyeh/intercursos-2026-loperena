@@ -223,6 +223,22 @@ const TORNEO_DATA = {
     { id: 'p108', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:55 - 6:25', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     { id: 'p109', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:55 - 6:25', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
 
+    { id: 'p110', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 1 },
+    { id: 'p111', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 4 },
+    { id: 'p112', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
+    { id: 'p113', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '8-02',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 1 },
+    { id: 'p114', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 9, marcadorVisitante: 2 },
+    { id: 'p115', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 1 },
+    { id: 'p116', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 10 },
+    { id: 'p117', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+
+
+
+
+
+
+
+
   ],
 
   // ⚠️ DATOS DE EJEMPLO / DEMO — este cruce eliminatorio es INVENTADO,
@@ -244,28 +260,31 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{ nombre: 'Mariangel Pinto', equipo: '7-04' }, { nombre: 'Elias Gutierrez', equipo: '10-01'}, {nombre: 'Sebastian Mieles', equipo: '7-04'}, {nombre: 'Sebastian Barcinilla', equipo: '11-02'}],
+      mvp: [{ nombre: 'Mariangel Pinto', equipo: '7-04' }, { nombre: 'Elias Gutierrez', equipo: '10-01'}, {nombre: 'Sebastian Mieles', equipo: '7-04'}, {nombre: 'Sebastian Barcinilla (2 veces MVP)', equipo: '11-02'}, {nombre: 'Sara Olivares', equipo: '8-03'}, {nombre: 'Brandon Lascarro', equipo: '6-04'}, {nombre: 'Mariana Rois', equipo: '7-02'}, {nombre: 'Alejandra Velasquez', equipo: '11-01'}, {nombre: 'Santiago Quintero', equipo: '8-02'}, {nombre: 'Daniel Ramos', equipo: '10-02'}, {nombre: 'Maria Rodriguez', equipo: '9-02'}],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
         { nombre: 'Nathaly Moscote', equipo: '10-03', goles: 2 },
         { nombre: 'Nicole Rumie', equipo: '10-03', goles: 1 },
         { nombre: 'Kasami Gonzales', equipo: '10-03', goles: 1 },
-        { nombre: 'Nezer Manjarres', equipo: '10-03', goles: 2 },
-        { nombre: 'Holman Parada', equipo: '10-03', goles: 1 },
+        { nombre: 'Nezer Manjarres', equipo: '10-03', goles: 5 },
+        { nombre: 'Holman Parada', equipo: '10-03', goles: 2 },
 
-        { nombre: 'Andrea Torrijo', equipo: '10-02', goles: 2 },
-        { nombre: 'Daniel Ramos', equipo: '10-02', goles: 2 },
+        { nombre: 'Andrea Torrijo', equipo: '10-02', goles: 3 },
+        { nombre: 'Daniel Ramos', equipo: '10-02', goles: 5 },
         { nombre: 'Duvan Riccioly', equipo: '10-02', goles: 2 },
         { nombre: 'Martin Vizcaino', equipo: '10-02', goles: 1 },
         { nombre: 'Mariana Soto', equipo: '10-02', goles: 1 },
+        { nombre: 'Anyelo Gomez', equipo: '10-02', goles: 2},
+        { nombre: 'Brayan Pineda', equipo: '10-02', goles: 2},
+        { nombre: 'Martin Vizcaino', equipo: '10-02', goles: 1},
 
         { nombre: 'Juan Villar', equipo: '9-01', goles: 1},
         { nombre: 'Faby Marquez', equipo: '9-01', goles: 1},
         { nombre: 'Veronik Vizcaino', equipo: '9-01', goles: 1},
 
         { nombre: 'Jose Trujillo', equipo: '9-03', goles: 5},
-        { nombre: 'Sergio Colon', equipo: '9-03', goles: 1},
+        { nombre: 'Sergio Colon', equipo: '9-03', goles: 2},
         { nombre: 'Jhondailys Briceño', equipo: '9-03', goles: 2},
         { nombre: 'Carolina Cantillo', equipo: '9-03', goles: 1},
         { nombre: 'Isabella Zarate', equipo: '9-03', goles: 1},
@@ -273,27 +292,30 @@ const TORNEO_DATA = {
         { nombre: 'Sara Gonzales', equipo: '9-03', goles: 1}, 
 
         { nombre: 'Sebastian Alvarez', equipo: '9-02', goles: 1},
+        { nombre: 'Emily Machado', equipo: '9-02', goles: 1},
+        { nombre: 'Maria Rodriguez', equipo: '9-02', goles: 1},
 
         { nombre: 'Angel Camargo', equipo: '6-02', goles: 6},
         { nombre: 'Thiago Arzuaga', equipo: '6-02', goles: 4},
         { nombre: 'David Rojas', equipo: '6-02', goles: 1},
         { nombre: 'Shaylen Salas', equipo: '6-02', goles: 1},
 
-        { nombre: 'Sebastian Barcinilla', equipo: '11-02', goles: 4},
-        { nombre: 'Jaime Camargo', equipo: '11-02', goles: 3},
-        { nombre: 'Giescy Garcia', equipo: '11-02', goles: 1},
-        { nombre: 'Orlando Rondon', equipo: '11-02', goles: 2},
+        { nombre: 'Sebastian Barcinilla', equipo: '11-02', goles: 7},
+        { nombre: 'Jaime Camargo', equipo: '11-02', goles: 5},
+        { nombre: 'Giescy Garcia', equipo: '11-02', goles: 2},
+        { nombre: 'Orlando Rondon', equipo: '11-02', goles: 3},
         { nombre: 'Manuel Pallares', equipo: '11-02', goles: 4},
         { nombre: 'Juan Tellez', equipo: '11-02', goles: 2},
-        { nombre: 'Xavi Nieves', equipo: '11-02', goles: 1},
-        { nombre: 'Diego Camargo', equipo: '11-02', goles: 1},
+        { nombre: 'Xavi Nieves', equipo: '11-02', goles: 2},
+        { nombre: 'Diego Camargo', equipo: '11-02', goles: 3},
 
         { nombre: 'Julio De la rosa', equipo: '11-01', goles: 5},
         { nombre: 'Daniel Valenzuela', equipo: '11-01', goles: 3},
         { nombre: 'Andres Calderon', equipo: '11-01', goles: 1},
         { nombre: 'Mateo Oñate', equipo: '11-01', goles: 2},
-        { nombre: 'Zohe Mendoza', equipo: '11-01', goles: 1},
+        { nombre: 'Zohe Mendoza', equipo: '11-01', goles: 2},
         { nombre: 'Gabriela Lemus', equipo: '11-01', goles: 1},
+        { nombre: 'Alejandra Velasquez', equipo: '11-01', goles: 1},
 
         { nombre: 'Valeria Sierra', equipo: '10-01', goles: 1},
         { nombre: 'Maria Jose Diaz', equipo: '10-01', goles: 3},
@@ -303,16 +325,17 @@ const TORNEO_DATA = {
         { nombre: 'Andres Perez', equipo: '10-01', goles: 3},
 
         { nombre: 'Valery Guarin', equipo: '6-04', goles: 3},
-        { nombre: 'Brandon Lascarro', equipo: '6-04', goles: 2},
+        { nombre: 'Brandon Lascarro', equipo: '6-04', goles: 5},
         { nombre: 'Cristian Criales', equipo: '6-04', goles: 1}, 
         { nombre: 'Eilin Hernandez', equipo: '6-04', goles: 1}, 
+        { nombre: 'Sebastian Conrado', equipo: '6-04', goles: 1},
 
         { nombre: 'Julian Santodomingo', equipo: '6-03', goles: 1}, 
         { nombre: 'Samuel Mendoza', equipo: '6-03', goles: 1}, 
         { nombre: 'Luis Mercado', equipo: '6-03', goles: 1}, 
-        { nombre: 'Jesus Vega', equipo: '6-03', goles: 3}, 
+        { nombre: 'Jesus Vega', equipo: '6-03', goles: 4}, 
         { nombre: 'Matias Castañeda', equipo: '6-03', goles: 2},
-        { nombre: 'Daniel Yirene', equipo: '6-03', goles: 5},
+        { nombre: 'Daniel Yirene', equipo: '6-03', goles: 6},
         
         { nombre: 'Valeria Dugarte', equipo: '6-01', goles: 1}, 
         { nombre: 'Yeshua Gamez', equipo: '6-01', goles: 1}, 
@@ -325,6 +348,8 @@ const TORNEO_DATA = {
         { nombre: 'Luis Jose Moreno', equipo: '7-02', goles: 1}, 
         { nombre: 'Sebastian Buelvas', equipo: '7-02', goles: 2}, 
         { nombre: 'Luis Linares', equipo: '7-02', goles: 2},
+        { nombre: 'Mariana Rois', equipo: '7-02', goles: 2},
+        { nombre: 'Oriana Rosado', equipo: '7-02', goles: 1},
         
         { nombre: 'Josue Tarazona', equipo: '7-03', goles: 1},
         { nombre: 'Luis Orozco', equipo: '7-03', goles: 2}, 
@@ -337,10 +362,14 @@ const TORNEO_DATA = {
         { nombre: 'Sebastian Mieles', equipo: '7-04', goles: 1},
 
 
-        { nombre: 'Santiago Quintero', equipo: '8-02', goles: 1},
-        { nombre: 'Luifer Barraza', equipo: '8-02', goles: 1},
+        { nombre: 'Santiago Quintero', equipo: '8-02', goles: 6},
+        { nombre: 'Luifer Barraza', equipo: '8-02', goles: 3},
         { nombre: 'Yesbelis Guzman', equipo: '8-02', goles: 2}, 
+        {nombre: 'Juan Ramos', equipo: '8-02', goles: 1},
 
+        {nombre: 'Sara Olivares', equipo: '8-03', goles: 3},
+        {nombre: 'Guadalupe Payares', equipo: '8-03', goles: 1},
+        {nombre: 'Isabel Moreno', equipo: '8-03', goles: 1},
 
 
 
