@@ -465,7 +465,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: [{ nombre: 'Ana Gonzales', equipo: '8-02' }, { nombre: 'Jhonder Chourio', equipo: '9-03' }, { nombre: 'Jaliq Pastrana', equipo: '9-02' } ],
+      mvp: [{ nombre: 'Ana Gonzales', equipo: '8-02' }, { nombre: 'Jhonder Chourio', equipo: '9-03' }, { nombre: 'Jaliq Pastrana', equipo: '9-02' }, {nombre: 'Sara Olivares', equipo: '8-03'}, {nombre: 'Juan Vega', equipo: '9-01'}, {nombre: 'Freddy De la cruz', equipo: '9-01'}, {nombre: 'Abigail Rangel', equipo: '9-03'}, {nombre: 'Isabel Duarte', equipo: '11-02'}, {nombre: 'Danella Alandete', equipo: '11-02'}, {nombre: 'Cristobal Rimon', equipo: '11-01'}, {nombre: 'Marcos Marbello', equipo: '10-01'} ],
 
     }
   },
