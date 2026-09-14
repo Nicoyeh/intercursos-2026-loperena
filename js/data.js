@@ -296,11 +296,10 @@ const TORNEO_DATA = {
         { nombre: 'Andrea Torrijo', equipo: '10-02', goles: 3 },
         { nombre: 'Daniel Ramos', equipo: '10-02', goles: 5 },
         { nombre: 'Duvan Riccioly', equipo: '10-02', goles: 2 },
-        { nombre: 'Martin Vizcaino', equipo: '10-02', goles: 1 },
+        { nombre: 'Martin Vizcaino', equipo: '10-02', goles: 2 },
         { nombre: 'Mariana Soto', equipo: '10-02', goles: 1 },
         { nombre: 'Anyelo Gomez', equipo: '10-02', goles: 2},
         { nombre: 'Brayan Pineda', equipo: '10-02', goles: 2},
-        { nombre: 'Martin Vizcaino', equipo: '10-02', goles: 1},
 
         { nombre: 'Juan Villar', equipo: '9-01', goles: 1},
         { nombre: 'Faby Marquez', equipo: '9-01', goles: 1},
@@ -417,7 +416,7 @@ const TORNEO_DATA = {
             {nombre: 'Zohe Mendoza', equipo: '11-01'}, 
             {nombre: 'Valeria Sierra', equipo: '10-01'}, 
             {nombre: 'Isabel Ochoa', equipo: '7-02'}, 
-            {nombre: 'Angely Pacheco', equipo: '9-02'}, 
+            {nombre: 'Anyeli Pacheco', equipo: '9-02'}, 
             {nombre: 'Thiago Gonzales', equipo: '6-01'}, 
             {nombre: 'Oriana Rosado', equipo: '7-02'}],
 
@@ -482,7 +481,7 @@ const TORNEO_DATA = {
         { nombre: 'Angel Araujo', equipo: '9-01', canastas: 1 },
         { nombre: 'Juan Miguel Villar', equipo: '9-01', canastas: 4 },
 
-        { nombre: 'Angely Pacheco', equipo: '9-02', canastas: 14 },
+        { nombre: 'Anyeli Pacheco', equipo: '9-02', canastas: 14 },
         { nombre: 'Maria Rodriguez', equipo: '9-02', canastas: 2 },
         { nombre: 'Jherainis Reales', equipo: '9-02', canastas: 6 },
         { nombre: 'Victor Barrios', equipo: '9-02', canastas: 3 },
