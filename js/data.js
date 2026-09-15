@@ -627,12 +627,24 @@ const TORNEO_DATA = {
       ]
     },
 
-    {
-      id: 'hinchas-y-barras', titulo: 'Hinchas y barras', icono: '👥',
-      puntos: [
-        'Las barras deben alentar con respeto, evitando insultos, groserías o comportamientos agresivos.',
-        'No se permite el uso de objetos que puedan causar daño, interrumpir el desarrollo del partido o perturbar la integridad de los jugadores y espectadores.',
-      ]
-    }
-  ]
-}
+   {
+    id: 'hinchas-y-barras',
+    titulo: 'Hinchas y barras',
+    icono: '👥',
+    puntos: [
+      'Las barras deben alentar con respeto, evitando insultos, groserías o comportamientos agresivos.',
+      'No se permite el uso de objetos que puedan causar daño, interrumpir el desarrollo del partido o perturbar la integridad de los jugadores y espectadores.',
+    ]
+  },
+  {
+    id: 'padres-de-familia',
+    titulo: 'Acompañantes',
+    icono: '👨‍👨‍👧‍👦',
+    puntos: [
+      'ÚNICAMENTE se acepta el ingreso de padres de familia del grado sexto.',
+      'No se permite el ingreso de personas externas como: hermanos, primos, o personas que no hagan parte de la institución.',
+    ]
+  }
+],
+
+};
