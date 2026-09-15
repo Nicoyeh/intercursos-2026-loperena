@@ -262,6 +262,10 @@ const TORNEO_DATA = {
     { id: 'p142', fecha: '2026-09-14', fechaTexto: '14 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-04',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 3 },
     { id: 'p143', fecha: '2026-09-14', fechaTexto: '14 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 9 },
 
+    { id: 'p144', fecha: '2026-09-15', fechaTexto: '15 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '8-02',  estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 5 },
+    { id: 'p145', fecha: '2026-09-15', fechaTexto: '15 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '6-01',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p146', fecha: '2026-09-15', fechaTexto: '15 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 8 },
+   
 
 
   ],
@@ -285,7 +289,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{ nombre: 'Pablo Luquez', equipo: '7-04' }, { nombre: 'Hellen Quintero', equipo: '7-01'}],
+      mvp: [{ nombre: 'Pablo Luquez', equipo: '7-04' }, { nombre: 'Hellen Quintero', equipo: '7-01'}, {nombre: 'Juan Alvarez', equipo: '9-01'}, {nombre: 'Maria Valentina Sarmiento', equipo: '6-03'}],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -303,9 +307,11 @@ const TORNEO_DATA = {
         { nombre: 'Anyelo Gomez', equipo: '10-02', goles: 2},
         { nombre: 'Brayan Pineda', equipo: '10-02', goles: 2},
 
-        { nombre: 'Juan Villar', equipo: '9-01', goles: 1},
-        { nombre: 'Faby Marquez', equipo: '9-01', goles: 1},
+        { nombre: 'Juan Villar', equipo: '9-01', goles: 3},
+        { nombre: 'Faby Marquez', equipo: '9-01', goles: 3},
         { nombre: 'Veronik Vizcaino', equipo: '9-01', goles: 1},
+        { nombre: 'Juan Bolaño', equipo: '9-01', goles: 2},
+
 
         { nombre: 'Jose Trujillo', equipo: '9-03', goles: 5},
         { nombre: 'Sergio Colon', equipo: '9-03', goles: 2},
@@ -360,6 +366,8 @@ const TORNEO_DATA = {
         { nombre: 'Jesus Vega', equipo: '6-03', goles: 4}, 
         { nombre: 'Matias Castañeda', equipo: '6-03', goles: 2},
         { nombre: 'Daniel Yirene', equipo: '6-03', goles: 6},
+        { nombre: 'Maria Valentina Sarmiento', equipo: '6-03', goles: 2},
+
         
         { nombre: 'Valeria Dugarte', equipo: '6-01', goles: 1}, 
         { nombre: 'Yeshua Gamez', equipo: '6-01', goles: 1}, 
@@ -389,10 +397,11 @@ const TORNEO_DATA = {
         { nombre: 'Simon Gnecco', equipo: '7-04', goles: 1},
 
 
-        { nombre: 'Santiago Quintero', equipo: '8-02', goles: 6},
+        { nombre: 'Santiago Quintero', equipo: '8-02', goles: 9},
         { nombre: 'Luifer Barraza', equipo: '8-02', goles: 3},
         { nombre: 'Yesbelis Guzman', equipo: '8-02', goles: 2}, 
         {nombre: 'Juan Ramos', equipo: '8-02', goles: 1},
+        { nombre: 'Pedro Barrios', equipo: '8-02', goles: 2},
 
         {nombre: 'Sara Olivares', equipo: '8-03', goles: 3},
         {nombre: 'Guadalupe Payares', equipo: '8-03', goles: 1},
