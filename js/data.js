@@ -258,7 +258,9 @@ const TORNEO_DATA = {
     { id: 'p139', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 8 },
     { id: 'p140', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 2 },
   
-
+    { id: 'p141', fecha: '2026-09-14', fechaTexto: '14 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
+    { id: 'p142', fecha: '2026-09-14', fechaTexto: '14 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-04',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 3 },
+    { id: 'p143', fecha: '2026-09-14', fechaTexto: '14 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 9 },
 
 
 
@@ -283,7 +285,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{ nombre: 'Mariangel Pinto', equipo: '7-04' }, { nombre: 'Elias Gutierrez', equipo: '10-01'}, {nombre: 'Sebastian Mieles', equipo: '7-04'}, {nombre: 'Sebastian Barcinilla (2 veces MVP)', equipo: '11-02'}, {nombre: 'Sara Olivares', equipo: '8-03'}, {nombre: 'Brandon Lascarro', equipo: '6-04'}, {nombre: 'Mariana Rois', equipo: '7-02'}, {nombre: 'Alejandra Velasquez', equipo: '11-01'}, {nombre: 'Santiago Quintero', equipo: '8-02'}, {nombre: 'Daniel Ramos', equipo: '10-02'}, {nombre: 'Maria Rodriguez', equipo: '9-02'}],
+      mvp: [{ nombre: 'Pablo Luquez', equipo: '7-04' }, { nombre: 'Hellen Quintero', equipo: '7-01'}],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -364,11 +366,11 @@ const TORNEO_DATA = {
         { nombre: 'Mathias Paez', equipo: '6-01', goles: 2}, 
         
         { nombre: 'Luis Rojas', equipo: '7-01', goles: 1}, 
-        { nombre: 'Isabella Rodriguez', equipo: '7-01', goles: 3},
-        { nombre: 'Hellen Quintero', equipo: '7-01', goles: 5}, 
+        { nombre: 'Isabella Rodriguez', equipo: '7-01', goles: 4},
+        { nombre: 'Hellen Quintero', equipo: '7-01', goles: 7}, 
 
-        { nombre: 'Luis Jose Moreno', equipo: '7-02', goles: 1}, 
-        { nombre: 'Sebastian Buelvas', equipo: '7-02', goles: 2}, 
+        { nombre: 'Luis Jose Moreno', equipo: '7-02', goles: 2}, 
+        { nombre: 'Sebastian Buelvas', equipo: '7-02', goles: 4}, 
         { nombre: 'Luis Linares', equipo: '7-02', goles: 2},
         { nombre: 'Mariana Rois', equipo: '7-02', goles: 2},
         { nombre: 'Oriana Rosado', equipo: '7-02', goles: 1},
@@ -376,12 +378,15 @@ const TORNEO_DATA = {
         { nombre: 'Josue Tarazona', equipo: '7-03', goles: 1},
         { nombre: 'Luis Orozco', equipo: '7-03', goles: 2}, 
         { nombre: 'Santiago Montes', equipo: '7-03', goles: 2}, 
-        { nombre: 'Oriana Arias', equipo: '7-03', goles: 2},
+        { nombre: 'Oriana Arias', equipo: '7-03', goles: 3},
 
 
         { nombre: 'Mariangel Pinto', equipo: '7-04', goles: 2},
         { nombre: 'Princess Justinico', equipo: '7-04', goles: 1},
         { nombre: 'Sebastian Mieles', equipo: '7-04', goles: 1},
+        { nombre: 'Pablo Luquez', equipo: '7-04', goles: 2},
+        { nombre: 'Liam Castellon', equipo: '7-04', goles: 1},
+        { nombre: 'Simon Gnecco', equipo: '7-04', goles: 1},
 
 
         { nombre: 'Santiago Quintero', equipo: '8-02', goles: 6},
@@ -398,27 +403,8 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Brayan Pineda', equipo: '10-02'}, 
-        { nombre: 'Valery Guarin (2 veces MVP)', equipo: '6-04'}, 
-        { nombre: 'Luis Linares', equipo: '7-02'}, {
-           nombre: 'Daniel Yirene', equipo: '6-03'}, 
-           { nombre: 'Andrea Torrijo', equipo: '10-02'}, 
-           { nombre: 'Valeria Martinez'}, 
-           {nombre: 'Juan Rodriguez', equipo: '7-04'}, 
-           {nombre: 'Hellen Quintero', equipo: '7-01'}, 
-           {nombre: 'Victor Barrios', equipo: '9-02'}, {
-            nombre: 'Mariangel Arias', equipo: '10-02'}, 
-            {nombre: 'Juan Bolaño', equipo: '9-01'}, 
-            {nombre: 'Duvan Riccioly', equipo: '10-02'}, 
-            {nombre: 'Juan Pablo Guerrero', equipo: '11-02'}, 
-            {nombre: 'Juan Miguel Villar', equipo: '9-01'}, 
-            {nombre: 'Ayelem Gomez', equipo: '7-04'}, 
-            {nombre: 'Zohe Mendoza', equipo: '11-01'}, 
-            {nombre: 'Valeria Sierra', equipo: '10-01'}, 
-            {nombre: 'Isabel Ochoa', equipo: '7-02'}, 
-            {nombre: 'Anyeli Pacheco', equipo: '9-02'}, 
-            {nombre: 'Thiago Gonzales', equipo: '6-01'}, 
-            {nombre: 'Oriana Rosado', equipo: '7-02'}],
+      mvp: [{ nombre: 'Isabella Zarate', equipo: '9-03'}, 
+        ],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 4 },
@@ -444,11 +430,13 @@ const TORNEO_DATA = {
         { nombre: 'Maria Barros', equipo: '6-03', canastas: 2 },
         { nombre: 'Daniel Yirene', equipo: '6-03', canastas: 2 },
 
-        { nombre: 'Isabella Zarate', equipo: '9-03', canastas: 1 },
+        { nombre: 'Isabella Zarate', equipo: '9-03', canastas: 4 },
         { nombre: 'Gabriela Angarita', equipo: '9-03', canastas: 1 },
-        { nombre: 'Elizabeth Benavides', equipo: '9-03', canastas: 1 }, 
+        { nombre: 'Elizabeth Benavides', equipo: '9-03', canastas: 2 }, 
         { nombre: 'Jhonder Chourio', equipo: '9-03', canastas: 5 },
         { nombre: 'Samuel Maldonado', equipo: '9-03', canastas: 1 },
+        { nombre: 'Alina Buelvas', equipo: '9-03', canastas: 2 },
+
 
         { nombre: 'Thiago Gonzales', equipo: '6-01', canastas: 1 },
         { nombre: 'Thaliana Galindo', equipo: '6-01', canastas: 1 },
@@ -463,7 +451,9 @@ const TORNEO_DATA = {
         { nombre: 'Isabel Moreno', equipo: '8-03', canastas: 1 },
         { nombre: 'Navil Benavides', equipo: '8-03', canastas: 1 },
         { nombre: 'Jose Pablo Meriño', equipo: '8-03', canastas: 1 },
+        { nombre: 'Valerie Gomez', equipo: '8-03', canastas: 2 },
 
+        
         { nombre: 'Sebastian Perez', equipo: '8-02', canastas: 2 },
         { nombre: 'Yesbelis Guzman', equipo: '8-02', canastas: 4 },
         { nombre: 'Valery Mendoza', equipo: '8-02', canastas: 1 },
