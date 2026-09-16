@@ -412,7 +412,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Isabella Zarate', equipo: '9-03'}, 
+      mvp: [{ nombre: 'Isabella Zarate', equipo: '9-03'}, {nombre: 'Luis Orozco', equipo: '7-03'} 
         ],
 
       maximosAnotadores: [
@@ -424,11 +424,13 @@ const TORNEO_DATA = {
         
         { nombre: 'Mariangel Baquero', equipo: '7-01', canastas: 2 },
         { nombre: 'Hellen Quintero', equipo: '7-01', canastas: 7 },
-        { nombre: 'Julio Sanjuan', equipo: '7-01', canastas: 1 },
+        { nombre: 'Julio Sanjuan', equipo: '7-01', canastas: 2 },
         { nombre: 'Gabriel Tirado', equipo: '7-01', canastas: 1 },
+        { nombre: 'Luis Rojas', equipo: '7-01', canastas: 1 },
         
-        { nombre: 'Luis Orozco', equipo: '7-03', canastas: 2 },
-        { nombre: 'Mauricio Pinto', equipo: '7-03', canastas: 2 },
+        
+        { nombre: 'Luis Orozco', equipo: '7-03', canastas: 4 },
+        { nombre: 'Mauricio Pinto', equipo: '7-03', canastas: 4 },
         { nombre: 'Angela Londoño', equipo: '7-03', canastas: 1 },
 
         { nombre: 'Juan David Rodriguez', equipo: '7-04', canastas: 3 },
