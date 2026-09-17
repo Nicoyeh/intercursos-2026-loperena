@@ -709,7 +709,38 @@ ul { list-style: none; }
 /* ==========================================================================
    ESTADÍSTICAS (Fase 8)
    ========================================================================== */
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.25rem; }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  align-items: start;
+}
+
+.stat-card {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.stat-card__header {
+  min-width: 0;
+}
+
+.stat-card__title {
+  min-width: 0;
+}
+
+.stat-card ul {
+  width: 100%;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.stat-card li {
+  min-width: 0;
+}
 
 .stat-card {
   display: flex;
@@ -872,4 +903,16 @@ ul { list-style: none; }
   border-radius: 50% !important;
   padding: 0 !important;
   background: none !important;
+}
+
+.stat-card ul {
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.stat-card {
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
 }

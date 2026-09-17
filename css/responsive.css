@@ -66,8 +66,14 @@
   .carousel--grande { aspect-ratio: 4 / 3; }
   .carousel--grande .carousel__nav { width: 34px; height: 34px; font-size: 1.1rem; }
 
-  .stats-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-  .stat-card { padding: 1rem 1.1rem; min-height: 110px; }
+.stats-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stat-card {
+  width: 100%;
+  min-width: 0;
+}  .stat-card { padding: 1rem 1.1rem; min-height: 110px; }
 
   .rule-card__toggle { padding: 0.9rem 1.1rem; gap: 0.6rem; }
   .rule-card__title { font-size: 0.95rem; }
@@ -75,6 +81,26 @@
 
   .footer__inner { flex-direction: column; text-align: center; justify-content: center; }
   .footer__links { justify-content: center; }
+}
+
+.stats-grid {
+  grid-template-columns: 1fr;
+}
+
+.stat-card {
+  width: 100%;
+}
+
+.stat-card__title {
+  font-size: 0.75rem;
+}
+
+.stat-card li {
+  gap: 6px;
+}
+
+.stat-card li > div:first-child {
+  min-width: 0;
 }
 
 /* -------------------- Móvil muy pequeño (<= 380px) -------------------- */
