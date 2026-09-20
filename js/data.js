@@ -473,7 +473,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Laura Romo', equipo: '10-01'}, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Harold Buelvas', equipo: '10-01'}, { nombre: 'Alfonso Garcia', equipo: '9-01'}
+      mvp: [{ nombre: 'Laura Romo', equipo: '10-01'}, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Harold Buelvas', equipo: '10-01'}, { nombre: 'Alfonso Garcia', equipo: '9-01'}, { nombre: 'Anyeli Pacheco', equipo: '9-02'}, { nombre: 'Jhonder Chourio', equipo: '9-03'}
         ],
 
       maximosAnotadores: [
