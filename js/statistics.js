@@ -72,71 +72,47 @@ function crearTarjetaIndividualHTML(clave, valor) {
   if (listaVacia) {
     contenidoHTML = '<p class="stat-card__pending">Se cargará cuando la organización registre este dato.</p>';
   } else if (Array.isArray(valor)) {
-    if (typeof valor[0] === 'string') {
-      contenidoHTML = valor.map(str => `<p class="stat-card__pending" style="margin-top: 8px;">${str}</p>`).join('');
-    } else {
-      // Agrupar por la categoría del equipo
-      const agrupadoPorCategoria = {};
+    // Clonar y ordenar de mayor a menor por goles o canastas
+    const listaOrdenada = [...valor].sort((a, b) => {
+      const cantidadA = a.goles ?? a.canastas ?? 0;
+      const cantidadB = b.goles ?? b.canastas ?? 0;
+      return cantidadB - cantidadA;
+    });
 
-      valor.forEach((item) => {
-        const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
-        const categoria = (equipoInfo && equipoInfo.categoria) ? equipoInfo.categoria : 'General';
-
-        if (!agrupadoPorCategoria[categoria]) {
-          agrupadoPorCategoria[categoria] = [];
+    // Lista de MVP, goleadores o anotadores
+    const items = listaOrdenada.map((item) => {
+      const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
+      const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__flag') : '';
+      
+      // Mostrar métrica únicamente si no es MVP y tiene goles o canastas definidos
+      let metricaHTML = '';
+      if (clave !== 'mvp') {
+        if (item.goles !== undefined) {
+          metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.goles} goles</span>`;
+        } else if (item.canastas !== undefined) {
+          metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.canastas} canastas</span>`;
         }
-        agrupadoPorCategoria[categoria].push(item);
-      });
+      }
 
-      contenidoHTML = Object.keys(agrupadoPorCategoria).map((categoria) => {
-        const jugadoresCat = agrupadoPorCategoria[categoria];
-
-        jugadoresCat.sort((a, b) => {
-          const cantidadA = a.goles ?? a.canastas ?? 0;
-          const cantidadB = b.goles ?? b.canastas ?? 0;
-          return cantidadB - cantidadA;
-        });
-
-        const items = jugadoresCat.map((item) => {
-          const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
-          const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__flag') : '';
-          
-          let metricaHTML = '';
-          if (clave !== 'mvp') {
-            if (item.goles !== undefined) {
-              metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.goles} goles</span>`;
-            } else if (item.canastas !== undefined) {
-              metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.canastas} canastas</span>`;
-            }
-          }
-
-          return `
-            <li style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
-                <div style="width: 24px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 2px;">
-                  ${bandera}
-                </div>
-                <div style="display: flex; flex-direction: column; flex: 1; min-width: 0;">
-                  <span style="font-weight: 600; font-size: 0.82rem; line-height: 1.2; word-break: break-word;">${item.nombre}</span>
-                  <span style="font-size: 0.72rem; opacity: 0.6;">${item.equipo}</span>
-                </div>
-              </div>
-              ${metricaHTML}
-            </li>
-          `;
-        }).join('');
-
-        return `
-          <div class="stat-card__category-group" style="margin-top: 14px;">
-            <h4 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.8px; color: #a0aec0; margin: 10px 0 4px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 3px;">
-              ${categoria}
-            </h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">${items}</ul>
+      return `
+        <li style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.05);">
+          <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
+            <div style="width: 24px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 2px;">
+              ${bandera}
+            </div>
+            <div style="display: flex; flex-direction: column; flex: 1; min-width: 0;">
+              <span style="font-weight: 600; font-size: 0.82rem; line-height: 1.2; word-break: break-word;">${item.nombre}</span>
+              <span style="font-size: 0.72rem; opacity: 0.6;">${item.equipo}</span>
+            </div>
           </div>
-        `;
-      }).join('');
-    }
+          ${metricaHTML}
+        </li>
+      `;
+    }).join('');
+
+    contenidoHTML = `<ul style="list-style: none; padding: 0; margin: 12px 0 0 0;">${items}</ul>`;
   } else {
+    // Objeto único en caso de requerirse
     const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[valor.equipo] : null;
     const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__leader-flag') : '';
 
@@ -163,6 +139,7 @@ function crearTarjetaIndividualHTML(clave, valor) {
     </div>
   `;
 }
+
 /** Calcula, para un deporte, qué equipo lidera en partidos jugados, victorias, empates y derrotas. */
 function calcularLideresEquipo(claveDeporte, incluirEmpates) {
   const stats = {};
