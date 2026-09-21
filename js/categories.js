@@ -23,9 +23,9 @@ function initCategorias() {
     contenedor.appendChild(crearBloqueCategoria(claveCategoria, categoria));
   });
 
-  if (typeof window.observeReveal === 'function') {
-    window.observeReveal(contenedor);
-  }
+  //if (typeof window.observeReveal === 'function') {
+   // window.observeReveal(contenedor);
+ // }
 }
 
 function crearBloqueCategoria(claveCategoria, categoria) {
@@ -44,7 +44,7 @@ function crearBloqueCategoria(claveCategoria, categoria) {
   `).join('');
 
   const bloque = document.createElement('article');
-  bloque.className = 'category-block reveal';
+  bloque.className = 'category-block';
   bloque.dataset.categoria = claveCategoria;
   bloque.style.setProperty('--cat-color', categoria.color);
 
@@ -123,9 +123,9 @@ function renderizarPanel(claveCategoria, estadoLocal, panel) {
     `;
   }
 
-  if (typeof window.observeReveal === 'function') {
-    window.observeReveal(panel);
-  }
+  // if (typeof window.observeReveal === 'function') {
+  //  window.observeReveal(panel);
+ // }
 }
 
 function crearListaPartidos(claveCategoria, claveGenero) {

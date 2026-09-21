@@ -916,3 +916,11 @@ ul { list-style: none; }
   width: 100%;
   overflow: hidden;
 }
+
+
+/* Forzar visibilidad de los bloques de categorías en escritorios */
+.category-block {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
