@@ -496,8 +496,7 @@ const TORNEO_DATA = {
 
         { nombre: 'Juan David Rodriguez', equipo: '7-04', canastas: 3 },
         { nombre: 'Pedro Suarez', equipo: '7-04', canastas: 1 },
-        { nombre: 'Danna Alvarez', equipo: '7-04', canastas: 1 },
-        { nombre: 'Ayelem Gomez', equipo: '7-04', canastas: 1 },
+        { nombre: 'Ayelem Gomez', equipo: '7-04', canastas: 2 },
 
         { nombre: 'Maria Barros', equipo: '6-03', canastas: 2 },
         { nombre: 'Daniel Yirene', equipo: '6-03', canastas: 2 },
