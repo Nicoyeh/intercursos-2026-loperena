@@ -299,7 +299,10 @@ const TORNEO_DATA = {
     { id: 'p172', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 6 },
     { id: 'p173', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 12 },
 
-
+    { id: 'p174', fecha: '2026-09-21', fechaTexto: '21 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 0 },
+    { id: 'p175', fecha: '2026-09-21', fechaTexto: '21 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 1 },
+    { id: 'p176', fecha: '2026-09-21', fechaTexto: '21 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 7 },
+   
 
 
   ],
