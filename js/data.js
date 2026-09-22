@@ -326,7 +326,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{nombre: 'Manuel Pallares', equipo: '11-02'}, {nombre: 'Maria Valentina Sarmiento', equipo: '6-03'}, {nombre: 'Isabel Moreno', equipo: '8-03'}, { nombre: 'Yesbelis Guzman', equipo: '8-02'}, {nombre: 'Valeria Sierra', equipo: '10-01'}, {nombre: 'Daniel Ramos', equipo: '10-02'}, {nombre: 'Andrea Torrijo', equipo: '10-02'}, {nombre: 'Nicole Rumie', equipo: '10-03'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, { nombre: 'Veronik Vizcaino', equipo: '9-01'},  { nombre: 'Daniel Valenzuela', equipo: '11-01'}, { nombre: 'Mariangel Pinto', equipo: '7-04'}, { nombre: 'Victor Barrios', equipo: '9-02'}, { nombre: 'Sebastian Alvarez', equipo: '9-02'} ],
+      mvp: [{nombre: 'Ana Gonzales', equipo: '8-02'}, { nombre: 'Jhondailys Briceño', equipo: '9-03'} ],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -476,8 +476,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Laura Romo', equipo: '10-01'}, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Harold Buelvas', equipo: '10-01'}, { nombre: 'Alfonso Garcia', equipo: '9-01'}, { nombre: 'Anyeli Pacheco', equipo: '9-02'}, { nombre: 'Jhonder Chourio', equipo: '9-03'}
-        ],
+      mvp: [ { nombre: 'Victor Barrios', equipo: '9-02'}],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 4 },
@@ -611,7 +610,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: ['Se actualizará cuando comience la siguiente fase: semifinales' ],
+      mvp: [{ nombre: 'Se actualizará cuando comience la siguiente fase: semifinales'} ],
 
     }
   },
