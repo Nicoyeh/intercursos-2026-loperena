@@ -354,7 +354,7 @@ const TORNEO_DATA = {
 
         { nombre: 'Jose Trujillo', equipo: '9-03', goles: 8},
         { nombre: 'Sergio Colon', equipo: '9-03', goles: 2},
-        { nombre: 'Jhondailys Briceño', equipo: '9-03', goles: 2},
+        { nombre: 'Jhondailys Briceño', equipo: '9-03', goles: 3},
         { nombre: 'Carolina Cantillo', equipo: '9-03', goles: 1},
         { nombre: 'Isabella Zarate', equipo: '9-03', goles: 1},
         { nombre: 'Danna Gutierrez', equipo: '9-03', goles: 1},
@@ -524,11 +524,11 @@ const TORNEO_DATA = {
         { nombre: 'Shaylen Salas', equipo: '6-02', canastas: 1 },
 
         { nombre: 'Angel Anteliz', equipo: '8-03', canastas: 3 },
-        { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 1 },
+        { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 2 },
         { nombre: 'Sara Olivares', equipo: '8-03', canastas: 1 },
         { nombre: 'Isabel Moreno', equipo: '8-03', canastas: 1 },
         { nombre: 'Navil Benavides', equipo: '8-03', canastas: 1 },
-        { nombre: 'Jose Pablo Meriño', equipo: '8-03', canastas: 1 },
+        { nombre: 'Jose Pablo Meriño', equipo: '8-03', canastas: 2 },
         { nombre: 'Valerie Gomez', equipo: '8-03', canastas: 2 },
 
         
@@ -558,7 +558,7 @@ const TORNEO_DATA = {
         { nombre: 'Anyeli Pacheco', equipo: '9-02', canastas: 19 },
         { nombre: 'Maria Rodriguez', equipo: '9-02', canastas: 3 },
         { nombre: 'Jherainis Reales', equipo: '9-02', canastas: 6 },
-        { nombre: 'Victor Barrios', equipo: '9-02', canastas: 5 },
+        { nombre: 'Victor Barrios', equipo: '9-02', canastas: 9 },
         { nombre: 'Jose Urbina', equipo: '9-02', canastas: 1 },
 
 
