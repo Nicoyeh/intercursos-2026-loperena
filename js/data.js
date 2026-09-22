@@ -386,14 +386,14 @@ const TORNEO_DATA = {
         { nombre: 'Valeria Mendez', equipo: '11-02', goles: 1},
 
 
-        { nombre: 'Julio De la rosa', equipo: '11-01', goles: 5},
+        { nombre: 'Julio De la rosa', equipo: '11-01', goles: 3},
         { nombre: 'Daniel Valenzuela', equipo: '11-01', goles: 7},
         { nombre: 'Andres Calderon', equipo: '11-01', goles: 2},
         { nombre: 'Mateo Oñate', equipo: '11-01', goles: 4},
         { nombre: 'Zohe Mendoza', equipo: '11-01', goles: 2},
         { nombre: 'Gabriela Lemus', equipo: '11-01', goles: 1},
         { nombre: 'Alejandra Velasquez', equipo: '11-01', goles: 2},
-        { nombre: 'Cristobal Rimon', equipo: '11-01', goles: 5},
+        { nombre: 'Cristobal Rimon', equipo: '11-01', goles: 7},
 
 
         { nombre: 'Valeria Sierra', equipo: '10-01', goles: 4},
@@ -458,7 +458,6 @@ const TORNEO_DATA = {
         { nombre: 'Emily Serrano', equipo: '7-04', goles: 1},
 
       
-
 
         { nombre: 'Santiago Quintero', equipo: '8-02', goles: 9},
         { nombre: 'Luifer Barraza', equipo: '8-02', goles: 4},
