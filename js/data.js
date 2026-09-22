@@ -610,7 +610,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: [{ nombre: 'Se actualizará cuando comience la siguiente fase: semifinales', equipo: '❤️🏐'} ],
+      mvp: [{ nombre: 'Se actualizará cuando comience la siguiente fase: semifinales', equipo: ' los queremos! ❤️🏐'} ],
 
     }
   },
