@@ -303,10 +303,10 @@ const TORNEO_DATA = {
     { id: 'p175', fecha: '2026-09-21', fechaTexto: '21 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 1 },
     { id: 'p176', fecha: '2026-09-21', fechaTexto: '21 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 7 },
    
-    { id: 'p177', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p178', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 17, marcadorVisitante: 15 },
-    { id: 'p179', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 6 },
-    { id: 'p180', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 12 },
+    { id: 'p177', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 3 },
+    { id: 'p178', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 3 },
+    { id: 'p179', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-01',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 11 },
+    { id: 'p180', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
 
 
