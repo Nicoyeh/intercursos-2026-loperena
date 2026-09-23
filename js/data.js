@@ -331,7 +331,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{nombre: 'Ana Gonzales', equipo: '8-02'}, { nombre: 'Jhondailys Briceño', equipo: '9-03'}, { nombre: 'Sebastian Alvarez', equipo: '9-02'} ],
+      mvp: [{nombre: 'Ana Gonzales', equipo: '8-02'}, { nombre: 'Jhondailys Briceño', equipo: '9-03'}, { nombre: 'Sebastian Alvarez', equipo: '9-02'}, { nombre: 'Sebastian Alvarez', equipo: '9-02'}  ],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -366,7 +366,7 @@ const TORNEO_DATA = {
         { nombre: 'Sara Gonzales', equipo: '9-03', goles: 1}, 
         { nombre: 'Sebastian Rodriguez', equipo: '9-03', goles: 3},
 
-        { nombre: 'Sebastian Alvarez', equipo: '9-02', goles: 4},
+        { nombre: 'Sebastian Alvarez', equipo: '9-02', goles: 5},
         { nombre: 'Emily Machado', equipo: '9-02', goles: 2},
         { nombre: 'Maria Rodriguez', equipo: '9-02', goles: 1},
         { nombre: 'Victor Barrios', equipo: '9-02', goles: 4},
@@ -480,14 +480,16 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [ { nombre: 'Victor Barrios', equipo: '9-02'}],
+      mvp: [ { nombre: 'Victor Barrios', equipo: '9-02'}, { nombre: 'Juan Guillen', equipo: '6-01'} ],
 
       maximosAnotadores: [
-        { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 4 },
+        { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
         { nombre: 'Mariana Rois', equipo: '7-02', canastas: 3 },
-        { nombre: 'Juan Sebastian Buelvas', equipo: '7-02', canastas: 2 },
+        { nombre: 'Juan Sebastian Buelvas', equipo: '7-02', canastas: 4 },
         { nombre: 'Oriana Rosado', equipo: '7-02', canastas: 4 },     
         { nombre: 'Isabel Ochoa', equipo: '7-02', canastas: 6 },
+        { nombre: 'Samuel Mendoza', equipo: '7-02', canastas: 2 },
+
         
         { nombre: 'Mariangel Baquero', equipo: '7-01', canastas: 2 },
         { nombre: 'Hellen Quintero', equipo: '7-01', canastas: 7 },
@@ -519,8 +521,10 @@ const TORNEO_DATA = {
 
 
 
-        { nombre: 'Thiago Gonzales', equipo: '6-01', canastas: 1 },
+        { nombre: 'Thiago Gonzales', equipo: '6-01', canastas: 2 },
         { nombre: 'Thaliana Galindo', equipo: '6-01', canastas: 1 },
+        { nombre: 'Matias Medinas', equipo: '6-01', canastas: 1 },
+      
 
         { nombre: 'David Rojas', equipo: '6-02', canastas: 1 },
         { nombre: 'Valeria Martinez', equipo: '6-02', canastas: 1 },
