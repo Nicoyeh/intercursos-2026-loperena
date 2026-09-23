@@ -434,7 +434,7 @@ ul { list-style: none; }
 .category-stage {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 0.55em;
+  font-size: 1em;
   line-height: 0.95;
   margin-left: 12px;
   vertical-align: middle;
