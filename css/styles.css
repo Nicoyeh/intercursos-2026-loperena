@@ -430,13 +430,16 @@ ul { list-style: none; }
 
 .category-block__header { position: relative; z-index: 1; margin-bottom: 1.75rem; }
 .category-block__eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cat-color); }
-.category-block__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.25rem, 6vw, 4rem); line-height: 0.95; } .category-stage {
-  font-size: 0.35em;
-  font-weight: 600;
+.category-block__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.25rem, 6vw, 4rem); line-height: 0.95; } 
+.category-stage {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.55em;
+  line-height: 0.95;
   margin-left: 12px;
   vertical-align: middle;
-  letter-spacing: 0.04em;
-  opacity: 0.8;
+  letter-spacing: normal;
+  opacity: 1;
 }
 .category-block__meta { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
 
