@@ -51,7 +51,10 @@ function crearBloqueCategoria(claveCategoria, categoria) {
   bloque.innerHTML = `
     <div class="category-block__header">
       <span class="category-block__eyebrow">Categoría</span>
-      <h3 class="category-block__title">${categoria.nombre}</h3>
+<h3 class="category-block__title">
+  ${categoria.nombre}
+  ${categoria.nombre === 'Infantil' ? '<span class="category-stage">Semifinales</span>' : ''}
+</h3>
       <p class="category-block__meta">${equiposCategoria.length} selecciones en competencia</p>
     </div>
 
