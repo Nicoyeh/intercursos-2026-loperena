@@ -308,6 +308,10 @@ const TORNEO_DATA = {
     { id: 'p179', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-01',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 11 },
     { id: 'p180', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
+    { id: 'p181', fecha: '2026-09-23', fechaTexto: '23 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
+    { id: 'p182', fecha: '2026-09-23', fechaTexto: '23 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
+    { id: 'p183', fecha: '2026-09-23', fechaTexto: '23 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
+
 
 
   ],
@@ -350,10 +354,11 @@ const TORNEO_DATA = {
         { nombre: 'Brayan Pineda', equipo: '10-02', goles: 2},
 
         { nombre: 'Juan Villar', equipo: '9-01', goles: 3},
-        { nombre: 'Faby Marquez', equipo: '9-01', goles: 3},
+        { nombre: 'Faby Marquez', equipo: '9-01', goles: 4},
         { nombre: 'Veronik Vizcaino', equipo: '9-01', goles: 3},
-        { nombre: 'Juan Bolaño', equipo: '9-01', goles: 2},
+        { nombre: 'Juan Bolaño', equipo: '9-01', goles: 3},
         { nombre: 'Jose Montesino', equipo: '9-01', goles: 1},
+        { nombre: 'Alfonso Garcia', equipo: '9-01', goles: 1},
         
 
 
@@ -431,8 +436,8 @@ const TORNEO_DATA = {
         { nombre: 'Mathias Paez', equipo: '6-01', goles: 2}, 
         
         { nombre: 'Luis Rojas', equipo: '7-01', goles: 3}, 
-        { nombre: 'Isabella Rodriguez', equipo: '7-01', goles: 4},
-        { nombre: 'Hellen Quintero', equipo: '7-01', goles: 7}, 
+        { nombre: 'Isabella Rodriguez', equipo: '7-01', goles: 5},
+        { nombre: 'Hellen Quintero', equipo: '7-01', goles: 10}, 
         { nombre: 'Gabriel Tirado', equipo: '7-01', goles: 1},
         { nombre: 'Julio Sanjuan', equipo: '7-01', goles: 1},
        
@@ -473,7 +478,7 @@ const TORNEO_DATA = {
         {nombre: 'Sara Olivares', equipo: '8-03', goles: 3},
         {nombre: 'Guadalupe Payares', equipo: '8-03', goles: 1},
         {nombre: 'Isabel Moreno', equipo: '8-03', goles: 2},
-        {nombre: 'Navil Benavides', equipo: '8-03', goles: 2},
+        {nombre: 'Navil Benavides', equipo: '8-03', goles: 3},
 
 
       ],
