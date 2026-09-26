@@ -53,7 +53,7 @@ function crearBloqueCategoria(claveCategoria, categoria) {
       <span class="category-block__eyebrow">Categoría</span>
 <h3 class="category-block__title">
   ${categoria.nombre}
-  ${categoria.nombre === 'Infantil' ? '<span class="category-stage">Semifinales</span>' : ''}
+${['Infantil', 'Prejuvenil'].includes(categoria.nombre) ? '<span class="category-stage">Semifinales</span>' : ''}
 </h3>
       <p class="category-block__meta">${equiposCategoria.length} selecciones en competencia</p>
     </div>
