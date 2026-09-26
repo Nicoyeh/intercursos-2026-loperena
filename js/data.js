@@ -176,7 +176,7 @@ const TORNEO_DATA = {
     { id: 'p69', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     // { id: 'p70', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    // { id: 'p71', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
+     { id: 'p71', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
     // { id: 'p72', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-01',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     // { id: 'p73', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     { id: 'p74', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
