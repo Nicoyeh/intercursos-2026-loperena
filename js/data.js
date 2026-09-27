@@ -320,6 +320,14 @@ const TORNEO_DATA = {
     { id: 'p189', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-03',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 0 },
     { id: 'p190', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '6:00 - 6:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
 
+    { id: 'p191', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 16 },
+    { id: 'p192', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 18, marcadorVisitante: 5 },
+    { id: 'p193', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 13, marcadorVisitante: 4 },
+    { id: 'p194', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p195', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 9, marcadorVisitante: 1 },
+    { id: 'p196', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 6 },
+    { id: 'p196', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 29, marcadorVisitante: 10 },
+    { id: 'p197', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 26, marcadorVisitante: 14 },
 
 
   ],
@@ -498,15 +506,16 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [ ],
+      mvp: [{ nombre: 'Dylan Casas', equipo: '11-01'}, { nombre: 'Luis Angarita', equipo: '11-02'}, { nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Anyeli Pacheco', equipo: '9-02'}, { nombre: 'Maria Barros', equipo: '6-03'}, { nombre: 'Andrea Torrijo', equipo: '10-02'}, { nombre: 'Jose Urbina', equipo: '9-02'}, { nombre: 'Salome Cantillo', equipo: '7-02'} ],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
         { nombre: 'Mariana Rois', equipo: '7-02', canastas: 3 },
         { nombre: 'Juan Sebastian Buelvas', equipo: '7-02', canastas: 4 },
-        { nombre: 'Oriana Rosado', equipo: '7-02', canastas: 4 },     
-        { nombre: 'Isabel Ochoa', equipo: '7-02', canastas: 6 },
+        { nombre: 'Oriana Rosado', equipo: '7-02', canastas: 5 },     
+        { nombre: 'Isabel Ochoa', equipo: '7-02', canastas: 9 },
         { nombre: 'Samuel Mendoza', equipo: '7-02', canastas: 2 },
+        { nombre: 'Salome Cantillo', equipo: '7-02', canastas: 4 },     
 
         
         { nombre: 'Mariangel Baquero', equipo: '7-01', canastas: 2 },
@@ -517,14 +526,18 @@ const TORNEO_DATA = {
         
         
         { nombre: 'Luis Orozco', equipo: '7-03', canastas: 4 },
-        { nombre: 'Mauricio Pinto', equipo: '7-03', canastas: 4 },
+        { nombre: 'Mauricio Pinto', equipo: '7-03', canastas: 6 },
         { nombre: 'Angela Londoño', equipo: '7-03', canastas: 1 },
+        { nombre: 'Steven Martinez', equipo: '7-03', canastas: 1 },
+        { nombre: 'Santiago Montes', equipo: '7-03', canastas: 2 },
+        
+
 
         { nombre: 'Juan David Rodriguez', equipo: '7-04', canastas: 3 },
         { nombre: 'Pedro Suarez', equipo: '7-04', canastas: 1 },
         { nombre: 'Ayelem Gomez', equipo: '7-04', canastas: 2 },
 
-        { nombre: 'Maria Barros', equipo: '6-03', canastas: 2 },
+        { nombre: 'Maria Barros', equipo: '6-03', canastas: 3 },
         { nombre: 'Daniel Yirene', equipo: '6-03', canastas: 2 },
 
         { nombre: 'Isabella Zarate', equipo: '9-03', canastas: 7 },
@@ -549,14 +562,16 @@ const TORNEO_DATA = {
         { nombre: 'Shaylen Salas', equipo: '6-02', canastas: 1 },
 
         { nombre: 'Angel Anteliz', equipo: '8-03', canastas: 3 },
-        { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 2 },
+        { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 3 },
         { nombre: 'Sara Olivares', equipo: '8-03', canastas: 1 },
         { nombre: 'Isabel Moreno', equipo: '8-03', canastas: 1 },
         { nombre: 'Navil Benavides', equipo: '8-03', canastas: 1 },
         { nombre: 'Jose Pablo Meriño', equipo: '8-03', canastas: 2 },
-        { nombre: 'Valerie Gomez', equipo: '8-03', canastas: 2 },
+        { nombre: 'Valerie Gomez', equipo: '8-03', canastas: 3 },
+        { nombre: 'Miguel Garzon', equipo: '8-03', canastas: 1 },
 
-        
+
+
         { nombre: 'Sebastian Perez', equipo: '8-02', canastas: 6 },
         { nombre: 'Yesbelis Guzman', equipo: '8-02', canastas: 5 },
         { nombre: 'Valery Mendoza', equipo: '8-02', canastas: 6 },
@@ -564,9 +579,9 @@ const TORNEO_DATA = {
 
        
      
-        { nombre: 'Juan de Dios Escudero', equipo: '6-04', canastas: 4 },
+        { nombre: 'Juan de Dios Escudero', equipo: '6-04', canastas: 5 },
         { nombre: 'Samuel Lascarro', equipo: '6-04', canastas: 5 },
-        { nombre: 'Jose Ochoa', equipo: '6-04', canastas: 2 }, 
+        { nombre: 'Jose Ochoa', equipo: '6-04', canastas: 4 }, 
         { nombre: 'Valery Guarin', equipo: '6-04', canastas: 2 },
         { nombre: 'Akemis Montero', equipo: '6-04', canastas: 1 },
         
@@ -580,30 +595,36 @@ const TORNEO_DATA = {
         
 
 
-        { nombre: 'Anyeli Pacheco', equipo: '9-02', canastas: 19 },
+        { nombre: 'Anyeli Pacheco', equipo: '9-02', canastas: 22 },
         { nombre: 'Maria Rodriguez', equipo: '9-02', canastas: 3 },
-        { nombre: 'Jherainis Reales', equipo: '9-02', canastas: 6 },
+        { nombre: 'Jherainis Reales', equipo: '9-02', canastas: 7 },
         { nombre: 'Victor Barrios', equipo: '9-02', canastas: 9 },
-        { nombre: 'Jose Urbina', equipo: '9-02', canastas: 1 },
+        { nombre: 'Jose Urbina', equipo: '9-02', canastas: 6 },
+        { nombre: 'Victor Barrios', equipo: '9-02', canastas: 4 },
+
 
 
 
         { nombre: 'Laura Romo', equipo: '10-01', canastas: 4 },
         { nombre: 'Valery Torres', equipo: '10-01', canastas: 5 },
-        { nombre: 'Harold Buelvas', equipo: '10-01', canastas: 15},
+        { nombre: 'Harold Buelvas', equipo: '10-01', canastas: 16},
         { nombre: 'Fernando Daza', equipo: '10-01', canastas: 1 },
         { nombre: 'Erik Cortes', equipo: '10-01', canastas: 1 },
         { nombre: 'Valeria Sierra', equipo: '10-01', canastas: 4 },
         { nombre: 'Natalia Pineda', equipo: '10-01', canastas: 1 },
         { nombre: 'Jose Daza', equipo: '10-01', canastas: 1 },
+        { nombre: 'Marcos Marbello', equipo: '10-01', canastas: 5 },
+        { nombre: 'Andres Perez', equipo: '10-01', canastas: 1 },
 
 
-        { nombre: 'Felipe Zuñiga', equipo: '10-02', canastas: 5 },
-        { nombre: 'Duvan Riccioly', equipo: '10-02', canastas: 9 },
+
+
+        { nombre: 'Felipe Zuñiga', equipo: '10-02', canastas: 8 },
+        { nombre: 'Duvan Riccioly', equipo: '10-02', canastas: 12 },
         { nombre: 'Brayan Pineda', equipo: '10-02', canastas: 5 },
         { nombre: 'Sara Angarita', equipo: '10-02', canastas: 4 },
-        { nombre: 'Mariangel Arias', equipo: '10-02', canastas: 7 },
-        { nombre: 'Andrea Torrijo', equipo: '10-02', canastas: 9 },
+        { nombre: 'Mariangel Arias', equipo: '10-02', canastas: 9 },
+        { nombre: 'Andrea Torrijo', equipo: '10-02', canastas: 15 },
         { nombre: 'Jhoiner Chourio', equipo: '10-02', canastas: 1 },
 
         { nombre: 'Carlos Sanchez', equipo: '10-03', canastas: 6 },
@@ -611,27 +632,32 @@ const TORNEO_DATA = {
         { nombre: 'Kasami Gonzales', equipo: '10-03', canastas: 1 },
         { nombre: 'Emanuel Barros', equipo: '10-03', canastas: 3},
 
-        { nombre: 'Sebastian Madariaga', equipo: '11-01', canastas: 10 },
-        { nombre: 'Mateo Oñate', equipo: '11-01', canastas: 4 },
+        { nombre: 'Sebastian Madariaga', equipo: '11-01', canastas: 14 },
+        { nombre: 'Mateo Oñate', equipo: '11-01', canastas: 8 },
         { nombre: 'Walter Macias', equipo: '11-01', canastas: 1 },
-        { nombre: 'Julio De la rosa', equipo: '11-01', canastas: 3},
+        { nombre: 'Julio De la rosa', equipo: '11-01', canastas: 4},
         { nombre: 'Hernan Vecino', equipo: '11-01', canastas: 1 },
         { nombre: 'Aythana Daza', equipo: '11-01', canastas: 1 },
         { nombre: 'Zohe Mendoza', equipo: '11-01', canastas: 2 },
         { nombre: 'Angela Mejia', equipo: '11-01', canastas: 1 },
-        { nombre: 'Alejandra Velasquez', equipo: '11-01', canastas: 1 },
+        { nombre: 'Alejandra Velasquez', equipo: '11-01', canastas: 2 },
         { nombre: 'Isabella Padilla', equipo: '11-01', canastas: 1 },
         { nombre: 'Laura Viloria', equipo: '11-01', canastas: 2 },
+        { nombre: 'Dylan Casas', equipo: '11-01', canastas: 3},
+        { nombre: 'Gabriela Lemus', equipo: '11-01', canastas: 1 },
 
 
-        { nombre: 'Manuel Pallares', equipo: '11-02', canastas: 3 },
-        { nombre: 'Samuel Agamez', equipo: '11-02', canastas: 11 },
+
+
+        { nombre: 'Manuel Pallares', equipo: '11-02', canastas: 6 },
+        { nombre: 'Samuel Agamez', equipo: '11-02', canastas: 15 },
         { nombre: 'Edinson Parra', equipo: '11-02', canastas: 1 }, 
         { nombre: 'Juan Pablo Guerrero', equipo: '11-02', canastas: 9 },
         { nombre: 'Rosaelina Romero', equipo: '11-02', canastas: 1 },
-        { nombre: 'Luis Angarita', equipo: '11-02', canastas: 4 },
+        { nombre: 'Luis Angarita', equipo: '11-02', canastas: 9 },
         { nombre: 'Carlos Mazenett', equipo: '11-02', canastas: 3 },
         { nombre: 'Danella Alandete', equipo: '11-02', canastas: 2 },
+        { nombre: 'Orlando Rondon', equipo: '11-02', canastas: 2 },
 
       ]
     },
