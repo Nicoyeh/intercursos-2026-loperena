@@ -415,7 +415,7 @@ const TORNEO_DATA = {
         { nombre: 'Marcos Marbello', equipo: '10-01', goles: 1},
 
         { nombre: 'Valery Guarin', equipo: '6-04', goles: 3},
-        { nombre: 'Brandon Lascarro', equipo: '6-04', goles: 5},
+        { nombre: 'Brandon Lascarro', equipo: '6-04', goles: 6},
         { nombre: 'Cristian Criales', equipo: '6-04', goles: 1}, 
         { nombre: 'Eilin Hernandez', equipo: '6-04', goles: 3}, 
         { nombre: 'Sebastian Conrado', equipo: '6-04', goles: 1},
