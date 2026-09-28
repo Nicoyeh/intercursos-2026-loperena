@@ -700,7 +700,7 @@ const TORNEO_DATA = {
     { nombre: 'Gina Mójica y Carlos Mazenett', curso: '7-03', fotos: ['assets/images/gina-mojica.jpg', 'assets/images/carlos-mazenett.jpg'] },
     { nombre: 'Eyleen Padilla y Manuel Pallares', curso: '7-04', fotos: ['assets/images/eyleen-padilla.jpg', 'assets/images/manuel-pallares.png'] },     
     { nombre: 'Sharon Andrade y Santiago Roa', curso: '8-02', fotos: ['assets/images/sharon-andrade.jpg'], fotoGrupal: true },
-    { nombre: 'Valeria Mendez y Obed Quiroz', curso: '8-03', fotos: ['assets/images/valeria-mendez.jpg', 'assets/images/obed-quiroz.jpg'] },
+    { nombre: 'Valeria Mendez y Obed Quiroz', curso: '8-03', fotos: ['assets/images/valeriaa.jpg', 'assets/images/obed-quiroz.jpg'] },
     { nombre: 'Nicole Palacio y Luis Manjarrez', curso: '9-01', fotos: ['assets/images/nicole-palacios.jpg', 'assets/images/luis-manjarrez.jpg'] },
     { nombre: 'Laura Fernández y Joao López', curso: '9-02', fotos: ['assets/images/lau-fer.jpg', 'assets/images/joao-lopez.jpg'] },
     { nombre: 'Esteban Martínez y Diego Araujo', curso: '9-03', fotos: ['assets/images/esteban-martinez.jpg'], fotoGrupal: true },
