@@ -329,6 +329,18 @@ const TORNEO_DATA = {
     { id: 'p196', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 29, marcadorVisitante: 10 },
     { id: 'p197', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 26, marcadorVisitante: 14 },
 
+    { id: 'p198', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p199', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p200', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
+    { id: 'p201', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p202', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+   
+    { id: 'p203', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p204', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+
+    { id: 'p205', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p206', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p207', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
   ],
 
@@ -506,7 +518,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Dylan Casas', equipo: '11-01'}, { nombre: 'Luis Angarita', equipo: '11-02'}, { nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Anyeli Pacheco', equipo: '9-02'}, { nombre: 'Maria Barros', equipo: '6-03'}, { nombre: 'Andrea Torrijo', equipo: '10-02'}, { nombre: 'Jose Urbina', equipo: '9-02'}, { nombre: 'Salome Cantillo', equipo: '7-02'} ],
+      mvp: [{ nombre: 'Dylan Casas', equipo: '11-01'}, { nombre: 'Luis Angarita', equipo: '11-02'}, { nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Anyeli Pacheco', equipo: '9-02'}, { nombre: 'Maria Barros', equipo: '6-03'}, { nombre: 'Andrea Torrijo', equipo: '10-02'}, { nombre: 'Jose Urbina', equipo: '9-02'}, { nombre: 'Salome Cantillo', equipo: '7-02'}, { nombre: 'Sebastian Buelvas', equipo: '7-02'},  ],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
@@ -662,7 +674,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: [ ],
+      mvp: [ { nombre: 'Valeria Mendez', equipo: '11-02'}, { nombre: 'Mariangel Rincón', equipo: '11-01'}, { nombre: 'Isabella Rodriguez', equipo: '7-01'}, { nombre: 'Jherainis Reales', equipo: '9-02'}, { nombre: 'Yesid Orrego', equipo: '10-03'}, { nombre: 'Jose Urbina', equipo: '9-02'}, { nombre: 'Abigail Rangel', equipo: '9-03'}, { nombre: 'Ana Gonzales', equipo: '8-02'}, { nombre: 'Juan Vega', equipo: '9-01'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}    ],
 
     }
   },
