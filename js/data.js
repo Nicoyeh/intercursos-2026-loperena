@@ -342,6 +342,10 @@ const TORNEO_DATA = {
     { id: 'p206', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     { id: 'p207', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
+    { id: 'p208', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 4 },
+    { id: 'p209', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 0 },
+    { id: 'p210', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    
   ],
 
   // ⚠️ DATOS DE EJEMPLO / DEMO — este cruce eliminatorio es INVENTADO,
@@ -363,7 +367,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{nombre: 'Arolis Rodriguez', equipo: '8-03'}, { nombre: 'Cristian Criales', equipo: '6-04'}, { nombre: 'Liam Castellon', equipo: '7-04'}, { nombre: 'Luifer Barraza', equipo: '8-02'}, { nombre: 'Valeria Mendez', equipo: '11-02'} ],
+      mvp: [{ nombre: 'Jose Trujillo', equipo: '9-03'} ],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -390,7 +394,7 @@ const TORNEO_DATA = {
         
 
 
-        { nombre: 'Jose Trujillo', equipo: '9-03', goles: 8},
+        { nombre: 'Jose Trujillo', equipo: '9-03', goles: 10},
         { nombre: 'Sergio Colon', equipo: '9-03', goles: 2},
         { nombre: 'Jhondailys Briceño', equipo: '9-03', goles: 3},
         { nombre: 'Carolina Cantillo', equipo: '9-03', goles: 1},
@@ -399,10 +403,10 @@ const TORNEO_DATA = {
         { nombre: 'Sara Gonzales', equipo: '9-03', goles: 1}, 
         { nombre: 'Sebastian Rodriguez', equipo: '9-03', goles: 3},
 
-        { nombre: 'Sebastian Alvarez', equipo: '9-02', goles: 5},
+        { nombre: 'Sebastian Alvarez', equipo: '9-02', goles: 7},
         { nombre: 'Emily Machado', equipo: '9-02', goles: 2},
         { nombre: 'Maria Rodriguez', equipo: '9-02', goles: 1},
-        { nombre: 'Victor Barrios', equipo: '9-02', goles: 4},
+        { nombre: 'Victor Barrios', equipo: '9-02', goles: 6},
         { nombre: 'Emmanuel Herrera', equipo: '9-02', goles: 3},
 
 
@@ -518,7 +522,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Dylan Casas', equipo: '11-01'}, { nombre: 'Luis Angarita', equipo: '11-02'}, { nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Anyeli Pacheco', equipo: '9-02'}, { nombre: 'Maria Barros', equipo: '6-03'}, { nombre: 'Andrea Torrijo', equipo: '10-02'}, { nombre: 'Jose Urbina', equipo: '9-02'}, { nombre: 'Salome Cantillo', equipo: '7-02'}, { nombre: 'Sebastian Buelvas', equipo: '7-02'},  ],
+      mvp: [{ nombre: 'Hellen Quintero', equipo: '7-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}  ],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
@@ -571,7 +575,7 @@ const TORNEO_DATA = {
 
         { nombre: 'David Rojas', equipo: '6-02', canastas: 1 },
         { nombre: 'Valeria Martinez', equipo: '6-02', canastas: 1 },
-        { nombre: 'Shaylen Salas', equipo: '6-02', canastas: 1 },
+        { nombre: 'Shaylen Salas', equipo: '6-02', canastas: 2 },
 
         { nombre: 'Angel Anteliz', equipo: '8-03', canastas: 3 },
         { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 3 },
@@ -674,7 +678,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: [ { nombre: 'Valeria Mendez', equipo: '11-02'}, { nombre: 'Mariangel Rincón', equipo: '11-01'}, { nombre: 'Isabella Rodriguez', equipo: '7-01'}, { nombre: 'Jherainis Reales', equipo: '9-02'}, { nombre: 'Yesid Orrego', equipo: '10-03'}, { nombre: 'Jose Urbina', equipo: '9-02'}, { nombre: 'Abigail Rangel', equipo: '9-03'}, { nombre: 'Ana Gonzales', equipo: '8-02'}, { nombre: 'Juan Vega', equipo: '9-01'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}    ],
+      mvp: [ { nombre: 'Esmelin Izquierdo', equipo: '6-04'}    ],
 
     }
   },
