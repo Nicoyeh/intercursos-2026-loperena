@@ -346,6 +346,11 @@ const TORNEO_DATA = {
     { id: 'p209', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 0 },
     { id: 'p210', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     
+    { id: 'p211', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-03',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p212', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 26, marcadorVisitante: 5 },
+    { id: 'p213', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+
+    
   ],
 
   // ⚠️ DATOS DE EJEMPLO / DEMO — este cruce eliminatorio es INVENTADO,
@@ -367,7 +372,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{ nombre: 'Jose Trujillo', equipo: '9-03'} ],
+      mvp: [{ nombre: 'Jose Trujillo', equipo: '9-03'}, { nombre: 'Mauricio Pinto', equipo: '7-03'}, ],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -481,10 +486,11 @@ const TORNEO_DATA = {
         { nombre: 'Oriana Rosado', equipo: '7-02', goles: 1},
         
         { nombre: 'Josue Tarazona', equipo: '7-03', goles: 1},
-        { nombre: 'Luis Orozco', equipo: '7-03', goles: 3}, 
+        { nombre: 'Luis Orozco', equipo: '7-03', goles: 4}, 
         { nombre: 'Santiago Montes', equipo: '7-03', goles: 2}, 
         { nombre: 'Oriana Arias', equipo: '7-03', goles: 3},
         { nombre: 'Mauricio Pinto', equipo: '7-03', goles: 7},
+        { nombre: 'David Granados', equipo: '7-03', goles: 1},
         
 
 
@@ -522,7 +528,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Hellen Quintero', equipo: '7-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}  ],
+      mvp: [{ nombre: 'Hellen Quintero', equipo: '7-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, { nombre: 'Luis Angarita', equipo: '11-02'}  ],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
@@ -643,10 +649,10 @@ const TORNEO_DATA = {
         { nombre: 'Andrea Torrijo', equipo: '10-02', canastas: 15 },
         { nombre: 'Jhoiner Chourio', equipo: '10-02', canastas: 1 },
 
-        { nombre: 'Carlos Sanchez', equipo: '10-03', canastas: 6 },
+        { nombre: 'Carlos Sanchez', equipo: '10-03', canastas: 7 },
         { nombre: 'Christopher Castaño', equipo: '10-03', canastas: 1 },
         { nombre: 'Kasami Gonzales', equipo: '10-03', canastas: 1 },
-        { nombre: 'Emanuel Barros', equipo: '10-03', canastas: 3},
+        { nombre: 'Emanuel Barros', equipo: '10-03', canastas: 5},
 
         { nombre: 'Sebastian Madariaga', equipo: '11-01', canastas: 14 },
         { nombre: 'Mateo Oñate', equipo: '11-01', canastas: 8 },
@@ -665,15 +671,16 @@ const TORNEO_DATA = {
 
 
 
-        { nombre: 'Manuel Pallares', equipo: '11-02', canastas: 6 },
-        { nombre: 'Samuel Agamez', equipo: '11-02', canastas: 15 },
+        { nombre: 'Manuel Pallares', equipo: '11-02', canastas: 10 },
+        { nombre: 'Samuel Agamez', equipo: '11-02', canastas: 17 },
         { nombre: 'Edinson Parra', equipo: '11-02', canastas: 1 }, 
-        { nombre: 'Juan Pablo Guerrero', equipo: '11-02', canastas: 9 },
+        { nombre: 'Juan Pablo Guerrero', equipo: '11-02', canastas: 10 },
         { nombre: 'Rosaelina Romero', equipo: '11-02', canastas: 1 },
-        { nombre: 'Luis Angarita', equipo: '11-02', canastas: 9 },
+        { nombre: 'Luis Angarita', equipo: '11-02', canastas: 14 },
         { nombre: 'Carlos Mazenett', equipo: '11-02', canastas: 3 },
         { nombre: 'Danella Alandete', equipo: '11-02', canastas: 2 },
         { nombre: 'Orlando Rondon', equipo: '11-02', canastas: 2 },
+        { nombre: 'Obed Quiroz 🩶', equipo: '11-02', canastas: 1 },      
 
       ]
     },
