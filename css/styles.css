@@ -521,6 +521,8 @@ ul { list-style: none; }
 .standings td.standings__pts { font-weight: 700; color: var(--cat-color); font-variant-numeric: tabular-nums; }
 .standings__team { display: flex; align-items: center; gap: 0.5rem; }
 .standings__flag { width: 18px; height: 13.5px; }
+.standings tr.is-eliminated td { opacity: 0.5; }
+.standings__out { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--glass-border); border-radius: var(--radius-full); padding: 0.1rem 0.45rem; }
 
 /* Estado "próximamente" para Llaves / Galería / Estadísticas */
 .panel-placeholder { text-align: center; padding: var(--space-lg) var(--space-md); color: var(--text-muted); }

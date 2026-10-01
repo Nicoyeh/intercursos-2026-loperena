@@ -73,6 +73,28 @@ const TORNEO_DATA = {
     '11-02': { pais: 'Brasil',     bandera: 'assets/flags/brazil.svg',    categoria: 'juvenil' }
   },
 
+  // ESTADO DE ELIMINACIÓN — fase de grupos terminada (Infantil y Prejuvenil).
+  // Se maneja por separado para cada combinación:
+  //   categoría → deporte → género → [cursos eliminados]
+  // Un curso eliminado aquí SOLO queda eliminado en esa combinación exacta;
+  // en cualquier otra donde no esté listado sigue activo. Los equipos, partidos
+  // y resultados de la fase de grupos NO se tocan: siguen en "equipos" y
+  // "partidos". Para eliminar a alguien más, agrégalo a la lista correcta.
+  // Consulta con equipoEliminado() / equiposActivos() (al final de este archivo).
+  eliminados: {
+    infantil: {
+      futbol:     { hombres: ['6-01', '6-03', '7-01', '7-02'], mujeres: ['6-02', '6-03', '7-01', '7-04'] },
+      baloncesto: { hombres: ['6-02', '6-03', '7-01', '7-04'], mujeres: ['6-01', '6-04', '7-03', '7-04'] },
+      voleibol:   { hombres: ['6-01', '6-02', '7-01', '7-03'], mujeres: ['6-01', '6-02', '7-03', '7-04'] }
+    },
+    prejuvenil: {
+      futbol:     { hombres: ['8-03'], mujeres: ['9-02'] },
+      baloncesto: { hombres: ['8-02'], mujeres: ['9-01'] },
+      voleibol:   { hombres: ['8-02'], mujeres: ['9-01'] }
+    }
+    // juvenil: todavía en fase de grupos, sin eliminados.
+  },
+
   // ⚠️ DATOS DE EJEMPLO / DEMO — resultados y cruce INVENTADOS, solo para
   // mostrar cómo funcionan el calendario, la tabla de posiciones y los
   // filtros (incluido Hombres/Mujeres). Reemplaza este arreglo por el
@@ -805,3 +827,22 @@ const TORNEO_DATA = {
 ],
 
 };
+
+/**
+ * ¿Está eliminado este curso en ESA categoría + deporte + género?
+ * Nunca mira solo el nombre del curso: las tres claves son obligatorias.
+ */
+function equipoEliminado(categoria, deporte, genero, codigo) {
+  const lista = (((TORNEO_DATA.eliminados || {})[categoria] || {})[deporte] || {})[genero];
+  return Array.isArray(lista) && lista.includes(codigo);
+}
+
+/** Cursos de la categoría que siguen activos en esa combinación (para semifinales/finales). */
+function equiposActivos(categoria, deporte, genero) {
+  return Object.entries(TORNEO_DATA.equipos)
+    .filter(([codigo, equipo]) => equipo.categoria === categoria && !equipoEliminado(categoria, deporte, genero, codigo))
+    .map(([codigo]) => codigo);
+}
+
+window.equipoEliminado = equipoEliminado;
+window.equiposActivos = equiposActivos;

@@ -182,11 +182,12 @@ function crearTablasPosiciones(claveCategoria, claveGenero) {
     const posiciones = calcularPosiciones(claveCategoria, claveDeporte, claveGenero);
 
     const filas = posiciones.map((equipo) => `
-      <tr>
+      <tr${equipo.eliminado ? ' class="is-eliminated"' : ''}>
         <td>
           <span class="standings__team">
             ${banderaHTML(equipo.equipo, 'standings__flag')}
             <span>${equipo.codigo}</span>
+            ${equipo.eliminado ? '<span class="standings__out">Eliminado</span>' : ''}
           </span>
         </td>
         <td>${equipo.pj}</td>
@@ -226,7 +227,7 @@ function calcularPosiciones(claveCategoria, claveDeporte, claveGenero) {
   Object.entries(TORNEO_DATA.equipos)
     .filter(([, equipo]) => equipo.categoria === claveCategoria)
     .forEach(([codigo, equipo]) => {
-      tabla[codigo] = { codigo, equipo, pj: 0, g: 0, e: 0, p: 0, pts: 0 };
+      tabla[codigo] = { codigo, equipo, pj: 0, g: 0, e: 0, p: 0, pts: 0, eliminado: equipoEliminado(claveCategoria, claveDeporte, claveGenero, codigo) };
     });
 
   TORNEO_DATA.partidos
@@ -255,5 +256,6 @@ function calcularPosiciones(claveCategoria, claveDeporte, claveGenero) {
       }
     });
 
-  return Object.values(tabla).sort((a, b) => b.pts - a.pts || b.g - a.g);
+  // Activos primero; los eliminados quedan al final con su historial intacto.
+  return Object.values(tabla).sort((a, b) => (a.eliminado - b.eliminado) || b.pts - a.pts || b.g - a.g);
 }
