@@ -511,7 +511,7 @@ const TORNEO_DATA = {
         { nombre: 'Luis Orozco', equipo: '7-03', goles: 4}, 
         { nombre: 'Santiago Montes', equipo: '7-03', goles: 2}, 
         { nombre: 'Oriana Arias', equipo: '7-03', goles: 3},
-        { nombre: 'Mauricio Pinto', equipo: '7-03', goles: 7},
+        { nombre: 'Mauricio Pinto', equipo: '7-03', goles: 8},
         { nombre: 'David Granados', equipo: '7-03', goles: 1},
         
 
