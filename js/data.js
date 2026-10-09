@@ -558,7 +558,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Hellen Quintero 🌟', equipo: '7-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, { nombre: 'Luis Angarita', equipo: '11-02'},{ nombre: 'Juan Bolaño', equipo: '9-01'}  ],
+      mvp: [{ nombre: 'Hellen Quintero 🌟', equipo: '7-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, { nombre: 'Luis Angarita', equipo: '11-02'},{ nombre: 'Juan Bolaño', equipo: '9-01'},  { nombre: 'Danella Alandette', equipo: '11-02'}  ],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
@@ -710,7 +710,7 @@ const TORNEO_DATA = {
         { nombre: 'Rosaelina Romero', equipo: '11-02', canastas: 1 },
         { nombre: 'Luis Angarita', equipo: '11-02', canastas: 14 },
         { nombre: 'Carlos Mazenett', equipo: '11-02', canastas: 3 },
-        { nombre: 'Danella Alandete', equipo: '11-02', canastas: 3 },
+        { nombre: 'Danella Alandette', equipo: '11-02', canastas: 3 },
         { nombre: 'Orlando Rondon', equipo: '11-02', canastas: 2 },
         { nombre: 'Obed Quiroz 🩶', equipo: '11-02', canastas: 1 },   
         { nombre: 'Nicolle Pineda', equipo: '11-02', canastas: 1}   
