@@ -398,7 +398,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [{ nombre: 'Jose Trujillo', equipo: '9-03'}, { nombre: 'Mauricio Pinto', equipo: '7-03'}, ],
+      mvp: [{ nombre: 'Jose Trujillo', equipo: '9-03'}, { nombre: 'Mauricio Pinto', equipo: '7-03'},  { nombre: 'Mariangel Pinto', equipo: '7-04'} ],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -504,7 +504,7 @@ const TORNEO_DATA = {
         
         { nombre: 'Luis Rojas', equipo: '7-01', goles: 3}, 
         { nombre: 'Isabella Rodriguez', equipo: '7-01', goles: 5},
-        { nombre: 'Hellen Quintero', equipo: '7-01', goles: 10}, 
+        { nombre: 'Hellen Quintero 🌟', equipo: '7-01', goles: 10}, 
         { nombre: 'Gabriel Tirado', equipo: '7-01', goles: 1},
         { nombre: 'Julio Sanjuan', equipo: '7-01', goles: 1},
        
@@ -558,7 +558,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Hellen Quintero', equipo: '7-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, { nombre: 'Luis Angarita', equipo: '11-02'}  ],
+      mvp: [{ nombre: 'Hellen Quintero 🌟', equipo: '7-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, { nombre: 'Luis Angarita', equipo: '11-02'},{ nombre: 'Juan Bolaño', equipo: '9-01'}  ],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
@@ -571,7 +571,7 @@ const TORNEO_DATA = {
 
         
         { nombre: 'Mariangel Baquero', equipo: '7-01', canastas: 2 },
-        { nombre: 'Hellen Quintero', equipo: '7-01', canastas: 7 },
+        { nombre: 'Hellen Quintero 🌟', equipo: '7-01', canastas: 7 },
         { nombre: 'Julio Sanjuan', equipo: '7-01', canastas: 2 },
         { nombre: 'Gabriel Tirado', equipo: '7-01', canastas: 1 },
         { nombre: 'Luis Rojas', equipo: '7-01', canastas: 1 },
@@ -599,7 +599,7 @@ const TORNEO_DATA = {
         { nombre: 'Samuel Maldonado', equipo: '9-03', canastas: 1 },
         { nombre: 'Alina Buelvas', equipo: '9-03', canastas: 2 },
         { nombre: 'Abigail Rangel', equipo: '9-03', canastas: 1 },
-        { nombre: 'Jose Trujillo', equipo: '9-03', canastas: 1 },
+        { nombre: 'Jose Trujillo', equipo: '9-03', canastas: 2 },
 
 
 
@@ -638,12 +638,12 @@ const TORNEO_DATA = {
         { nombre: 'Akemis Montero', equipo: '6-04', canastas: 1 },
         
         { nombre: 'Alfonso Garcia', equipo: '9-01', canastas: 6},
-        { nombre: 'Juan Vega', equipo: '9-01', canastas: 10 },
-        { nombre: 'Juan Bolaño', equipo: '9-01', canastas: 5},
+        { nombre: 'Juan Vega', equipo: '9-01', canastas: 11 },
+        { nombre: 'Juan Bolaño', equipo: '9-01', canastas: 11},
         { nombre: 'Angel Araujo', equipo: '9-01', canastas: 1 },
         { nombre: 'Juan Miguel Villar', equipo: '9-01', canastas: 5 },
         { nombre: 'Jose Montesino', equipo: '9-01', canastas: 1 },
-        { nombre: 'Isaad Pediaña', equipo: '9-01', canastas: 1 },
+        { nombre: 'Isaad Pediaña', equipo: '9-01', canastas: 2 },
         
 
 
@@ -683,6 +683,8 @@ const TORNEO_DATA = {
         { nombre: 'Christopher Castaño', equipo: '10-03', canastas: 1 },
         { nombre: 'Kasami Gonzales', equipo: '10-03', canastas: 1 },
         { nombre: 'Emanuel Barros', equipo: '10-03', canastas: 5},
+        { nombre: 'Nicole Rumie', equipo: '10-03', canastas: 2}, 
+        { nombre: 'Ashley Cassiani', equipo: '10-03', canastas: 1}, 
 
         { nombre: 'Sebastian Madariaga', equipo: '11-01', canastas: 14 },
         { nombre: 'Mateo Oñate', equipo: '11-01', canastas: 8 },
@@ -708,9 +710,10 @@ const TORNEO_DATA = {
         { nombre: 'Rosaelina Romero', equipo: '11-02', canastas: 1 },
         { nombre: 'Luis Angarita', equipo: '11-02', canastas: 14 },
         { nombre: 'Carlos Mazenett', equipo: '11-02', canastas: 3 },
-        { nombre: 'Danella Alandete', equipo: '11-02', canastas: 2 },
+        { nombre: 'Danella Alandete', equipo: '11-02', canastas: 3 },
         { nombre: 'Orlando Rondon', equipo: '11-02', canastas: 2 },
-        { nombre: 'Obed Quiroz 🩶', equipo: '11-02', canastas: 1 },      
+        { nombre: 'Obed Quiroz 🩶', equipo: '11-02', canastas: 1 },   
+        { nombre: 'Nicolle Pineda', equipo: '11-02', canastas: 1}   
 
       ]
     },
