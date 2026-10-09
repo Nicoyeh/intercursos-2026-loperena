@@ -477,11 +477,15 @@ const TORNEO_DATA = {
         { nombre: 'Andres Perez', equipo: '10-01', goles: 3},
         { nombre: 'Marcos Marbello', equipo: '10-01', goles: 1},
 
-        { nombre: 'Valery Guarin', equipo: '6-04', goles: 3},
+        { nombre: 'Valery Guarin', equipo: '6-04', goles: 4},
         { nombre: 'Brandon Lascarro', equipo: '6-04', goles: 7},
         { nombre: 'Cristian Criales', equipo: '6-04', goles: 3}, 
-        { nombre: 'Eilin Hernandez', equipo: '6-04', goles: 3}, 
+        { nombre: 'Eilin Hernandez', equipo: '6-04', goles: 5}, 
         { nombre: 'Sebastian Conrado', equipo: '6-04', goles: 1},
+        { nombre: 'Dulce Alvarado', equipo: '6-04', goles: 2},
+        { nombre: 'Valentina Guerrero', equipo: '6-04', goles: 1},
+        { nombre: 'Eliannys Machado', equipo: '6-04', goles: 1},
+
 
         { nombre: 'Julian Santodomingo', equipo: '6-03', goles: 1}, 
         { nombre: 'Samuel Mendoza', equipo: '6-03', goles: 1}, 
@@ -520,16 +524,16 @@ const TORNEO_DATA = {
         
 
 
-        { nombre: 'Mariangel Pinto', equipo: '7-04', goles: 3},
+        { nombre: 'Mariangel Pinto', equipo: '7-04', goles: 5},
         { nombre: 'Princess Justinico', equipo: '7-04', goles: 1},
         { nombre: 'Sebastian Mieles', equipo: '7-04', goles: 1},
         { nombre: 'Pablo Luquez', equipo: '7-04', goles: 2},
         { nombre: 'Liam Castellon', equipo: '7-04', goles: 3},
         { nombre: 'Simon Gnecco', equipo: '7-04', goles: 1},
         { nombre: 'Simon Cotes', equipo: '7-04', goles: 2},
-        { nombre: 'Zahara Diaz', equipo: '7-04', goles: 1},
-        { nombre: 'Ayelem Gomez', equipo: '7-04', goles: 1},
-        { nombre: 'Emily Serrano', equipo: '7-04', goles: 1},
+        { nombre: 'Zahara Diaz', equipo: '7-04', goles: 2},
+        { nombre: 'Ayelem Gomez', equipo: '7-04', goles: 2},
+        { nombre: 'Emily Serrano', equipo: '7-04', goles: 2},
         { nombre: 'Pedro Suarez', equipo: '7-04', goles: 1},
 
       
