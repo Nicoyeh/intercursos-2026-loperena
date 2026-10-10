@@ -3,12 +3,21 @@
 /* ==========================================================================
    INTERCURSOS 2026 — categories.js
    Genera los bloques de categoría a partir de TORNEO_DATA (data.js) y
-   controla sus pestañas internas: Calendario y Tabla.
+   controla sus pestañas internas.
 
-   Cada bloque también tiene un selector Hombres/Mujeres (mismo estilo que
-   los filtros de Calendario) que se aplica a las pestañas Calendario
-   y Tabla — así "cada deporte" queda dividido por género dentro
-   de cada categoría, sin duplicar toda la interfaz.
+   Hay dos modos, según categorias[...].llaves en data.js:
+
+   · llaves: true  (Infantil y Prejuvenil, en fases eliminatorias)
+       Tres pestañas: Hombres | Mujeres | Llaves.
+       - Hombres / Mujeres: los partidos de ese género, separados por deporte
+         (fútbol, baloncesto, voleibol) y con su fase.
+       - Llaves: las 6 llaves de la categoría en una sola vista (bloque
+         Hombres y bloque Mujeres, cada uno con los 3 deportes). Las dibuja
+         bracket.js desde los mismos partidos de data.js.
+
+   · llaves: false (Juvenil, todavía en fase de grupos)
+       Selector Hombres/Mujeres + pestañas Calendario y Tabla (igual que antes).
+       Para pasar Juvenil a llaves basta con poner llaves: true en data.js.
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,9 +32,14 @@ function initCategorias() {
     contenedor.appendChild(crearBloqueCategoria(claveCategoria, categoria));
   });
 
-  //if (typeof window.observeReveal === 'function') {
-   // window.observeReveal(contenedor);
- // }
+  if (typeof window.observeReveal === 'function') {
+    window.observeReveal(contenedor);
+  }
+}
+
+/** Utilidades de resultados y fases (bracket.js). Si no cargó, la página sigue funcionando con lo básico. */
+function utilidadesLlaves() {
+  return window.TorneoLlaves || null;
 }
 
 function crearBloqueCategoria(claveCategoria, categoria) {
@@ -39,29 +53,28 @@ function crearBloqueCategoria(claveCategoria, categoria) {
     </span>
   `).join('');
 
-  const chipsGenero = Object.entries(TORNEO_DATA.generos).map(([claveGenero, genero], i) => `
+  const clavesGenero = Object.keys(TORNEO_DATA.generos);
+  const usaLlaves = Boolean(categoria.llaves) && Boolean(utilidadesLlaves());
+
+  // Pestañas principales según el modo de la categoría
+  let controles;
+  if (usaLlaves) {
+    const tabsGenero = clavesGenero.map((claveGenero, i) => `
+      <button class="tab-btn${i === 0 ? ' is-active' : ''}" type="button" data-tab="${claveGenero}" role="tab" aria-selected="${i === 0 ? 'true' : 'false'}">${TORNEO_DATA.generos[claveGenero].nombre}</button>
+    `).join('');
+
+    controles = `
+    <div class="category-block__tabs" role="tablist" aria-label="Secciones de ${categoria.nombre}">
+      ${tabsGenero}
+      <button class="tab-btn" type="button" data-tab="llaves" role="tab" aria-selected="false">Llaves</button>
+    </div>
+    `;
+  } else {
+    const chipsGenero = Object.entries(TORNEO_DATA.generos).map(([claveGenero, genero], i) => `
     <button class="filter-pill${i === 0 ? ' is-active' : ''}" type="button" data-genero="${claveGenero}">${genero.nombre}</button>
   `).join('');
 
-  const bloque = document.createElement('article');
-  bloque.className = 'category-block';
-  bloque.dataset.categoria = claveCategoria;
-  bloque.style.setProperty('--cat-color', categoria.color);
-
-  bloque.innerHTML = `
-    <div class="category-block__header">
-      <span class="category-block__eyebrow">Categoría</span>
-<h3 class="category-block__title">
-  ${categoria.nombre}
-${['Infantil', 'Prejuvenil'].includes(categoria.nombre) ? '<span class="category-stage">Semifinales</span>' : ''}
-</h3>
-      <p class="category-block__meta">${equiposCategoria.length} selecciones en competencia</p>
-    </div>
-
-    <div class="category-block__roster" aria-label="Equipos de la categoría ${categoria.nombre}">
-      ${chipsEquipos}
-    </div>
-
+    controles = `
     <div class="category-block__gender filter-group" role="group" aria-label="Elegir género de ${categoria.nombre}">
       ${chipsGenero}
     </div>
@@ -70,7 +83,25 @@ ${['Infantil', 'Prejuvenil'].includes(categoria.nombre) ? '<span class="category
       <button class="tab-btn is-active" type="button" data-tab="calendario" role="tab" aria-selected="true">Calendario</button>
       <button class="tab-btn" type="button" data-tab="tabla" role="tab" aria-selected="false">Tabla</button>
     </div>
+    `;
+  }
 
+  const bloque = document.createElement('article');
+  bloque.className = 'category-block reveal';
+  bloque.dataset.categoria = claveCategoria;
+  bloque.style.setProperty('--cat-color', categoria.color);
+
+  bloque.innerHTML = `
+    <div class="category-block__header">
+      <span class="category-block__eyebrow">Categoría</span>
+      <h3 class="category-block__title">${categoria.nombre}</h3>
+      <p class="category-block__meta">${equiposCategoria.length} selecciones en competencia</p>
+    </div>
+
+    <div class="category-block__roster" aria-label="Equipos de la categoría ${categoria.nombre}">
+      ${chipsEquipos}
+    </div>
+${controles}
     <div class="category-block__panel" data-panel role="tabpanel"></div>
   `;
 
@@ -78,7 +109,10 @@ ${['Infantil', 'Prejuvenil'].includes(categoria.nombre) ? '<span class="category
   const botonesTab = bloque.querySelectorAll('.tab-btn');
   const botonesGenero = bloque.querySelectorAll('[data-genero]');
 
-  const estadoLocal = { tab: 'calendario', genero: Object.keys(TORNEO_DATA.generos)[0] };
+  const estadoLocal = {
+    tab: usaLlaves ? clavesGenero[0] : 'calendario',
+    genero: clavesGenero[0]
+  };
 
   botonesTab.forEach((boton) => {
     boton.addEventListener('click', () => {
@@ -109,15 +143,17 @@ ${['Infantil', 'Prejuvenil'].includes(categoria.nombre) ? '<span class="category
 
 function renderizarPanel(claveCategoria, estadoLocal, panel) {
   const { tab, genero } = estadoLocal;
+  const T = utilidadesLlaves();
 
-  if (tab === 'calendario') {
+  if (TORNEO_DATA.generos[tab]) {
+    // Pestañas Hombres / Mujeres (categorías con llaves): partidos de ese género, por deporte
+    panel.innerHTML = crearSeccionesPorDeporte(claveCategoria, tab);
+  } else if (tab === 'llaves' && T) {
+    panel.innerHTML = T.renderCategoriaHTML(claveCategoria);
+  } else if (tab === 'calendario') {
     panel.innerHTML = crearListaPartidos(claveCategoria, genero);
   } else if (tab === 'tabla') {
     panel.innerHTML = crearTablasPosiciones(claveCategoria, genero);
-  } else if (tab === 'llaves' && typeof window.renderizarLlaveHTML === 'function') {
-    panel.innerHTML = window.renderizarLlaveHTML(claveCategoria);
-    
-    if (typeof window.initCarruseles === 'function') window.initCarruseles(panel);
   } else {
     panel.innerHTML = `
       <div class="panel-placeholder panel-content">
@@ -126,34 +162,40 @@ function renderizarPanel(claveCategoria, estadoLocal, panel) {
     `;
   }
 
-  // if (typeof window.observeReveal === 'function') {
-  //  window.observeReveal(panel);
- // }
+  if (typeof window.observeReveal === 'function') {
+    window.observeReveal(panel);
+  }
 }
 
-function crearListaPartidos(claveCategoria, claveGenero) {
-  const partidos = TORNEO_DATA.partidos
-    .filter((partido) => partido.categoria === claveCategoria && partido.genero === claveGenero)
-    .sort((a, b) => a.fecha.localeCompare(b.fecha) || (a.hora || '').localeCompare(b.hora || ''));
+/** Orden de los partidos: fecha (sin fecha al final) → hora → fase. */
+function compararPartidos(a, b) {
+  const T = utilidadesLlaves();
+  if (T) return T.compararPartidos(a, b);
+  return (a.fecha || '9999-99-99').localeCompare(b.fecha || '9999-99-99') || (a.hora || '').localeCompare(b.hora || '');
+}
 
-  if (!partidos.length) {
-    return '<p class="calendar__vacio panel-content">Todavía no hay partidos programados.</p>';
-  }
-
+/** Una fila de partido (la misma en Calendario/Tabla de Juvenil y en las pestañas Hombres/Mujeres). */
+function filaPartidoHTML(partido) {
+  const T = utilidadesLlaves();
   const formatearHora = typeof window.formatearHora === 'function' ? window.formatearHora : (h) => h || '';
 
-  const filas = partidos.map((partido) => {
-    const local = TORNEO_DATA.equipos[partido.local];
-    const visitante = TORNEO_DATA.equipos[partido.visitante];
-    const deporte = TORNEO_DATA.deportes[partido.deporte];
-    const centro = partido.estado === 'jugado'
-      ? `${partido.marcadorLocal} – ${partido.marcadorVisitante}`
-      : 'VS';
-    const horaTexto = formatearHora(partido.hora);
+  const local = TORNEO_DATA.equipos[partido.local];
+  const visitante = TORNEO_DATA.equipos[partido.visitante];
+  const deporte = TORNEO_DATA.deportes[partido.deporte];
 
-    return `
+  const resultado = T ? T.resultadoPartido(partido) : null;
+  const centro = T
+    ? T.marcadorTexto(partido)
+    : (partido.estado === 'jugado' ? `${partido.marcadorLocal} – ${partido.marcadorVisitante}` : 'VS');
+  const fechaTexto = T ? T.textoFecha(partido) : partido.fechaTexto;
+  const horaTexto = formatearHora(partido.hora);
+  const faseTag = T ? T.faseTagHTML(partido) : '';
+  // Partido jugado del que solo se conoce el ganador (sin marcador)
+  const gano = resultado && resultado.jugado && centro === '—' && resultado.ganador ? `Ganó ${resultado.ganador}` : '';
+
+  return `
       <div class="match-row">
-        <span class="match-row__date">${partido.fechaTexto}</span>
+        <span class="match-row__date">${fechaTexto}</span>
         <span class="match-row__sport" title="${deporte.nombre}">${deporte.icono}</span>
         <span class="match-row__team">
           ${banderaHTML(local, 'match-row__flag')}
@@ -164,17 +206,51 @@ function crearListaPartidos(claveCategoria, claveGenero) {
           <span class="match-row__code">${partido.visitante}</span>
           ${banderaHTML(visitante, 'match-row__flag')}
         </span>
-        ${horaTexto || partido.lugar ? `
+        ${faseTag || horaTexto || partido.lugar || gano ? `
           <div class="match-row__meta">
+            ${faseTag}
             ${horaTexto ? `<span>🕒 ${horaTexto}</span>` : ''}
             ${partido.lugar ? `<span>📍 ${partido.lugar}</span>` : ''}
+            ${gano ? `<span>🏅 ${gano}</span>` : ''}
           </div>
         ` : ''}
       </div>
     `;
+}
+
+/** Calendario de una categoría + género (categorías sin llaves, p. ej. Juvenil). */
+function crearListaPartidos(claveCategoria, claveGenero) {
+  const partidos = TORNEO_DATA.partidos
+    .filter((partido) => partido.categoria === claveCategoria && partido.genero === claveGenero)
+    .sort(compararPartidos);
+
+  if (!partidos.length) {
+    return '<p class="calendar__vacio panel-content">Todavía no hay partidos programados.</p>';
+  }
+
+  return `<div class="match-row-list panel-content">${partidos.map(filaPartidoHTML).join('')}</div>`;
+}
+
+/** Pestañas Hombres / Mujeres: los partidos de ese género, un bloque por deporte. */
+function crearSeccionesPorDeporte(claveCategoria, claveGenero) {
+  const secciones = Object.entries(TORNEO_DATA.deportes).map(([claveDeporte, deporte]) => {
+    const partidos = TORNEO_DATA.partidos
+      .filter((partido) => partido.categoria === claveCategoria && partido.genero === claveGenero && partido.deporte === claveDeporte)
+      .sort(compararPartidos);
+
+    const contenido = partidos.length
+      ? `<div class="match-row-list">${partidos.map(filaPartidoHTML).join('')}</div>`
+      : '<p class="sport-block__vacio">Todavía no hay partidos programados.</p>';
+
+    return `
+      <section class="sport-block" data-deporte="${claveDeporte}" style="--sport-color:${deporte.color}">
+        <h4 class="sport-block__title"><span aria-hidden="true">${deporte.icono}</span> ${deporte.nombre}</h4>
+        ${contenido}
+      </section>
+    `;
   }).join('');
 
-  return `<div class="match-row-list panel-content">${filas}</div>`;
+  return `<div class="sport-blocks panel-content">${secciones}</div>`;
 }
 
 function crearTablasPosiciones(claveCategoria, claveGenero) {
@@ -182,12 +258,11 @@ function crearTablasPosiciones(claveCategoria, claveGenero) {
     const posiciones = calcularPosiciones(claveCategoria, claveDeporte, claveGenero);
 
     const filas = posiciones.map((equipo) => `
-      <tr${equipo.eliminado ? ' class="is-eliminated"' : ''}>
+      <tr>
         <td>
           <span class="standings__team">
             ${banderaHTML(equipo.equipo, 'standings__flag')}
             <span>${equipo.codigo}</span>
-            ${equipo.eliminado ? '<span class="standings__out">Eliminado</span>' : ''}
           </span>
         </td>
         <td>${equipo.pj}</td>
@@ -216,18 +291,35 @@ function crearTablasPosiciones(claveCategoria, claveGenero) {
   return `<div class="standings-group panel-content">${tablas}</div>`;
 }
 
+/** Quién ganó / si empataron, tomando en cuenta partidos con solo "ganador" y sin marcador. */
+function resultadoParaTabla(partido) {
+  const T = utilidadesLlaves();
+  if (T) {
+    const r = T.resultadoPartido(partido);
+    return { ganador: r.ganador, empate: r.empate };
+  }
+  if (partido.marcadorLocal > partido.marcadorVisitante) return { ganador: partido.local, empate: false };
+  if (partido.marcadorLocal < partido.marcadorVisitante) return { ganador: partido.visitante, empate: false };
+  return { ganador: null, empate: true };
+}
+
 /**
  * Calcula PJ/G/E/P/Pts por equipo para una categoría + deporte + género,
  * contando solo partidos con estado "jugado". 3 puntos por victoria, 1 por
- * empate.
+ * empate. Los equipos de TORNEO_DATA.eliminados para esa combinación exacta
+ * no aparecen como fila.
  */
 function calcularPosiciones(claveCategoria, claveDeporte, claveGenero) {
   const tabla = {};
+  const desclasificados = (TORNEO_DATA.eliminados
+    && TORNEO_DATA.eliminados[claveCategoria]
+    && TORNEO_DATA.eliminados[claveCategoria][claveDeporte]
+    && TORNEO_DATA.eliminados[claveCategoria][claveDeporte][claveGenero]) || [];
 
   Object.entries(TORNEO_DATA.equipos)
-    .filter(([, equipo]) => equipo.categoria === claveCategoria)
+    .filter(([codigo, equipo]) => equipo.categoria === claveCategoria && !desclasificados.includes(codigo))
     .forEach(([codigo, equipo]) => {
-      tabla[codigo] = { codigo, equipo, pj: 0, g: 0, e: 0, p: 0, pts: 0, eliminado: equipoEliminado(claveCategoria, claveDeporte, claveGenero, codigo) };
+      tabla[codigo] = { codigo, equipo, pj: 0, g: 0, e: 0, p: 0, pts: 0 };
     });
 
   TORNEO_DATA.partidos
@@ -240,15 +332,17 @@ function calcularPosiciones(claveCategoria, claveDeporte, claveGenero) {
       local.pj += 1;
       visitante.pj += 1;
 
-      if (partido.marcadorLocal > partido.marcadorVisitante) {
+      const { ganador, empate } = resultadoParaTabla(partido);
+
+      if (ganador === partido.local) {
         local.g += 1;
         local.pts += 3;
         visitante.p += 1;
-      } else if (partido.marcadorLocal < partido.marcadorVisitante) {
+      } else if (ganador === partido.visitante) {
         visitante.g += 1;
         visitante.pts += 3;
         local.p += 1;
-      } else {
+      } else if (empate) {
         local.e += 1;
         local.pts += 1;
         visitante.e += 1;
@@ -256,6 +350,5 @@ function calcularPosiciones(claveCategoria, claveDeporte, claveGenero) {
       }
     });
 
-  // Activos primero; los eliminados quedan al final con su historial intacto.
-  return Object.values(tabla).sort((a, b) => (a.eliminado - b.eliminado) || b.pts - a.pts || b.g - a.g);
+  return Object.values(tabla).sort((a, b) => b.pts - a.pts || b.g - a.g);
 }
