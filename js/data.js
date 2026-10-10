@@ -30,7 +30,7 @@ const TORNEO_DATA = {
     //                  semifinales en "partidos" con fase: 'Semifinales'.
     // nombreCorto   -> el nombre que se usa en el título de cada llave.
     infantil:   { nombre: 'Infantil',   nombreCorto: 'Infantil',   color: 'var(--accent-blue)',   llaves: true },
-    prejuvenil: { nombre: 'Prejuvenil Semifinales', nombreCorto: 'Prejuvenil', color: 'var(--accent-violet)', llaves: true },
+    prejuvenil: { nombre: 'Prejuvenil', nombreCorto: 'Prejuvenil', color: 'var(--accent-violet)', llaves: true },
     juvenil:    { nombre: 'Juvenil',    nombreCorto: 'Juvenil',    color: 'var(--accent-gold)',   llaves: false }
   },
 
