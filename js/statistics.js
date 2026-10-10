@@ -158,13 +158,22 @@ function calcularLideresEquipo(claveDeporte, incluirEmpates) {
       local.pj += 1;
       visitante.pj += 1;
 
-      if (partido.marcadorLocal > partido.marcadorVisitante) {
+      // bracket.js interpreta el resultado (marcador, o "ganador" si no hay marcador)
+      const resultado = window.TorneoLlaves
+        ? window.TorneoLlaves.resultadoPartido(partido)
+        : {
+          ganador: partido.marcadorLocal > partido.marcadorVisitante ? partido.local
+            : (partido.marcadorLocal < partido.marcadorVisitante ? partido.visitante : null),
+          empate: partido.marcadorLocal === partido.marcadorVisitante
+        };
+
+      if (resultado.ganador === partido.local) {
         local.g += 1;
         visitante.p += 1;
-      } else if (partido.marcadorLocal < partido.marcadorVisitante) {
+      } else if (resultado.ganador === partido.visitante) {
         visitante.g += 1;
         local.p += 1;
-      } else {
+      } else if (resultado.empate) {
         local.e += 1;
         visitante.e += 1;
       }
