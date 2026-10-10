@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/bracket.css">
 </head>
 <body>
 
@@ -181,7 +182,7 @@
     <section class="section calendar" id="calendario">
       <div class="container">
         <div class="section-header reveal">
-          <span class="section-header__eyebrow">Fase de grupos</span>
+          <span class="section-header__eyebrow">Fase de grupos y eliminatorias</span>
           <h2 class="section-header__title">Calendario del Torneo</h2>
           <p class="section-header__subtitle">Todos los partidos en un solo lugar. Filtra por deporte o por categoría.</p>
         </div>
@@ -190,7 +191,7 @@
           <div class="filter-group" role="group" aria-label="Elegir categoría">
             <button class="filter-pill is-active" type="button" data-filtro-categoria="todas">Todas</button>
             <button class="filter-pill" type="button" data-filtro-categoria="infantil">Infantil</button>
-            <button class="filter-pill" type="button" data-filtro-categoria="prejuvenil">Prejuvenil</button>
+            <button class="filter-pill" type="button" data-filtro-categoria="prejuvenil">Prejuvenil Semifinales</button>
             <button class="filter-pill" type="button" data-filtro-categoria="juvenil">Juvenil</button>
           </div>
 
@@ -219,7 +220,7 @@
         <div class="section-header reveal">
           <span class="section-header__eyebrow">Selecciones en competencia</span>
           <h2 class="section-header__title">Categorías</h2>
-          <p class="section-header__subtitle">Cada categoría es su propia mini-liga: calendario, tabla y más.</p>
+          <p class="section-header__subtitle">Cada categoría es su propia mini-liga: partidos, llaves y más.</p>
         </div>
 
         <div class="category-list" id="categoryList"></div>
@@ -307,6 +308,7 @@
   <script src="js/animations.js" defer></script>
   <script src="js/data.js" defer></script>
   <script src="js/flags.js" defer></script>
+  <script src="js/bracket.js" defer></script>
   <script src="js/calendar.js" defer></script>
   <script src="js/statistics.js" defer></script>
   <script src="js/organization.js" defer></script>
