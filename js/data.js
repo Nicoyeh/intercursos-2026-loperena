@@ -24,9 +24,24 @@
 const TORNEO_DATA = {
 
   categorias: {
-    infantil:   { nombre: 'Infantil',   color: 'var(--accent-blue)' },
-    prejuvenil: { nombre: 'Prejuvenil', color: 'var(--accent-violet)' },
-    juvenil:    { nombre: 'Juvenil',    color: 'var(--accent-gold)' }
+    // llaves: true  -> la categoría usa las pestañas Hombres | Mujeres | Llaves
+    //                  (fases eliminatorias). Para activar Juvenil cuando le
+    //                  toque, basta con poner llaves: true y registrar sus
+    //                  semifinales en "partidos" con fase: 'Semifinales'.
+    // nombreCorto   -> el nombre que se usa en el título de cada llave.
+    infantil:   { nombre: 'Infantil',   nombreCorto: 'Infantil',   color: 'var(--accent-blue)',   llaves: true },
+    prejuvenil: { nombre: 'Prejuvenil Semifinales', nombreCorto: 'Prejuvenil', color: 'var(--accent-violet)', llaves: true },
+    juvenil:    { nombre: 'Juvenil',    nombreCorto: 'Juvenil',    color: 'var(--accent-gold)',   llaves: false }
+  },
+
+  // Nombres de las fases. Cada partido trae su "fase" con uno de estos
+  // textos (en "partidos", más abajo) y de aquí salen las etiquetas del
+  // Calendario y de la llave — no se escriben a mano en cada partido.
+  fases: {
+    grupos:    'Fase de grupos',
+    semifinal: 'Semifinales',
+    tercer:    'Tercer puesto',
+    final:     'Final'
   },
 
   // Cada categoría se juega por separado en Hombres y en Mujeres, en los
@@ -73,57 +88,61 @@ const TORNEO_DATA = {
     '11-02': { pais: 'Brasil',     bandera: 'assets/flags/brazil.svg',    categoria: 'juvenil' }
   },
 
-  // ESTADO DE ELIMINACIÓN — fase de grupos terminada (Infantil y Prejuvenil).
-  // Se maneja por separado para cada combinación:
-  //   categoría → deporte → género → [cursos eliminados]
-  // Un curso eliminado aquí SOLO queda eliminado en esa combinación exacta;
-  // en cualquier otra donde no esté listado sigue activo. Los equipos, partidos
-  // y resultados de la fase de grupos NO se tocan: siguen en "equipos" y
-  // "partidos". Para eliminar a alguien más, agrégalo a la lista correcta.
-  // Consulta con equipoEliminado() / equiposActivos() (al final de este archivo).
-  eliminados: {
-    infantil: {
-      futbol:     { hombres: ['6-01', '6-03', '7-01', '7-02'], mujeres: ['6-02', '6-03', '7-01', '7-04'] },
-      baloncesto: { hombres: ['6-02', '6-03', '7-01', '7-04'], mujeres: ['6-01', '6-04', '7-03', '7-04'] },
-      voleibol:   { hombres: ['6-01', '6-02', '7-01', '7-03'], mujeres: ['6-01', '6-02', '7-03', '7-04'] }
-    },
-    prejuvenil: {
-      futbol:     { hombres: ['8-03'], mujeres: ['9-02'] },
-      baloncesto: { hombres: ['8-02'], mujeres: ['9-01'] },
-      voleibol:   { hombres: ['8-02'], mujeres: ['9-01'] }
-    }
-    // juvenil: todavía en fase de grupos, sin eliminados.
-  },
-
-  // ⚠️ DATOS DE EJEMPLO / DEMO — resultados y cruce INVENTADOS, solo para
-  // mostrar cómo funcionan el calendario, la tabla de posiciones y los
-  // filtros (incluido Hombres/Mujeres). Reemplaza este arreglo por el
-  // cruce real del torneo cuando esté definido.
+  // PARTIDOS — lo único que tienes que editar a mano.
+  // El Calendario y las llaves (pestaña "Llaves" de Infantil y Prejuvenil)
+  // se arman SOLOS a partir de estas líneas: nunca se edita la llave.
   //
   // Cada partido:
-  //   hora     → 24h, editable en texto plano (ej. '15:30'). Se muestra
-  //              siempre junto a la fecha, en el calendario y en Categorías.
-  //   genero   → 'hombres' | 'mujeres'.
-  //   lugar    → cancha/lugar, opcional — solo se muestra si el partido lo
-  //              trae; omítelo si todavía no está definido.
-  //   estado   → 'jugado' | 'proximo'; marcadorLocal/marcadorVisitante
-  //              solo si 'jugado'.
+  //   id         → único (p174, p175...).
+  //   fecha      → 'AAAA-MM-DD' (sirve para ordenar). null si aún no se sabe.
+  //   fechaTexto → lo que se ve en pantalla ('22 AGO'). Omítelo si fecha es null.
+  //   hora       → texto libre ('1:00 - 1:40', 'Recreo'). Opcional.
+  //   deporte    → 'futbol' | 'baloncesto' | 'voleibol'.
+  //   categoria  → 'infantil' | 'prejuvenil' | 'juvenil'.
+  //   genero     → 'hombres' | 'mujeres'.
+  //   local / visitante → códigos de equipo (los de "equipos").
+  //   fase       → 'Fase de grupos' | 'Semifinales' | 'Tercer puesto' | 'Final'
+  //                (el Calendario muestra la etiqueta solo). Si falta, cuenta
+  //                como 'Fase de grupos'.
+  //   estado     → 'jugado' | 'proximo' ('proximo' = pendiente, sin resultado).
+  //   marcadorLocal / marcadorVisitante → números; null si no se conocen.
+  //   ganador    → código del equipo ganador. Solo hace falta si NO hay
+  //                marcador, o si hubo empate y se definió por penales.
+  //   lugar      → cancha, opcional — solo se muestra si el partido lo trae.
+  //
+  // CÓMO USARLO
+  //   · Registrar un resultado: estado:'jugado' + los dos marcadores (la llave
+  //     calcula sola quién ganó). Si solo sabes quién ganó: marcadores null
+  //     + ganador:'6-03'.
+  //   · Dejar un partido pendiente: estado:'proximo' y sin marcadores.
+  //   · Semifinal: fase:'Semifinales' (2 por categoría + deporte + género; la de
+  //     id más bajo es la Semifinal 1). Fase de grupos: fase:'Fase de grupos'.
+  //   · Cambiar quién juega: cambia local / visitante de esa misma línea.
+  //   · Corregir un resultado: cambia los marcadores (o el ganador); la final
+  //     y el tercer puesto se recalculan solos.
+  //   · Agregar una semifinal: copia otra línea de semifinal y cambia id,
+  //     categoria, genero, deporte, local, visitante y el resultado.
+  //   · La final y el tercer puesto NO se escriben: salen de las semifinales.
+  //     Cuando se jueguen, agrega una línea con fase:'Final' o fase:'Tercer
+  //     puesto' (los mismos equipos que muestra la llave) con su marcador y
+  //     aparecen CAMPEÓN / 3.er PUESTO.
+  //   · Ocultar un partido sin borrarlo: ponle // al inicio de la línea.
   partidos: [
     
     // ---- 22 de agosto ----
     
     // { id: 'p01', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '7-01',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
-    { id: 'p02', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'juvenil',   genero: 'hombres', local: '10-02',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 3 },
+    { id: 'p02', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'juvenil',   genero: 'hombres', local: '10-02',  visitante: '10-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 3 },
    // { id: 'p03', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 0 },
     // { id: 'p04', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'infantil',    genero: 'hombres', local: '6-02', visitante: '6-04', estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 3 },
     // { id: 'p05', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'infantil',    genero: 'hombres', local: '6-03', visitante: '6-02', estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 5 },
    // { id: 'p06', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'infantil',    genero: 'hombres', local: '7-01', visitante: '7-02', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 4 },
-    { id: 'p07', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil',    genero: 'hombres', local: '11-02', visitante: '10-02', estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 3 },
+    { id: 'p07', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil',    genero: 'hombres', local: '11-02', visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 3 },
 
     // { id: 'p08', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 3},
     //{ id: 'p09', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-01',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 14},
     // { id: 'p10', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-01',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 0 },
-    { id: 'p11', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'juvenil',    genero: 'hombres', local: '10-02', visitante: '10-03', estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 4 },
+    { id: 'p11', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'juvenil',    genero: 'hombres', local: '10-02', visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 4 },
     // { id: 'p12', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'infantil',    genero: 'hombres', local: '7-03', visitante: '7-04', estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 2 },
     //{ id: 'p13', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'prejuvenil',    genero: 'mujeres', local: '8-02', visitante: '8-03', estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 6 },
     // { id: 'p14', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'infantil',    genero: 'mujeres', local: '7-01', visitante: '7-02', estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 5 },
@@ -132,15 +151,15 @@ const TORNEO_DATA = {
     // { id: 'p16', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     // { id: 'p17', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     // { id: 'p18', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'infantil',    genero: 'hombres', local: '7-01', visitante: '7-02', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p19', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil',    genero: 'mujeres', local: '10-01', visitante: '10-03', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p19', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil',    genero: 'mujeres', local: '10-01', visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     //{ id: 'p20', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'mujeres', local: '9-02', visitante: '9-03', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p21', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil',    genero: 'hombres', local: '11-01', visitante: '10-01', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
+    { id: 'p21', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil',    genero: 'hombres', local: '11-01', visitante: '10-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
 
     // { id: 'p22', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '6-02',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     // { id: 'p23', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '7-03',  visitante: '7-04',  estado:'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     //{ id: 'p24', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     //{ id: 'p25', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'mujeres', local: '9-01', visitante: '9-02', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p26', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil',    genero: 'mujeres', local: '11-01', visitante: '11-02', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
+    { id: 'p26', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil',    genero: 'mujeres', local: '11-01', visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
     // { id: 'p27', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'infantil',    genero: 'hombres', local: '6-04', visitante: '6-01', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
     //{ id: 'p28', fecha: '2026-08-22', fechaTexto: '22 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'prejuvenil',    genero: 'hombres', local: '9-01', visitante: '9-03', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     
@@ -149,12 +168,12 @@ const TORNEO_DATA = {
   // { id: 'p29', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 1 },
     // { id: 'p30', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil',   genero: 'hombres', local: '7-01',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
     //{ id: 'p31', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p32', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 }, 
+    { id: 'p32', fecha: '2026-08-24', fechaTexto: '24 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 }, 
 
     //{ id: 'p33', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'hombres', local: '8-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     // { id: 'p34', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil',   genero: 'mujeres', local: '6-01',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
    // { id: 'p35', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    { id: 'p36', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'mujeres', local: '10-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p36', fecha: '2026-08-25', fechaTexto: '25 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil',   genero: 'mujeres', local: '10-02',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     //{ id: 'p37', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 5 },
     //{ id: 'p38', fecha: '2026-08-26', fechaTexto: '26 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil',   genero: 'hombres', local: '8-02',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 8 },
@@ -166,7 +185,7 @@ const TORNEO_DATA = {
     // { id: 'p43', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'mujeres', local: '7-01',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     //{ id: 'p44', fecha: '2026-08-27', fechaTexto: '27 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'hombres', local: '9-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
 
-    { id: 'p45', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '10-01',  visitante: '10-03', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 1 },
+    { id: 'p45', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '10-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 1 },
     // { id: 'p46', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 6 },
     // { id: 'p47', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil',   genero: 'hombres', local: '6-01',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
    // { id: 'p48', fecha: '2026-08-28', fechaTexto: '28 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
@@ -176,38 +195,38 @@ const TORNEO_DATA = {
     // { id: 'p49', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'infantil',   genero: 'mujeres', local: '6-04',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 2 },
     // { id: 'p50', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 5 },
     //{ id: 'p51', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '8-03',  visitante: '8-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p52', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 11, marcadorVisitante: 7 },
+    { id: 'p52', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'juvenil',   genero: 'hombres', local: '10-01',  visitante: '11-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 11, marcadorVisitante: 7 },
     // { id: 'p53', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'infantil',   genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 4 },
-    { id: 'p54', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '11-01',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
+    { id: 'p54', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'juvenil',   genero: 'mujeres', local: '11-01',  visitante: '10-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
     //{ id: 'p55', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'prejuvenil',   genero: 'mujeres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 1 },
 
     //{ id: 'p56', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 7, marcadorVisitante: 10 },
     // { id: 'p57', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 16 },
     // { id: 'p58', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 8 },
    // { id: 'p59', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 18, marcadorVisitante: 0 },
-    { id: 'p60', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '11-02',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 18 },
-    { id: 'p61', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 25, marcadorVisitante: 26 },
-    { id: 'p62  ', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 2 },
+    { id: 'p60', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '11-02',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 18 },
+    { id: 'p61', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 25, marcadorVisitante: 26 },
+    { id: 'p62  ', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 2 },
 
-    { id: 'p63', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p63', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     //{ id: 'p64', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     // { id: 'p65', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     //{ id: 'p66', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     // { id: 'p67', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '7-01',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     //{ id: 'p68', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    { id: 'p69', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p69', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     // { id: 'p70', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-     { id: 'p71', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
+     { id: 'p71', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
     // { id: 'p72', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-01',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     // { id: 'p73', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    { id: 'p74', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p74', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     // { id: 'p75', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     //{ id: 'p76', fecha: '2026-08-29', fechaTexto: '29 AGO', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     // lunes, martes jueves y viernes //
      
-    { id: 'p77', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 3 },
+    { id: 'p77', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 3 },
     // { id: 'p78', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-02',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 2 },
     // { id: 'p79', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     //{ id: 'p80', fecha: '2026-08-31', fechaTexto: '31 AGO', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
@@ -215,33 +234,33 @@ const TORNEO_DATA = {
     //{ id: 'p81', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 2 },
     // { id: 'p82', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     // { id: 'p83', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p84', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p84', fecha: '2026-09-01', fechaTexto: '1 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     //{ id: 'p85', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 4 },
     //{ id: 'p86', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 6 },
     // { id: 'p87', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     //{ id: 'p88', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-03',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     // { id: 'p89', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p90', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p90', fecha: '2026-09-03', fechaTexto: '3 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '11-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
 
     // { id: 'p91', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
-    { id: 'p92', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 12 },
+    { id: 'p92', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 12 },
     // { id: 'p93', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '6-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     //{ id: 'p94', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
     // { id: 'p95', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2},
     // { id: 'p96', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p97', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p97', fecha: '2026-09-04', fechaTexto: '4 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '10-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
  
     // { id: 'p98', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '3:26 - 3:56', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-03',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
-    { id: 'p99', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '3:26 - 3:56', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 12 }, 
+    { id: 'p99', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '3:26 - 3:56', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 12 }, 
     //{ id: 'p100', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '3:26 - 3:56', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     // { id: 'p101', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '3:26 - 3:56', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-01',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p102', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:20 - 5:50', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 3 },
+    { id: 'p102', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:20 - 5:50', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 3 },
     // { id: 'p103', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:20 - 5:50', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 7, marcadorVisitante: 3 },
     //{ id: 'p104', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:20 - 5:50', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     // { id: 'p105', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:20 - 5:50', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 4 },
     // { id: 'p106', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:55 - 6:25', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-01',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p107', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:55 - 6:25', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 4 },
+    { id: 'p107', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:55 - 6:25', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '10-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 4 },
     //{ id: 'p108', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:55 - 6:25', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     // { id: 'p109', fecha: '2026-09-11', fechaTexto: '11 SEP', hora: '5:55 - 6:25', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
 
@@ -249,27 +268,27 @@ const TORNEO_DATA = {
     // { id: 'p111', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 4 },
     // { id: 'p112', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
     //{ id: 'p113', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 1 },
-    { id: 'p114', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 9, marcadorVisitante: 2 },
+    { id: 'p114', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 9, marcadorVisitante: 2 },
     //{ id: 'p115', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 1 },
-    { id: 'p116', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 10 },
-    { id: 'p117', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p116', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-03',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 10 },
+    { id: 'p117', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
 
     //{ id: 'p118', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     //{ id: 'p119', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
     //{ id: 'p120', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     //{ id: 'p121', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    { id: 'p122', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 }, 
-    { id: 'p123', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p124', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p122', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '11-02', fase: 'Fase de grupos',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 }, 
+    { id: 'p123', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p124', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '11-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
     // { id: 'p125', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-01',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 5 },
     // { id: 'p126', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 0 },
     //{ id: 'p127', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '2:20 - 3:00', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 2 },
-    { id: 'p128', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 19, marcadorVisitante: 3 },
+    { id: 'p128', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 19, marcadorVisitante: 3 },
     // { id: 'p129', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 2 },
     //{ id: 'p130', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 20, marcadorVisitante: 6 },
-    { id: 'p131', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 17, marcadorVisitante: 12 },
-    { id: 'p132', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 12, marcadorVisitante: 30 },
+    { id: 'p131', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-02',  visitante: '11-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 17, marcadorVisitante: 12 },
+    { id: 'p132', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 12, marcadorVisitante: 30 },
  
     // { id: 'p133', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '7-02',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 2 },
     // { id: 'p134', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-01',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 0 },
@@ -277,8 +296,8 @@ const TORNEO_DATA = {
     // { id: 'p136', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '7-02',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 2 },
     //{ id: 'p137', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 19 },
     // { id: 'p138', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    { id: 'p139', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 8 },
-    { id: 'p140', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 2 },
+    { id: 'p139', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 8 },
+    { id: 'p140', fecha: '2026-09-12', fechaTexto: '12 SEP', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 2 },
   
     // { id: 'p141', fecha: '2026-09-14', fechaTexto: '14 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
     // { id: 'p142', fecha: '2026-09-14', fechaTexto: '14 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-04',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 3 },
@@ -292,7 +311,7 @@ const TORNEO_DATA = {
     //{ id: 'p148', fecha: '2026-09-16', fechaTexto: '16 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 6 },
     //{ id: 'p149', fecha: '2026-09-16', fechaTexto: '16 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 7, marcadorVisitante: 0 },
    
-    { id: 'p150', fecha: '2026-09-17', fechaTexto: '17 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 3 },
+    { id: 'p150', fecha: '2026-09-17', fechaTexto: '17 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 3 },
     // { id: 'p151', fecha: '2026-09-17', fechaTexto: '17 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-04',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 3 },
     //{ id: 'p152', fecha: '2026-09-17', fechaTexto: '17 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 6 },
    
@@ -300,84 +319,112 @@ const TORNEO_DATA = {
     //{ id: 'p154', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 0 },
     //{ id: 'p155', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 0 },
     // { id: 'p156', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-01',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 3 },
-    { id: 'p157', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-02',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 2 },
-    { id: 'p158', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 11 },
-    { id: 'p159', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 11 },
-    { id: 'p160', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '6:00 - 6:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-02',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 1 },
+    { id: 'p157', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-02',  visitante: '10-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 2 },
+    { id: 'p158', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 11 },
+    { id: 'p159', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 11 },
+    { id: 'p160', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '6:00 - 6:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-02',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 1 },
 
     //{ id: 'p161', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 4 },
     // { id: 'p162', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-02',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
-    { id: 'p163', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 1 },
+    { id: 'p163', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 1 },
     //{ id: 'p164', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-01',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
     // { id: 'p165', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
     //{ id: 'p166', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 4 },    
-    { id: 'p167', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 4 },
+    { id: 'p167', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '5:00 - 5:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 4 },
 
     //{ id: 'p168', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 14, marcadorVisitante: 0 },
     //{ id: 'p169', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 12 },
 
     //{ id: 'p170', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 10 },
-    { id: 'p171', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 17, marcadorVisitante: 15 },
+    { id: 'p171', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 17, marcadorVisitante: 15 },
     //{ id: 'p172', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 6 },
-    { id: 'p173', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 12 },
+    { id: 'p173', fecha: '2026-09-19', fechaTexto: '19 SEP', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 8, marcadorVisitante: 12 },
 
     //{ id: 'p174', fecha: '2026-09-21', fechaTexto: '21 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 0 },
     //{ id: 'p175', fecha: '2026-09-21', fechaTexto: '21 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-03',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 1 },
     //{ id: 'p176', fecha: '2026-09-21', fechaTexto: '21 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 7 },
    
     //{ id: 'p177', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 3 },
-    { id: 'p178', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 3 },
-    { id: 'p179', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-01',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 11 },
-    { id: 'p180', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p178', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '6-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 3 },
+    { id: 'p179', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-01',  visitante: '7-02', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 11 },
+    { id: 'p180', fecha: '2026-09-22', fechaTexto: '22 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '7-02', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
-    { id: 'p181', fecha: '2026-09-23', fechaTexto: '23 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
-    { id: 'p182', fecha: '2026-09-23', fechaTexto: '23 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
+    { id: 'p181', fecha: '2026-09-23', fechaTexto: '23 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
+    { id: 'p182', fecha: '2026-09-23', fechaTexto: '23 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '7-01', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
     // { id: 'p183', fecha: '2026-09-23', fechaTexto: '23 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 1 },
 
-    { id: 'p184', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p185', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '7-03',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 2 },
-    { id: 'p186', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
-    { id: 'p187', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '8-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 5 },
-    { id: 'p188', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 3 },
-    { id: 'p189', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-03',  visitante: '9-01',  estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 0 },
-    { id: 'p190', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '6:00 - 6:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
+    { id: 'p184', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:00 - 1:40', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '8-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p185', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '7-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 2 },
+    { id: 'p186', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '6-02',  visitante: '7-04', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
+    { id: 'p187', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '8-02', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 5 },
+    { id: 'p188', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:40 - 4:20', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 3 },
+    { id: 'p189', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-03',  visitante: '9-01', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 3, marcadorVisitante: 0 },
+    { id: 'p190', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '6:00 - 6:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 4 },
 
-    { id: 'p191', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 16 },
-    { id: 'p192', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 18, marcadorVisitante: 5 },
-    { id: 'p193', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 13, marcadorVisitante: 4 },
-    { id: 'p194', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    { id: 'p195', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 9, marcadorVisitante: 1 },
-    { id: 'p196', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-03',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 6 },
-    { id: 'p196', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 29, marcadorVisitante: 10 },
-    { id: 'p197', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-01',  estado: 'jugado', marcadorLocal: 26, marcadorVisitante: 14 },
+    { id: 'p191', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:00 - 1:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '7-02', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 16 },
+    { id: 'p192', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '8-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 18, marcadorVisitante: 5 },
+    { id: 'p193', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 13, marcadorVisitante: 4 },
+    { id: 'p194', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '7-01', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p195', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:40 - 4:20', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-02',  visitante: '8-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 9, marcadorVisitante: 1 },
+    { id: 'p196', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-03',  visitante: '6-04', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 6 },
+    { id: 'p196', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 29, marcadorVisitante: 10 },
+    { id: 'p197', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 26, marcadorVisitante: 14 },
 
-    { id: 'p198', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '7-04',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p199', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '7-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p200', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
-    { id: 'p201', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
-    { id: 'p202', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p198', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '7-04', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p199', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-03',  visitante: '7-02', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p200', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '1:40 - 2:20', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
+    { id: 'p201', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '9-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p202', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '2:20 - 3:00', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-02',  visitante: '8-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
    
-    { id: 'p203', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p204', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-02',  visitante: '8-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p203', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '10-03',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p204', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:00 - 3:40', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-02',  visitante: '8-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
 
-    { id: 'p205', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p206', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
-    { id: 'p207', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p205', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '3:40 - 4:20', deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '7-01', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p206', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-01', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p207', fecha: '2026-09-26', fechaTexto: '26 SEP', hora: '4:20 - 5:00', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
-    { id: 'p208', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-03',  visitante: '9-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 4 },
-    { id: 'p209', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '7-01',  estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 0 },
-    { id: 'p210', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '6-03',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p208', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-03',  visitante: '9-02', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 4 },
+    { id: 'p209', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-02',  visitante: '7-01', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 0 },
+    { id: 'p210', fecha: '2026-09-28', fechaTexto: '28 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '6-03', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     
-    { id: 'p211', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-03',  visitante: '6-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
-    { id: 'p212', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-03',  estado: 'jugado', marcadorLocal: 26, marcadorVisitante: 5 },
-    { id: 'p213', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-02',  estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p211', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'hombres', local: '7-03',  visitante: '6-02', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    { id: 'p212', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 26, marcadorVisitante: 5 },
+    { id: 'p213', fecha: '2026-09-29', fechaTexto: '29 SEP', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '10-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     
-    { id: 'p214', fecha: '2026-10-01', fechaTexto: '1 OCT', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '6-04',  estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 3 },
-    { id: 'p215', fecha: '2026-10-01', fechaTexto: '1 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03',  estado: 'jugado', marcadorLocal: 17, marcadorVisitante: 2 },
-    { id: 'p216', fecha: '2026-10-01', fechaTexto: '1 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02',  estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 3 },
+    { id: 'p214', fecha: '2026-10-01', fechaTexto: '1 OCT', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-04',  visitante: '6-04', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 4, marcadorVisitante: 3 },
+    { id: 'p215', fecha: '2026-10-01', fechaTexto: '1 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 17, marcadorVisitante: 2 },
+    { id: 'p216', fecha: '2026-10-01', fechaTexto: '1 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '11-02', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 3 },
     
+    // por definir
+    { id: 'p217', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '6-04',  visitante: '6-01', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p218', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '6-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p219', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p220', fecha: null, fechaTexto: null, hora: null, deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p221', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p222', fecha: null, fechaTexto: null, hora: null, deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-01',  visitante: '8-02', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p223', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '8-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p224', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-03',  visitante: '8-02', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+
     
   ],
+
+  // Equipos eliminados en la fase de grupos, por categoría + deporte + género
+  // (la referencia exacta: ningún otro equipo cuenta como eliminado). Estos
+  // equipos no aparecen en las llaves ni en la Tabla de esa combinación.
+  // Para sumar eliminados (Juvenil, etc.) agrega su código al arreglo que
+  // corresponda. Un equipo pendiente de jugar NO es un eliminado.
+  eliminados: {
+    infantil: {
+      futbol:     { hombres: ['6-01', '6-03', '7-01', '7-02'], mujeres: ['6-01', '6-02', '7-02', '7-03'] },
+      baloncesto: { hombres: ['6-02', '6-03', '7-01', '7-04'], mujeres: ['6-01', '6-04', '7-03', '7-04'] },
+      voleibol:   { hombres: ['6-01', '6-02', '7-01', '7-03'], mujeres: ['6-01', '6-02', '7-03', '7-04'] },
+    },
+    prejuvenil: {
+      futbol:     { hombres: ['8-03'], mujeres: ['9-02'] },
+      baloncesto: { hombres: ['8-02'], mujeres: ['9-01'] },
+      voleibol:   { hombres: ['8-02'], mujeres: ['9-01'] },
+    },
+  },
 
   // ⚠️ DATOS DE EJEMPLO / DEMO — este cruce eliminatorio es INVENTADO,
   // solo para mostrar cómo se arman las llaves. Reemplázalo cuando el
