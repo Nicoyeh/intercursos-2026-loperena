@@ -5,6 +5,10 @@
    Renderiza las tarjetas de partido a partir de TORNEO_DATA (data.js) y
    controla los filtros por deporte, categoría y género. No contiene datos:
    para actualizar el calendario, edita únicamente js/data.js.
+
+   Cada tarjeta muestra la FASE del partido (campo "fase" de data.js:
+   Fase de grupos, Semifinales, Tercer puesto, Final). Los partidos sin
+   fecha todavía se ordenan al final y muestran "SIN FECHA".
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -63,7 +67,7 @@ function renderizarPartidos(grid, estado) {
       const coincideGenero = estado.genero === 'todos' || partido.genero === estado.genero;
       return coincideDeporte && coincideCategoria && coincideGenero;
     })
-    .sort((a, b) => a.fecha.localeCompare(b.fecha) || (a.hora || '').localeCompare(b.hora || ''));
+    .sort(compararPartidosCalendario);
 
   grid.innerHTML = '';
 
@@ -81,6 +85,12 @@ function renderizarPartidos(grid, estado) {
   if (typeof window.observeReveal === 'function') {
     window.observeReveal(grid);
   }
+}
+
+/** Orden: fecha (sin fecha al final) → hora → fase. La lógica vive en bracket.js; aquí hay un respaldo mínimo. */
+function compararPartidosCalendario(a, b) {
+  if (window.TorneoLlaves) return window.TorneoLlaves.compararPartidos(a, b);
+  return (a.fecha || '9999-99-99').localeCompare(b.fecha || '9999-99-99') || (a.hora || '').localeCompare(b.hora || '');
 }
 
 /**
@@ -110,20 +120,29 @@ function crearTarjetaPartido(partido, indice) {
   tarjeta.style.setProperty('--sport-color', deporte.color);
   tarjeta.style.setProperty('--d', `${Math.min(indice * 0.05, 0.4)}s`);
 
+  // Resultados, fecha y fase se interpretan en bracket.js (acepta partidos con solo "ganador" y sin marcador)
+  const T = window.TorneoLlaves || null;
+  const resultado = T ? T.resultadoPartido(partido) : null;
+  const marcador = T ? T.marcadorTexto(partido) : `${partido.marcadorLocal} – ${partido.marcadorVisitante}`;
+  const fechaTexto = T ? T.textoFecha(partido) : partido.fechaTexto;
+  const faseTag = T ? T.faseTagHTML(partido) : '';
+  const gano = resultado && resultado.jugado && marcador === '—' && resultado.ganador ? ` · Ganó ${resultado.ganador}` : '';
+
   const centro = partido.estado === 'jugado'
-    ? `<span class="match-card__score">${partido.marcadorLocal} – ${partido.marcadorVisitante}</span>`
+    ? `<span class="match-card__score">${marcador}</span>`
     : '<span class="match-card__vs">VS</span>';
 
   const horaTexto = formatearHora(partido.hora);
 
   tarjeta.innerHTML = `
     <div class="match-card__top">
-      <span class="match-card__date">${partido.fechaTexto}${horaTexto ? ` · ${horaTexto}` : ''}</span>
+      <span class="match-card__date">${fechaTexto}${horaTexto ? ` · ${horaTexto}` : ''}</span>
       <span class="match-card__sport" title="${deporte.nombre}">${deporte.icono}</span>
     </div>
     <div class="match-card__meta">
       <span class="match-card__category">${categoria.nombre}</span>
       ${genero ? `<span class="match-card__gender">${genero.nombre}</span>` : ''}
+      ${faseTag}
       ${partido.lugar ? `<span class="match-card__place">📍 ${partido.lugar}</span>` : ''}
     </div>
     <div class="match-card__teams">
@@ -138,7 +157,7 @@ function crearTarjetaPartido(partido, indice) {
       </div>
     </div>
     <div class="match-card__status match-card__status--${partido.estado}">
-      ${partido.estado === 'jugado' ? 'Finalizado' : 'Próximo'}
+      ${partido.estado === 'jugado' ? 'Finalizado' : 'Próximo'}${gano}
     </div>
   `;
 
