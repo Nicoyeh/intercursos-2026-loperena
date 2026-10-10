@@ -1,0 +1,261 @@
+/* ==========================================================================
+   INTERCURSOS 2026 — bracket.css
+   Estilos de las llaves (pestaña "Llaves"), de las pestañas Hombres/Mujeres
+   por deporte y de la etiqueta de fase del Calendario. Reutiliza las
+   variables de styles.css (colores, tipografías, radios, glass).
+   Prefijo "bk-" para no chocar con las clases ".bracket*" antiguas.
+   ========================================================================== */
+
+/* -------------------- Etiqueta de fase (Calendario y filas de categoría) -------------------- */
+.fase-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.fase-tag--semifinal { color: var(--accent-gold-soft); background: rgba(242, 193, 78, 0.1); border-color: rgba(242, 193, 78, 0.32); }
+.fase-tag--tercer { color: #e8b88d; background: rgba(205, 127, 50, 0.12); border-color: rgba(205, 127, 50, 0.35); }
+.fase-tag--final { color: #1a1304; background: var(--accent-gold); border-color: var(--accent-gold); }
+
+/* -------------------- Pestañas Hombres / Mujeres: un bloque por deporte -------------------- */
+.sport-blocks { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.9rem; }
+.sport-block { --sport-color: var(--accent-blue); min-width: 0; }
+.sport-block__title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.8rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--sport-color);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+}
+.sport-block__vacio { padding: 0.5rem 0; color: var(--text-muted); font-size: 0.9rem; }
+
+/* ==========================================================================
+   LLAVES
+   ========================================================================== */
+.bk-view {
+  --bk-hombres: var(--accent-blue-soft);
+  --bk-mujeres: #f58ac1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3rem;
+}
+
+/* ---- Bloque por género ---- */
+.bk-genero { min-width: 0; }
+.bk-genero__head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+.bk-genero__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--bk-genero-color);
+}
+.bk-genero--hombres { --bk-genero-color: var(--bk-hombres); }
+.bk-genero--mujeres { --bk-genero-color: var(--bk-mujeres); }
+.bk-genero__sub { color: var(--text-muted); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.bk-genero__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+
+/* ---- Una llave (categoría + género + deporte) ---- */
+.bk {
+  --bk-accent: var(--accent-blue);
+  min-width: 0;
+  padding: 1.1rem 1.1rem 1rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--glass-border);
+  border-top: 3px solid var(--bk-accent);
+  border-radius: var(--radius-md);
+}
+.bk__head { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 1rem; }
+.bk__title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.05rem, 2.8vw, 1.4rem);
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.bk__icon { font-size: 1.2em; line-height: 1; }
+.bk__hint { display: none; flex-shrink: 0; color: var(--text-muted); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+
+/* El desplazamiento horizontal vive SOLO aquí: nunca en toda la página */
+.bk__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.6rem;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+.bk__scroll:focus-visible { outline: 2px solid var(--accent-blue-soft); outline-offset: 3px; border-radius: var(--radius-sm); }
+.bk__scroll::-webkit-scrollbar { height: 8px; }
+.bk__scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 8px; }
+
+.bk__board {
+  --bk-link-w: 76px;
+  --bk-line: rgba(255, 255, 255, 0.22);
+  display: grid;
+  gap: 1.25rem;
+  width: max-content;
+  margin-inline: auto;
+  padding: 0.15rem 0.1rem;
+}
+
+/* ---- Fila: [semifinales | conectores | final]  (izquierda → derecha) ---- */
+.bk__row {
+  display: grid;
+  grid-template-columns: 300px var(--bk-link-w) 320px;
+  grid-template-rows: auto 1fr 1fr;
+  align-items: center;
+}
+.bk__row--tercer { padding-top: 1.25rem; border-top: 1px dashed rgba(255, 255, 255, 0.14); }
+
+.bk__colhead {
+  grid-row: 1;
+  padding: 0 0.25rem 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.bk__colhead--a { grid-column: 1; }
+.bk__colhead--b { grid-column: 3; }
+
+.bk__slot { display: flex; align-items: center; min-width: 0; padding-block: 0.4rem; }
+.bk__slot--1 { grid-column: 1; grid-row: 2; }
+.bk__slot--2 { grid-column: 1; grid-row: 3; }
+.bk__slot--target { grid-column: 3; grid-row: 2 / span 2; }
+
+/* ---- Conectores (CSS puro): brazos que salen de cada semifinal y se unen en la final ---- */
+.bk__arm { grid-column: 2; position: relative; display: block; align-self: stretch; pointer-events: none; }
+.bk__arm--top { grid-row: 2; }
+.bk__arm--bottom { grid-row: 3; }
+.bk__arm::before { content: ''; position: absolute; left: 0; right: 50%; border: 0 solid var(--bk-line); }
+.bk__arm--top::before { top: calc(50% - 1px); bottom: 0; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: 12px; }
+.bk__arm--bottom::before { top: 0; bottom: calc(50% - 1px); border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 12px; }
+.bk__out { grid-column: 2; grid-row: 2 / span 2; position: relative; display: block; align-self: stretch; pointer-events: none; }
+.bk__out::before { content: ''; position: absolute; left: 50%; right: 0; top: calc(50% - 1px); border-top: 2px solid var(--bk-line); }
+/* El tramo recorrido por un equipo que ya ganó (o perdió, en el tercer puesto) se ilumina */
+.bk__arm.is-on, .bk__out.is-on { --bk-line: var(--bk-accent); }
+
+/* ---- Tarjeta de partido ---- */
+.bk-match {
+  width: 100%;
+  padding: 0.65rem 0.75rem 0.6rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+.bk-match--final { border-color: rgba(242, 193, 78, 0.34); box-shadow: 0 10px 34px rgba(0, 0, 0, 0.3), 0 0 44px rgba(242, 193, 78, 0.07); }
+.bk-match.is-por-definir { border-style: dashed; }
+
+.bk-match__head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.4rem; }
+.bk-match__title { color: var(--text-secondary); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.bk-chip {
+  padding: 0.12rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.bk-chip--jugado { color: var(--bk-accent); }
+.bk-chip--pendiente { color: var(--accent-gold-soft); }
+.bk-chip--sin-resultado { color: #fca5a5; }
+
+.bk-match__teams { display: flex; flex-direction: column; gap: 2px; }
+.bk-match__meta {
+  margin-top: 0.45rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--glass-border);
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+}
+
+/* ---- Fila de equipo ---- */
+.bk-team {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 0.6rem;
+  min-height: 2.65rem;
+  padding: 0.4rem 0.4rem;
+  border-radius: 9px;
+}
+.bk-team__flag { width: 26px; height: 19.5px; }
+.bk-team__flag--vacia { display: inline-block; flex-shrink: 0; border: 1px dashed rgba(255, 255, 255, 0.3); border-radius: 3px; box-shadow: none; }
+.bk-team__name { display: flex; flex-direction: column; min-width: 0; line-height: 1.05; }
+.bk-team__code { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.02em; color: var(--text-primary); white-space: nowrap; }
+.bk-team__tbd { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.02em; color: var(--text-secondary); }
+.bk-team__hint { margin-top: 0.1rem; color: var(--text-muted); font-size: 0.66rem; letter-spacing: 0.04em; }
+.bk-team__score { min-width: 1.1ch; text-align: right; font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; font-variant-numeric: tabular-nums; color: var(--text-secondary); }
+/* Triangulito que marca al ganador (como en las llaves de un Mundial) */
+.bk-team__mark { width: 0; height: 0; border-style: solid; border-width: 5px 7px 5px 0; border-color: transparent var(--text-primary) transparent transparent; }
+
+.bk-badge { display: inline-flex; align-items: center; gap: 0.25rem; margin-top: 0.22rem; font-size: 0.6rem; font-weight: 700; line-height: 1; letter-spacing: 0.1em; text-transform: uppercase; }
+.bk-badge--campeon { color: var(--accent-gold); }
+.bk-badge--tercero { color: #e6ac7c; }
+.bk-badge--finalista { color: var(--bk-accent); }
+
+/* ---- Estados del equipo ---- */
+.bk-team.is-ganador { background: rgba(255, 255, 255, 0.07); }
+.bk-team.is-ganador .bk-team__score { color: var(--text-primary); }
+.bk-team.is-perdedor, .bk-team.is-eliminado { opacity: 0.42; }
+.bk-team.is-perdedor .bk-team__flag, .bk-team.is-eliminado .bk-team__flag { filter: grayscale(0.55); }
+.bk-team.is-perdedor .bk-team__mark, .bk-team.is-eliminado .bk-team__mark { display: none; }
+.bk-team.is-campeon { background: linear-gradient(90deg, rgba(242, 193, 78, 0.26), rgba(242, 193, 78, 0.05)); box-shadow: inset 0 0 0 1px rgba(242, 193, 78, 0.5); }
+.bk-team.is-campeon .bk-team__code, .bk-team.is-campeon .bk-team__score { color: var(--accent-gold-soft); }
+.bk-team.is-campeon .bk-team__mark { border-right-color: var(--accent-gold); }
+.bk-team.is-tercero { background: linear-gradient(90deg, rgba(205, 127, 50, 0.28), rgba(205, 127, 50, 0.05)); box-shadow: inset 0 0 0 1px rgba(205, 127, 50, 0.5); }
+.bk-team.is-tercero .bk-team__mark { border-right-color: #e6ac7c; }
+
+/* ==========================================================================
+   Móvil: la llave sigue siendo horizontal (izquierda → derecha) y se
+   desliza DENTRO de su contenedor; las tarjetas conservan su tamaño.
+   ========================================================================== */
+@media (max-width: 760px) {
+  .bk__head { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+  .bk__hint { display: inline-block; }
+}
+
+@media (max-width: 640px) {
+  .bk-view { gap: 2.5rem; }
+  .bk { padding: 0.9rem 0.7rem 0.8rem; }
+  .bk__board { --bk-link-w: 56px; }
+  .bk__row { grid-template-columns: 252px var(--bk-link-w) 268px; }
+  .bk-team__code { font-size: 1.12rem; }
+  .bk-team__score { font-size: 1.3rem; }
+}
