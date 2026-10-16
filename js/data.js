@@ -449,7 +449,7 @@ const TORNEO_DATA = {
   // Si tu script consume directamente el objeto de estadísticas individuales:
   estadisticasIndividuales: {
     futbol: {
-      mvp: [ ],
+      mvp: [{ nombre: 'Hellen Quintero 🌟', equipo: '7-01'} ],
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -609,7 +609,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Mateo Oñate', equipo: '11-01'}, { nombre: 'Valery Mendoza', equipo: '8-02'} ],
+      mvp: [{ nombre: 'Mateo Oñate', equipo: '11-01'}, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Samuel Maldonado', equipo: '9-03'}, { nombre: 'Isabel Duarte', equipo: '11-02'}, { nombre: 'Danella Alandette', equipo: '11-02'}  ],
 
       maximosAnotadores: [
         { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
@@ -769,7 +769,7 @@ const TORNEO_DATA = {
       ]
     },
     voleibol: {
-      mvp: [ { nombre: 'Samuel Maldonado', equipo: '9-03'}    ],
+      mvp: [ { nombre: 'Samuel Maldonado', equipo: '9-03'}, { nombre: 'Jaliq Pastrana', equipo: '9-02'}    ],
 
     }
   },
