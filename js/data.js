@@ -603,8 +603,6 @@ const TORNEO_DATA = {
         {nombre: 'Navil Benavides', equipo: '8-03', goles: 3},
         {nombre: 'Arolis Rodriguez', equipo: '8-03', goles: 1},
 
-
-
       ],
       
     },
