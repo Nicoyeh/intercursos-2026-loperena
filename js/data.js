@@ -400,10 +400,11 @@ const TORNEO_DATA = {
     { id: 'p218', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'infantil', genero: 'mujeres', local: '6-04',  visitante: '6-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
     { id: 'p219', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
     { id: 'p220', fecha: null, fechaTexto: null, hora: null, deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
-    { id: 'p221', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p221', fecha: '2026-10-15', fechaTexto: '15 OCT' , hora: 'Recreo' , deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '8-03',  visitante: '9-03', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
     { id: 'p222', fecha: null, fechaTexto: null, hora: null, deporte: 'futbol', categoria: 'prejuvenil', genero: 'mujeres', local: '9-01',  visitante: '8-02', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
     { id: 'p223', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'prejuvenil', genero: 'mujeres', local: '8-02',  visitante: '8-03', fase: 'Tercer puesto', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
-    { id: 'p224', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-03',  visitante: '8-02', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p224', fecha: '2026-10-15', fechaTexto: '15 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'mujeres', local: '9-03',  visitante: '8-02', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 5 },
+    { id: 'p225', fecha: '2026-10-15', fechaTexto: '15 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-03', fase: 'Fase de grupos', estado: 'jugado', marcadorLocal: 23, marcadorVisitante: 8 },
 
     
   ],
