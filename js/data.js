@@ -554,8 +554,8 @@ const TORNEO_DATA = {
         { nombre: 'Mathias Paez', equipo: '6-01', goles: 2}, 
         
         { nombre: 'Luis Rojas', equipo: '7-01', goles: 3}, 
-        { nombre: 'Isabella Rodriguez', equipo: '7-01', goles: 5},
-        { nombre: 'Hellen Quintero 🌟', equipo: '7-01', goles: 10}, 
+        { nombre: 'Isabella Rodriguez', equipo: '7-01', goles: 6},
+        { nombre: 'Hellen Quintero 🌟', equipo: '7-01', goles: 11}, 
         { nombre: 'Gabriel Tirado', equipo: '7-01', goles: 1},
         { nombre: 'Julio Sanjuan', equipo: '7-01', goles: 1},
        
@@ -644,11 +644,11 @@ const TORNEO_DATA = {
         { nombre: 'Isabella Zarate', equipo: '9-03', canastas: 7 },
         { nombre: 'Gabriela Angarita', equipo: '9-03', canastas: 1 },
         { nombre: 'Elizabeth Benavides', equipo: '9-03', canastas: 2 }, 
-        { nombre: 'Jhonder Chourio', equipo: '9-03', canastas: 9 },
-        { nombre: 'Samuel Maldonado', equipo: '9-03', canastas: 1 },
+        { nombre: 'Jhonder Chourio', equipo: '9-03', canastas: 10 },
+        { nombre: 'Samuel Maldonado', equipo: '9-03', canastas: 2 },
         { nombre: 'Alina Buelvas', equipo: '9-03', canastas: 2 },
         { nombre: 'Abigail Rangel', equipo: '9-03', canastas: 1 },
-        { nombre: 'Jose Trujillo', equipo: '9-03', canastas: 2 },
+        { nombre: 'Jose Trujillo', equipo: '9-03', canastas: 3 },
 
 
 
@@ -663,13 +663,14 @@ const TORNEO_DATA = {
         { nombre: 'Shaylen Salas', equipo: '6-02', canastas: 2 },
 
         { nombre: 'Angel Anteliz', equipo: '8-03', canastas: 3 },
-        { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 3 },
+        { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 4 },
         { nombre: 'Sara Olivares', equipo: '8-03', canastas: 1 },
         { nombre: 'Isabel Moreno', equipo: '8-03', canastas: 1 },
         { nombre: 'Navil Benavides', equipo: '8-03', canastas: 1 },
         { nombre: 'Jose Pablo Meriño', equipo: '8-03', canastas: 2 },
         { nombre: 'Valerie Gomez', equipo: '8-03', canastas: 3 },
         { nombre: 'Miguel Garzon', equipo: '8-03', canastas: 1 },
+        { nombre: 'Samuel Bermudez', equipo: '8-03', canastas: 1 },
 
 
 
@@ -740,7 +741,7 @@ const TORNEO_DATA = {
         { nombre: 'Walter Macias', equipo: '11-01', canastas: 1 },
         { nombre: 'Julio De la rosa', equipo: '11-01', canastas: 4},
         { nombre: 'Hernan Vecino', equipo: '11-01', canastas: 1 },
-        { nombre: 'Aythana Daza', equipo: '11-01', canastas: 1 },
+        { nombre: 'Aythana Daza', equipo: '11-01', canastas: 3 },
         { nombre: 'Zohe Mendoza', equipo: '11-01', canastas: 2 },
         { nombre: 'Angela Mejia', equipo: '11-01', canastas: 1 },
         { nombre: 'Alejandra Velasquez', equipo: '11-01', canastas: 2 },
@@ -748,6 +749,7 @@ const TORNEO_DATA = {
         { nombre: 'Laura Viloria', equipo: '11-01', canastas: 2 },
         { nombre: 'Dylan Casas', equipo: '11-01', canastas: 3},
         { nombre: 'Gabriela Lemus', equipo: '11-01', canastas: 1 },
+        { nombre: 'Gabriela Contreras', equipo: '11-01', canastas: 1 },
 
 
 
@@ -762,7 +764,8 @@ const TORNEO_DATA = {
         { nombre: 'Danella Alandette', equipo: '11-02', canastas: 3 },
         { nombre: 'Orlando Rondon', equipo: '11-02', canastas: 2 },
         { nombre: 'Obed Quiroz 🩶', equipo: '11-02', canastas: 1 },   
-        { nombre: 'Nicolle Pineda', equipo: '11-02', canastas: 1}   
+        { nombre: 'Nicolle Pineda', equipo: '11-02', canastas: 1},
+        { nombre: 'Isabel Duarte', equipo: '11-02', canastas: 5},   
 
       ]
     },
