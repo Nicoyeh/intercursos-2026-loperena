@@ -409,6 +409,19 @@ const TORNEO_DATA = {
     { id: 'p227', fecha: '2026-10-16', fechaTexto: '16 OCT', hora: 'Recreo', deporte: 'futbol', categoria: 'infantil', genero: 'mujeres', local: '7-01',  visitante: '6-03', fase: 'Final', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     { id: 'p228', fecha: '2026-10-16', fechaTexto: '16 OCT', hora: 'Recreo', deporte: 'voleibol', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-02', fase: 'Final', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
 
+        // ---- Juvenil: semifinales (fecha y hora por definir) ----
+    { id: 'p229', fecha: null, fechaTexto: null, hora: null, deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-02', visitante: '10-01', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p230', fecha: null, fechaTexto: null, hora: null, deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '10-02', visitante: '11-01', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p231', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02', visitante: '11-01', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p232', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '10-01', visitante: '10-02', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p233', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-02', visitante: '10-03', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p234', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-01', visitante: '10-01', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p235', fecha: null, fechaTexto: null, hora: null, deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-01', visitante: '10-03', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p236', fecha: null, fechaTexto: null, hora: null, deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-02', visitante: '10-02', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p237', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-02', visitante: '11-01', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p238', fecha: null, fechaTexto: null, hora: null, deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-01', visitante: '11-02', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p239', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01', visitante: '10-01', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
+    { id: 'p240', fecha: null, fechaTexto: null, hora: null, deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-02', visitante: '10-03', fase: 'Semifinales', estado: 'proximo', marcadorLocal: null, marcadorVisitante: null },
     
   ],
 
