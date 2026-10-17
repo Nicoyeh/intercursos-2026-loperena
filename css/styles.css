@@ -960,3 +960,54 @@ ul { list-style: none; }
   visibility: visible !important;
   transform: none !important;
 }
+/* ---- Llaves (semifinales / final / tercer puesto) — js/bracket.js ---- */
+.bracket { margin-bottom: 2.25rem; }
+.bracket:last-child { margin-bottom: 0; }
+.bracket__qualified { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+.bracket__qualified-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+
+/* El desplazamiento horizontal ocurre SOLO dentro de este contenedor, nunca en la página. */
+.bracket__scroll { overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; padding-bottom: 0.5rem; }
+.bracket__tree { --bk-card: 218px; --bk-gap: 44px; display: grid; grid-template-columns: var(--bk-card) var(--bk-gap) var(--bk-card);
+  grid-template-rows: 1fr 1fr; row-gap: 0.9rem; align-items: center; width: max-content; }
+.bracket__tree--third { margin-top: 1.1rem; }
+.bracket__cell--a1 { grid-column: 1; grid-row: 1; }
+.bracket__cell--a2 { grid-column: 1; grid-row: 2; }
+.bracket__cell--out { grid-column: 3; grid-row: 1 / 3; }
+
+/* Conectores: "]" que une las dos casillas de la izquierda y sale hacia la derecha. */
+.bracket__link { grid-column: 2; grid-row: 1 / 3; position: relative; align-self: stretch; --bk-line: var(--cat-color); }
+.bracket__link::before { content: ''; position: absolute; left: 0; width: 50%; top: 25%; bottom: 25%;
+  border: 2px solid var(--bk-line); border-left: none; border-radius: 0 6px 6px 0; opacity: 0.75; }
+.bracket__link::after { content: ''; position: absolute; left: 50%; right: 0; top: 50%; height: 2px;
+  background: var(--bk-line); opacity: 0.75; transform: translateY(-1px); }
+.bracket__link--dashed { --bk-line: var(--text-muted); }
+.bracket__link--dashed::before { border-style: dashed; }
+.bracket__link--dashed::after { background: repeating-linear-gradient(90deg, var(--bk-line) 0 5px, transparent 5px 9px); }
+
+.bracket-match { padding: 0.7rem; border-radius: var(--radius-md, 12px); background: rgba(255, 255, 255, 0.04); border: 1px solid var(--glass-border); }
+.bracket-match--final { border-color: var(--accent-gold); }
+.bracket-match--feeder { border-style: dashed; background: transparent; }
+.bracket-match__title { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; font-size: 0.68rem; color: var(--text-muted);
+  margin-bottom: 0.4rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.bracket-match__state { font-size: 0.6rem; font-weight: 700; border-radius: var(--radius-full); padding: 0.1rem 0.45rem; border: 1px solid var(--glass-border); }
+.bracket-match__state--jugado { color: var(--cat-color); border-color: var(--cat-color); }
+.bracket-match__state--pendiente { color: var(--text-muted); }
+.bracket-match__info { font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.45rem; }
+.bracket-match__info:empty { display: none; }
+.bracket-match__warn { font-size: 0.7rem; color: var(--accent-gold); margin-top: 0.3rem; }
+.bracket-team { display: flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.5rem; border-radius: 8px; font-size: 0.9rem; }
+.bracket-team + .bracket-team { margin-top: 0.2rem; }
+.bracket-team__flag { width: 20px; height: 15px; }
+.bracket-team__code { font-family: var(--font-display); font-weight: 700; flex: 1; }
+.bracket-team__score { font-weight: 700; font-variant-numeric: tabular-nums; }
+.bracket-team.is-winner { background: rgba(255, 255, 255, 0.09); }
+.bracket-team.is-winner .bracket-team__score { color: var(--cat-color); }
+.bracket-team.is-out { opacity: 0.45; }
+.bracket-team--tbd { color: var(--text-muted); font-style: italic; }
+.bracket__results { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin-top: 0.75rem; font-size: 0.9rem; color: var(--accent-gold); }
+
+/* Juvenil: bloques Hombres / Mujeres dentro de la pestaña Llaves y secciones por deporte en Hombres/Mujeres */
+.bracket-gender + .bracket-gender { margin-top: 2.5rem; padding-top: 1.75rem; border-top: 1px solid var(--glass-border); }
+.bracket-gender__title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--cat-color); margin-bottom: 1.1rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.category-sport + .category-sport { margin-top: 1.75rem; }
