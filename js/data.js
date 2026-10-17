@@ -441,6 +441,12 @@ const TORNEO_DATA = {
       baloncesto: { hombres: ['8-02'], mujeres: ['9-01'] },
       voleibol:   { hombres: ['8-02'], mujeres: ['9-01'] },
     },
+
+        juvenil: {
+      futbol:     { hombres: ['10-03'], mujeres: ['11-01'] },
+      baloncesto: { hombres: ['10-03'], mujeres: ['10-03'] },
+      voleibol:   { hombres: ['10-02'], mujeres: ['10-02'] },
+    },
   },
 
   // ⚠️ DATOS DE EJEMPLO / DEMO — este cruce eliminatorio es INVENTADO,
