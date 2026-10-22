@@ -72,10 +72,12 @@ function crearTarjetaIndividualHTML(clave, valor) {
   if (listaVacia) {
     contenidoHTML = '<p class="stat-card__pending">Se cargará cuando la organización registre este dato.</p>';
   } else if (Array.isArray(valor)) {
-    // Clonar y ordenar de mayor a menor por goles o canastas
+    // Clonar y ordenar de mayor a menor por goles o puntos de baloncesto.
+    // En data.js los puntos individuales de baloncesto se guardan hoy en "canastas";
+    // también se acepta "puntos" para los registros nuevos (si trae ambos, manda "puntos").
     const listaOrdenada = [...valor].sort((a, b) => {
-      const cantidadA = a.goles ?? a.canastas ?? 0;
-      const cantidadB = b.goles ?? b.canastas ?? 0;
+      const cantidadA = a.goles ?? a.puntos ?? a.canastas ?? 0;
+      const cantidadB = b.goles ?? b.puntos ?? b.canastas ?? 0;
       return cantidadB - cantidadA;
     });
 
@@ -84,13 +86,14 @@ function crearTarjetaIndividualHTML(clave, valor) {
       const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
       const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__flag') : '';
       
-      // Mostrar métrica únicamente si no es MVP y tiene goles o canastas definidos
+      // Mostrar métrica únicamente si no es MVP y tiene goles o puntos definidos
       let metricaHTML = '';
       if (clave !== 'mvp') {
         if (item.goles !== undefined) {
           metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.goles} goles</span>`;
-        } else if (item.canastas !== undefined) {
-          metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.canastas} canastas</span>`;
+        } else if (item.puntos !== undefined || item.canastas !== undefined) {
+          const puntosJugador = item.puntos !== undefined ? item.puntos : item.canastas;
+          metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">Puntos: ${puntosJugador}</span>`;
         }
       }
 

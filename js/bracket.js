@@ -25,7 +25,8 @@
    · Si un resultado cambia en data.js, la llave se recalcula completa.
 
    Expone window.TorneoLlaves (usado por categories.js, calendar.js y
-   statistics.js). Para activar Juvenil: categorias.juvenil.llaves = true.
+   statistics.js). Una categoría usa llaves si data.js la marca con llaves: true
+   o si ya tiene partidos eliminatorios registrados (ver categoriaUsaLlaves).
    ========================================================================== */
 
 (function () {
@@ -422,9 +423,20 @@
       </section>`;
   }
 
+  /**
+   * ¿Esta categoría se muestra con llaves (Hombres | Mujeres | Llaves)?
+   *  · Sí, si data.js la marca con llaves: true.
+   *  · También sí, si data.js ya tiene partidos eliminatorios registrados para ella
+   *    (fase: 'Semifinales', 'Tercer puesto' o 'Final'). Así una categoría pasa
+   *    sola a llaves en cuanto se registra su primera semifinal, sin tener que
+   *    acordarse de cambiar la bandera. (Juvenil entra por esta vía.)
+   */
   function categoriaUsaLlaves(claveCategoria) {
-    const categoria = typeof TORNEO_DATA !== 'undefined' && TORNEO_DATA.categorias && TORNEO_DATA.categorias[claveCategoria];
-    return Boolean(categoria && categoria.llaves);
+    if (typeof TORNEO_DATA === 'undefined' || !TORNEO_DATA.categorias) return false;
+    const categoria = TORNEO_DATA.categorias[claveCategoria];
+    if (!categoria) return false;
+    if (categoria.llaves === true) return true;
+    return (TORNEO_DATA.partidos || []).some((p) => p.categoria === claveCategoria && claveFase(p) !== 'grupos');
   }
 
   /** Pestaña "Llaves" de una categoría: bloque Hombres y bloque Mujeres, cada uno con las llaves de los 3 deportes. */

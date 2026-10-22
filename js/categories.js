@@ -5,9 +5,11 @@
    Genera los bloques de categoría a partir de TORNEO_DATA (data.js) y
    controla sus pestañas internas.
 
-   Hay dos modos, según categorias[...].llaves en data.js:
+   Hay dos modos. Una categoría usa llaves si data.js la marca con
+   llaves: true o si ya tiene partidos eliminatorios registrados
+   (TorneoLlaves.categoriaUsaLlaves, en bracket.js):
 
-   · llaves: true  (Infantil y Prejuvenil, en fases eliminatorias)
+   · Con llaves  (Infantil, Prejuvenil y Juvenil, en fases eliminatorias)
        Tres pestañas: Hombres | Mujeres | Llaves.
        - Hombres / Mujeres: los partidos de ese género, separados por deporte
          (fútbol, baloncesto, voleibol) y con su fase.
@@ -15,9 +17,8 @@
          Hombres y bloque Mujeres, cada uno con los 3 deportes). Las dibuja
          bracket.js desde los mismos partidos de data.js.
 
-   · llaves: false (Juvenil, todavía en fase de grupos)
+   · Sin llaves  (una categoría que todavía esté en fase de grupos)
        Selector Hombres/Mujeres + pestañas Calendario y Tabla (igual que antes).
-       Para pasar Juvenil a llaves basta con poner llaves: true en data.js.
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -54,7 +55,10 @@ function crearBloqueCategoria(claveCategoria, categoria) {
   `).join('');
 
   const clavesGenero = Object.keys(TORNEO_DATA.generos);
-  const usaLlaves = Boolean(categoria.llaves) && Boolean(utilidadesLlaves());
+  // La decisión la toma bracket.js (categoriaUsaLlaves): llaves: true en data.js,
+  // o la categoría ya tiene semifinales/final/tercer puesto registrados.
+  const utilidades = utilidadesLlaves();
+  const usaLlaves = Boolean(utilidades) && utilidades.categoriaUsaLlaves(claveCategoria);
 
   // Pestañas principales según el modo de la categoría
   let controles;
