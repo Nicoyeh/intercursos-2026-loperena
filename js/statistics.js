@@ -63,6 +63,45 @@ function crearEstadisticasHTML(claveDeporte) {
   return `<div class="stats-grid" style="align-items: start; height: auto;">${tarjetasIndividuales}${tarjetasEquipo}</div>`;
 }
 
+/**
+ * MVP acumulativo. En data.js, cada deporte tiene su propia lista
+ * estadisticasIndividuales.<deporte>.mvp y CADA ENTRADA es un reconocimiento
+ * (un partido). Si alguien gana otra vez, se agrega otra entrada con su nombre y
+ * equipo; aquí se agrupan y se muestra el total ("3 MVP").
+ *
+ *  · Cuenta por deporte: esta función solo recibe la lista de UN deporte, así que
+ *    los MVP de fútbol, baloncesto y voleibol nunca se suman entre sí.
+ *  · Una persona = mismo nombre + mismo equipo (curso). Se ignoran mayúsculas,
+ *    tildes, espacios de más y emojis (🌟) al comparar nombres; se muestra el nombre
+ *    tal como aparece la primera vez.
+ *  · Se calcula cada vez que se dibuja la tarjeta, sin guardar ningún contador:
+ *    recargar la página o recalcular nunca cuenta dos veces lo mismo.
+ *  · Opcional: si una entrada trae  partido: 'p123',  dos entradas de la misma persona
+ *    con el mismo partido cuentan UNA sola vez (evita contar doble por un error de captura).
+ */
+function contarMVP(lista) {
+  const normalizar = (texto) => String(texto ?? '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}\s]/gu, '')
+    .replace(/\s+/g, ' ').trim().toLowerCase();
+
+  const personas = new Map();      // persona -> { nombre, equipo, mvp }
+  const yaContados = new Set();    // persona + partido (solo si la entrada trae "partido")
+
+  lista.forEach((item) => {
+    const persona = `${normalizar(item.nombre)}|${String(item.equipo ?? '').trim()}`;
+    if (item.partido !== undefined && item.partido !== null) {
+      const reconocimiento = `${persona}|${item.partido}`;
+      if (yaContados.has(reconocimiento)) return;
+      yaContados.add(reconocimiento);
+    }
+    if (!personas.has(persona)) personas.set(persona, { nombre: item.nombre, equipo: item.equipo, mvp: 0 });
+    personas.get(persona).mvp += 1;
+  });
+
+  return [...personas.values()];
+}
+
 function crearTarjetaIndividualHTML(clave, valor) {
   const etiqueta = ETIQUETAS_INDIVIDUALES[clave];
   const listaVacia = Array.isArray(valor) ? valor.length === 0 : !valor;
@@ -75,9 +114,11 @@ function crearTarjetaIndividualHTML(clave, valor) {
     // Clonar y ordenar de mayor a menor por goles o puntos de baloncesto.
     // En data.js los puntos individuales de baloncesto se guardan hoy en "canastas";
     // también se acepta "puntos" para los registros nuevos (si trae ambos, manda "puntos").
-    const listaOrdenada = [...valor].sort((a, b) => {
-      const cantidadA = a.goles ?? a.puntos ?? a.canastas ?? 0;
-      const cantidadB = b.goles ?? b.puntos ?? b.canastas ?? 0;
+    // En la tarjeta MVP primero se agrupa por persona (cada entrada = un reconocimiento).
+    const base = clave === 'mvp' ? contarMVP(valor) : [...valor];
+    const listaOrdenada = base.sort((a, b) => {
+      const cantidadA = a.mvp ?? a.goles ?? a.puntos ?? a.canastas ?? 0;
+      const cantidadB = b.mvp ?? b.goles ?? b.puntos ?? b.canastas ?? 0;
       return cantidadB - cantidadA;
     });
 
@@ -86,9 +127,11 @@ function crearTarjetaIndividualHTML(clave, valor) {
       const equipoInfo = TORNEO_DATA.equipos ? TORNEO_DATA.equipos[item.equipo] : null;
       const bandera = equipoInfo ? banderaHTML(equipoInfo, 'stat-card__flag') : '';
       
-      // Mostrar métrica únicamente si no es MVP y tiene goles o puntos definidos
+      // MVP: total acumulado en este deporte ("3 MVP"). Goleadores / anotadores: goles o puntos.
       let metricaHTML = '';
-      if (clave !== 'mvp') {
+      if (clave === 'mvp') {
+        metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.mvp} MVP</span>`;
+      } else {
         if (item.goles !== undefined) {
           metricaHTML = `<span style="font-weight: 700; font-size: 0.82rem; color: #f39c12; flex-shrink: 0; white-space: nowrap;">${item.goles} goles</span>`;
         } else if (item.puntos !== undefined || item.canastas !== undefined) {
