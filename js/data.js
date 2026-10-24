@@ -488,8 +488,8 @@ const TORNEO_DATA = {
 
       goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
-        { nombre: 'Nathaly Moscote', equipo: '10-03', goles: 4 },
-        { nombre: 'Nicole Rumie', equipo: '10-03', goles: 3 },
+        { nombre: 'Nathaly Moscote', equipo: '10-03', goles: 5 },
+        { nombre: 'Nicole Rumie', equipo: '10-03', goles: 4 },
         { nombre: 'Kasami Gonzales', equipo: '10-03', goles: 1 },
         { nombre: 'Nezer Manjarres', equipo: '10-03', goles: 6 },
         { nombre: 'Holman Parada', equipo: '10-03', goles: 2 },
@@ -497,18 +497,18 @@ const TORNEO_DATA = {
         { nombre: 'Andrea Torrijo', equipo: '10-02', goles: 6 },
         { nombre: 'Daniel Ramos', equipo: '10-02', goles: 10 },
         { nombre: 'Duvan Riccioly', equipo: '10-02', goles: 2 },
-        { nombre: 'Martin Vizcaino', equipo: '10-02', goles: 4 },
-        { nombre: 'Mariana Soto', equipo: '10-02', goles: 2 },
-        { nombre: 'Anyelo Gomez', equipo: '10-02', goles: 6},
+        { nombre: 'Martin Vizcaino', equipo: '10-02', goles: 5 },
+        { nombre: 'Mariana Soto', equipo: '10-02', goles: 3 },
+        { nombre: 'Anyelo Gomez', equipo: '10-02', goles: 9},
         { nombre: 'Brayan Pineda', equipo: '10-02', goles: 2},
 
-        { nombre: 'Juan Villar', equipo: '9-01', goles: 3},
-        { nombre: 'Faby Marquez', equipo: '9-01', goles: 5},
+        { nombre: 'Juan Villar', equipo: '9-01', goles: 4},
+        { nombre: 'Faby Marquez', equipo: '9-01', goles: 6},
         { nombre: 'Veronik Vizcaino', equipo: '9-01', goles: 3},
-        { nombre: 'Juan Bolaño', equipo: '9-01', goles: 4},
+        { nombre: 'Juan Bolaño', equipo: '9-01', goles: 5},
         { nombre: 'Jose Montesino', equipo: '9-01', goles: 1},
         { nombre: 'Alfonso Garcia', equipo: '9-01', goles: 1},
-        
+        { nombre: 'Isaad Pediaña', equipo: '9-01', goles: 1},
 
 
         { nombre: 'Jose Trujillo', equipo: '9-03', goles: 10},
@@ -529,18 +529,18 @@ const TORNEO_DATA = {
 
         { nombre: 'Angel Camargo', equipo: '6-02', goles: 6},
         { nombre: 'Thiago Arzuaga', equipo: '6-02', goles: 4},
-        { nombre: 'David Rojas', equipo: '6-02', goles: 1},
+        { nombre: 'David Rojas', equipo: '6-02', goles: 2},
         { nombre: 'Shaylen Salas', equipo: '6-02', goles: 4},
 
-        { nombre: 'Sebastian Barcinilla', equipo: '11-02', goles: 9},
-        { nombre: 'Jaime Camargo', equipo: '11-02', goles: 5},
+        { nombre: 'Sebastian Barcinilla', equipo: '11-02', goles: 12},
+        { nombre: 'Jaime Camargo', equipo: '11-02', goles: 6},
         { nombre: 'Giescy Garcia', equipo: '11-02', goles: 2},
         { nombre: 'Orlando Rondon', equipo: '11-02', goles: 4},
-        { nombre: 'Manuel Pallares', equipo: '11-02', goles: 7},
+        { nombre: 'Manuel Pallares', equipo: '11-02', goles: 9},
         { nombre: 'Juan Tellez', equipo: '11-02', goles: 4},
         { nombre: 'Xavi Nieves', equipo: '11-02', goles: 2},
         { nombre: 'Diego Camargo', equipo: '11-02', goles: 3},
-        { nombre: 'Obed Quiroz 🩶', equipo: '11-02', goles: 2},
+        { nombre: 'Obed Quiroz 🩶', equipo: '11-02', goles: 4},
         { nombre: 'Danella Alandette', equipo: '11-02', goles: 1},
         { nombre: 'Valeria Mendez', equipo: '11-02', goles: 5},
 
