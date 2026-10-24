@@ -433,6 +433,10 @@ const TORNEO_DATA = {
     { id: 'p244', fecha: '2026-10-22', fechaTexto: '22 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'hombres', local: '7-02',  visitante: '7-03', fase: 'Final', estado: 'jugado', marcadorLocal: 10, marcadorVisitante: 11 },
     { id: 'p245', fecha: '2026-10-22', fechaTexto: '22 OCT', hora: 'Recreo', deporte: 'futbol', categoria: 'prejuvenil', genero: 'hombres', local: '8-02',  visitante: '9-02', fase: 'Final', estado: 'jugado', marcadorLocal: 5, marcadorVisitante: 2 },
 
+    { id: 'p246', fecha: '2026-10-23', fechaTexto: '23 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'prejuvenil', genero: 'hombres', local: '9-01',  visitante: '9-02', fase: 'Final', estado: 'jugado', marcadorLocal: 28, marcadorVisitante: 9 },
+    { id: 'p247', fecha: '2026-10-23', fechaTexto: '23 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '7-02', fase: 'Final', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 6 },
+    { id: 'p248', fecha: '2026-10-23', fechaTexto: '23 OCT', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-01', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
+    
   
 
   ],
