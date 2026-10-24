@@ -65,9 +65,12 @@ function crearEstadisticasHTML(claveDeporte) {
 
 /**
  * MVP acumulativo. En data.js, cada deporte tiene su propia lista
- * estadisticasIndividuales.<deporte>.mvp y CADA ENTRADA es un reconocimiento
- * (un partido). Si alguien gana otra vez, se agrega otra entrada con su nombre y
- * equipo; aquí se agrupan y se muestra el total ("3 MVP").
+ * estadisticasIndividuales.<deporte>.mvp. Hay dos formas de escribir a una persona
+ * (se pueden mezclar; todo se suma):
+ *   1) UNA línea con el total:   { nombre: 'Nicolle Pineda', equipo: '11-02', mvp: 3 }
+ *      Cuando gane otra vez, solo cambias el número (mvp: 4).
+ *   2) Una línea por reconocimiento (sin "mvp"): cada línea cuenta 1.
+ * Aquí se agrupan por persona y se muestra el total ("3 MVP").
  *
  *  · Cuenta por deporte: esta función solo recibe la lista de UN deporte, así que
  *    los MVP de fútbol, baloncesto y voleibol nunca se suman entre sí.
@@ -76,8 +79,10 @@ function crearEstadisticasHTML(claveDeporte) {
  *    tal como aparece la primera vez.
  *  · Se calcula cada vez que se dibuja la tarjeta, sin guardar ningún contador:
  *    recargar la página o recalcular nunca cuenta dos veces lo mismo.
- *  · Opcional: si una entrada trae  partido: 'p123',  dos entradas de la misma persona
- *    con el mismo partido cuentan UNA sola vez (evita contar doble por un error de captura).
+ *  · Si pones el total en una línea (mvp: 3), NO repitas además otras líneas de esa
+ *    misma persona: se sumarían. Una línea por persona es lo más claro.
+ *  · Opcional (solo para el estilo de una línea por reconocimiento): si una entrada trae
+ *    partido: 'p123', dos entradas de la misma persona con el mismo partido cuentan UNA vez.
  */
 function contarMVP(lista) {
   const normalizar = (texto) => String(texto ?? '')
@@ -95,8 +100,11 @@ function contarMVP(lista) {
       if (yaContados.has(reconocimiento)) return;
       yaContados.add(reconocimiento);
     }
+    // Cantidad que aporta esta línea: su "mvp" si lo trae (número entero ≥ 1), si no 1.
+    const indicado = item.mvp === undefined || item.mvp === null ? 1 : Math.floor(Number(item.mvp));
+    if (!Number.isFinite(indicado) || indicado < 1) return;   // mvp: 0 o inválido → no suma ni aparece
     if (!personas.has(persona)) personas.set(persona, { nombre: item.nombre, equipo: item.equipo, mvp: 0 });
-    personas.get(persona).mvp += 1;
+    personas.get(persona).mvp += indicado;
   });
 
   return [...personas.values()];
