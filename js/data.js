@@ -651,7 +651,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Isabel Ochoa', equipo: '7-02'}, { nombre: 'Salome Cantillo', equipo: '7-02', mvp: 2 }, { nombre: 'Oriana Rosado', equipo: '7-02', mvp: 2 }, { nombre: 'Luis Daniel Linares', equipo: '7-02', mvp: 3 }, { nombre: 'Hellen Quintero 🌟', equipo: '7-01', mvp: 2 }, { nombre: 'Luis Orozco', equipo: '7-03', mvp: 3 }, {nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}, { nombre: 'Ayelem Gomez', equipo: '7-04'}, { nombre: 'Maria Barros', equipo: '6-03', mvp: 2 }, {nombre: 'Daniel Yirene', equipo: '6-03'}, {nombre: 'Thiago Gonzales', equipo: '6-01', mvp: 2}, {nombre: 'Rafaella Agamez', equipo: '6-01'}, {nombre: 'Matias Medina', equipo: '6-01'}, {nombre: 'Thaliana Galindo', equipo: '6-01'}, {nombre: 'Juan Guillen', equipo: '6-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, {nombre: 'Valeria Martinez', equipo: '6-02'}, {nombre: 'Emanuel Paramo', equipo: '6-02'}, { nombre: 'Jhonder Chourio', equipo: '9-03', mvp: 2 }, { nombre: 'Isabella Zarate', equipo: '9-03', mvp: 2 }, { nombre: 'Abigail Rangel', equipo: '9-03'}, { nombre: 'Sara Olivares', equipo: '8-03' }, { nombre: 'Yesbelis Guzman', equipo: '8-02' }, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Juan Bolaño', equipo: '9-01', mvp: 3}, {nombre: 'Alfonso Garcia', equipo: '9-01', mvp: 2}, {nombre: 'Juan Villar', equipo: '9-01'}, { nombre: 'Anyeli Pacheco', equipo: '9-02', mvp: 6 }, { nombre: 'Victor Barrios', equipo: '9-02', mvp: 3}, {nombre: 'Jose Urbina', equipo: '9-02'}
+      mvp: [{ nombre: 'Isabel Ochoa', equipo: '7-02'}, { nombre: 'Salome Cantillo', equipo: '7-02', mvp: 2 }, { nombre: 'Oriana Rosado', equipo: '7-02', mvp: 2 }, { nombre: 'Luis Daniel Linares', equipo: '7-02', mvp: 3 }, { nombre: 'Hellen Quintero 🌟', equipo: '7-01', mvp: 2 }, { nombre: 'Luis Orozco', equipo: '7-03', mvp: 3 }, {nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}, { nombre: 'Ayelem Gomez', equipo: '7-04'}, { nombre: 'Maria Barros', equipo: '6-03', mvp: 2 }, {nombre: 'Daniel Yirene', equipo: '6-03'}, {nombre: 'Thiago Gonzales', equipo: '6-01', mvp: 2}, {nombre: 'Rafaella Agamez', equipo: '6-01'}, {nombre: 'Matias Medina', equipo: '6-01'}, {nombre: 'Thaliana Galindo', equipo: '6-01'}, {nombre: 'Juan Guillen', equipo: '6-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, {nombre: 'Valeria Martinez', equipo: '6-02'}, {nombre: 'Emanuel Paramo', equipo: '6-02'}, { nombre: 'Jhonder Chourio', equipo: '9-03', mvp: 2 }, { nombre: 'Isabella Zarate', equipo: '9-03', mvp: 2 }, { nombre: 'Abigail Rangel', equipo: '9-03'}, { nombre: 'Sara Olivares', equipo: '8-03' }, { nombre: 'Yesbelis Guzman', equipo: '8-02' }, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Juan Bolaño', equipo: '9-01', mvp: 3}, {nombre: 'Alfonso Garcia', equipo: '9-01', mvp: 2}, {nombre: 'Juan Villar', equipo: '9-01'}, { nombre: 'Anyeli Pacheco', equipo: '9-02', mvp: 6 }, { nombre: 'Victor Barrios', equipo: '9-02', mvp: 3}, {nombre: 'Jose Urbina', equipo: '9-02'}, {nombre: 'Laura Romo', equipo: '10-01', mvp: 3}, {nombre: 'Harold Buelvas', equipo: '10-01', mvp: 2}, {nombre: 'Valeria Sierra', equipo: '10-01'}
 
 
 ],
@@ -751,16 +751,20 @@ const TORNEO_DATA = {
         { nombre: 'Luis Olivares', equipo: '9-02', canastas: 2 },
 
 
-        { nombre: 'Laura Romo', equipo: '10-01', canastas: 4 },
-        { nombre: 'Valery Torres', equipo: '10-01', canastas: 5 },
-        { nombre: 'Harold Buelvas', equipo: '10-01', canastas: 16},
-        { nombre: 'Fernando Daza', equipo: '10-01', canastas: 1 },
-        { nombre: 'Erik Cortes', equipo: '10-01', canastas: 1 },
-        { nombre: 'Valeria Sierra', equipo: '10-01', canastas: 4 },
-        { nombre: 'Natalia Pineda', equipo: '10-01', canastas: 1 },
+        { nombre: 'Laura Romo', equipo: '10-01', canastas: 30 },
+        { nombre: 'Valery Torres', equipo: '10-01', canastas: 16 },
+        { nombre: 'Harold Buelvas', equipo: '10-01', canastas: 53},
+        { nombre: 'Fernando Daza', equipo: '10-01', canastas: 2 },
+        { nombre: 'Erik Cortes', equipo: '10-01', canastas: 5 },
+        { nombre: 'Valeria Sierra', equipo: '10-01', canastas: 12 },
+        { nombre: 'Natalia Pineda', equipo: '10-01', canastas: 4 },
         { nombre: 'Jose Daza', equipo: '10-01', canastas: 1 },
-        { nombre: 'Marcos Marbello', equipo: '10-01', canastas: 5 },
-        { nombre: 'Andres Perez', equipo: '10-01', canastas: 1 },
+        { nombre: 'Marcos Marbello', equipo: '10-01', canastas: 10 },
+        { nombre: 'Andres Perez', equipo: '10-01', canastas: 6 },
+        { nombre: 'Heydi Guzman', equipo: '10-01', canastas: 4 },
+        { nombre: 'Valentina Diaz', equipo: '10-01', canastas: 2 },
+
+
 
 
 
