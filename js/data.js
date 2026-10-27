@@ -775,12 +775,12 @@ const TORNEO_DATA = {
         { nombre: 'Jhoiner Chourio', equipo: '10-02', canastas: 1 },
         { nombre: 'Daniel Ramos', equipo: '10-02', canastas: 2},
 
-        { nombre: 'Carlos Sanchez', equipo: '10-03', canastas: 7 },
-        { nombre: 'Christopher Castaño', equipo: '10-03', canastas: 1 },
-        { nombre: 'Kasami Gonzales', equipo: '10-03', canastas: 1 },
-        { nombre: 'Emanuel Barros', equipo: '10-03', canastas: 5},
-        { nombre: 'Nicole Rumie', equipo: '10-03', canastas: 2}, 
-        { nombre: 'Ashley Cassiani', equipo: '10-03', canastas: 1}, 
+        { nombre: 'Carlos Sanchez', equipo: '10-03', canastas: 14 },
+        { nombre: 'Christopher Castaño', equipo: '10-03', canastas: 2 },
+        { nombre: 'Kasami Gonzales', equipo: '10-03', canastas: 2 },
+        { nombre: 'Emanuel Barros', equipo: '10-03', canastas: 8},
+        { nombre: 'Nicole Rumie', equipo: '10-03', canastas: 4}, 
+        { nombre: 'Ashley Cassiani', equipo: '10-03', canastas: 6}, 
 
         { nombre: 'Sebastian Madariaga', equipo: '11-01', canastas: 14 },
         { nombre: 'Mateo Oñate', equipo: '11-01', canastas: 8 },
