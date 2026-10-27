@@ -651,36 +651,39 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Mateo Oñate', equipo: '11-01'}, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Samuel Maldonado', equipo: '9-03'}, { nombre: 'Isabel Duarte', equipo: '11-02'}, { nombre: 'Danella Alandette', equipo: '11-02'}  ],
+      mvp: [{ nombre: 'Isabel Ochoa', equipo: '7-02'}, { nombre: 'Salome Cantillo', equipo: '7-02', mvp: 2 }, { nombre: 'Oriana Rosado', equipo: '7-02', mvp: 2 }, { nombre: 'Luis Daniel Linares', equipo: '7-02', mvp: 3 }, { nombre: 'Hellen Quintero 🌟', equipo: '7-01', mvp: 2 }, { nombre: 'Luis Orozco', equipo: '7-03', mvp: 3 }, {nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}, { nombre: 'Ayelem Gomez', equipo: '7-04'},
+
+
+    
+],
 
       maximosAnotadores: [
-        { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 5 },
-        { nombre: 'Mariana Rois', equipo: '7-02', canastas: 3 },
-        { nombre: 'Juan Sebastian Buelvas', equipo: '7-02', canastas: 4 },
-        { nombre: 'Oriana Rosado', equipo: '7-02', canastas: 5 },     
-        { nombre: 'Isabel Ochoa', equipo: '7-02', canastas: 9 },
-        { nombre: 'Samuel Mendoza', equipo: '7-02', canastas: 2 },
-        { nombre: 'Salome Cantillo', equipo: '7-02', canastas: 4 },     
+        { nombre: 'Luis Daniel Linares', equipo: '7-02', canastas: 16 },
+        { nombre: 'Mariana Rois', equipo: '7-02', canastas: 6 },
+        { nombre: 'Juan Sebastian Buelvas', equipo: '7-02', canastas: 11 },
+        { nombre: 'Oriana Rosado', equipo: '7-02', canastas: 9 },     
+        { nombre: 'Isabel Ochoa', equipo: '7-02', canastas: 20 },
+        { nombre: 'Samuel Mendoza', equipo: '7-02', canastas: 6 },
+        { nombre: 'Salome Cantillo', equipo: '7-02', canastas: 12 },     
 
         
-        { nombre: 'Mariangel Baquero', equipo: '7-01', canastas: 2 },
-        { nombre: 'Hellen Quintero 🌟', equipo: '7-01', canastas: 7 },
-        { nombre: 'Julio Sanjuan', equipo: '7-01', canastas: 2 },
-        { nombre: 'Gabriel Tirado', equipo: '7-01', canastas: 1 },
+        { nombre: 'Mariangel Baquero', equipo: '7-01', canastas: 5 },
+        { nombre: 'Hellen Quintero 🌟', equipo: '7-01', canastas: 14 },
+        { nombre: 'Julio Sanjuan', equipo: '7-01', canastas: 5 },
+        { nombre: 'Gabriel Tirado', equipo: '7-01', canastas: 2 },
         { nombre: 'Luis Rojas', equipo: '7-01', canastas: 1 },
         
         
-        { nombre: 'Luis Orozco', equipo: '7-03', canastas: 4 },
-        { nombre: 'Mauricio Pinto', equipo: '7-03', canastas: 6 },
-        { nombre: 'Angela Londoño', equipo: '7-03', canastas: 1 },
-        { nombre: 'Steven Martinez', equipo: '7-03', canastas: 1 },
-        { nombre: 'Santiago Montes', equipo: '7-03', canastas: 2 },
+        { nombre: 'Luis Orozco', equipo: '7-03', canastas: 12 },
+        { nombre: 'Mauricio Pinto', equipo: '7-03', canastas: 17 },
+        { nombre: 'Angela Londoño', equipo: '7-03', canastas: 2 },
+        { nombre: 'Steven Martinez', equipo: '7-03', canastas: 2 },
+        { nombre: 'Santiago Montes', equipo: '7-03', canastas: 5 },
         
 
-
-        { nombre: 'Juan David Rodriguez', equipo: '7-04', canastas: 3 },
-        { nombre: 'Pedro Suarez', equipo: '7-04', canastas: 1 },
-        { nombre: 'Ayelem Gomez', equipo: '7-04', canastas: 2 },
+        { nombre: 'Juan David Rodriguez', equipo: '7-04', canastas: 7 },
+        { nombre: 'Pedro Suarez', equipo: '7-04', canastas: 2 },
+        { nombre: 'Ayelem Gomez', equipo: '7-04', canastas: 4 },
 
         { nombre: 'Maria Barros', equipo: '6-03', canastas: 3 },
         { nombre: 'Daniel Yirene', equipo: '6-03', canastas: 2 },
