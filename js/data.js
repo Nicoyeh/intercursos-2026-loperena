@@ -651,7 +651,7 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Isabel Ochoa', equipo: '7-02'}, { nombre: 'Salome Cantillo', equipo: '7-02', mvp: 2 }, { nombre: 'Oriana Rosado', equipo: '7-02', mvp: 2 }, { nombre: 'Luis Daniel Linares', equipo: '7-02', mvp: 3 }, { nombre: 'Hellen Quintero 🌟', equipo: '7-01', mvp: 2 }, { nombre: 'Luis Orozco', equipo: '7-03', mvp: 3 }, {nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}, { nombre: 'Ayelem Gomez', equipo: '7-04'},
+      mvp: [{ nombre: 'Isabel Ochoa', equipo: '7-02'}, { nombre: 'Salome Cantillo', equipo: '7-02', mvp: 2 }, { nombre: 'Oriana Rosado', equipo: '7-02', mvp: 2 }, { nombre: 'Luis Daniel Linares', equipo: '7-02', mvp: 3 }, { nombre: 'Hellen Quintero 🌟', equipo: '7-01', mvp: 2 }, { nombre: 'Luis Orozco', equipo: '7-03', mvp: 3 }, {nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}, { nombre: 'Ayelem Gomez', equipo: '7-04'}, { nombre: 'Maria Barros', equipo: '6-03', mvp: 2 }, {nombre: 'Daniel Yirene', equipo: '6-03'}, {nombre: 'Thiago Gonzales', equipo: '6-01', mvp: 2}, {nombre: 'Rafaella Agamez', equipo: '6-01'}, {nombre: 'Matias Medina', equipo: '6-01'}, {nombre: 'Thaliana Galindo', equipo: '6-01'}, {nombre: 'Juan Guillen', equipo: '6-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, {nombre: 'Valeria Martinez', equipo: '6-02'}, {nombre: 'Emanuel Paramo', equipo: '6-02'}
 
 
     
@@ -685,8 +685,8 @@ const TORNEO_DATA = {
         { nombre: 'Pedro Suarez', equipo: '7-04', canastas: 2 },
         { nombre: 'Ayelem Gomez', equipo: '7-04', canastas: 4 },
 
-        { nombre: 'Maria Barros', equipo: '6-03', canastas: 3 },
-        { nombre: 'Daniel Yirene', equipo: '6-03', canastas: 2 },
+        { nombre: 'Maria Barros', equipo: '6-03', canastas: 6 },
+        { nombre: 'Daniel Yirene', equipo: '6-03', canastas: 4 },
 
         { nombre: 'Isabella Zarate', equipo: '9-03', canastas: 7 },
         { nombre: 'Gabriela Angarita', equipo: '9-03', canastas: 1 },
@@ -698,16 +698,15 @@ const TORNEO_DATA = {
         { nombre: 'Jose Trujillo', equipo: '9-03', canastas: 3 },
 
 
-
-
-        { nombre: 'Thiago Gonzales', equipo: '6-01', canastas: 2 },
-        { nombre: 'Thaliana Galindo', equipo: '6-01', canastas: 1 },
-        { nombre: 'Matias Medinas', equipo: '6-01', canastas: 1 },
+        { nombre: 'Thiago Gonzales', equipo: '6-01', canastas: 5 },
+        { nombre: 'Thaliana Galindo', equipo: '6-01', canastas: 2 },
+        { nombre: 'Matias Medinas', equipo: '6-01', canastas: 3 },
+        { nombre: 'Rafaella Agamez', equipo: '6-01', canastas: 3 },
       
 
         { nombre: 'David Rojas', equipo: '6-02', canastas: 1 },
-        { nombre: 'Valeria Martinez', equipo: '6-02', canastas: 1 },
-        { nombre: 'Shaylen Salas', equipo: '6-02', canastas: 2 },
+        { nombre: 'Valeria Martinez', equipo: '6-02', canastas: 2 },
+        { nombre: 'Shaylen Salas', equipo: '6-02', canastas: 3 },
 
         { nombre: 'Angel Anteliz', equipo: '8-03', canastas: 3 },
         { nombre: 'Matias Gutierrez', equipo: '8-03', canastas: 4 },
