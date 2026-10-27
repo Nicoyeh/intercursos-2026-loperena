@@ -651,7 +651,9 @@ const TORNEO_DATA = {
       
     },
     baloncesto: {
-      mvp: [{ nombre: 'Isabel Ochoa', equipo: '7-02'}, { nombre: 'Salome Cantillo', equipo: '7-02', mvp: 2 }, { nombre: 'Oriana Rosado', equipo: '7-02', mvp: 2 }, { nombre: 'Luis Daniel Linares', equipo: '7-02', mvp: 3 }, { nombre: 'Hellen Quintero 🌟', equipo: '7-01', mvp: 2 }, { nombre: 'Luis Orozco', equipo: '7-03', mvp: 3 }, {nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}, { nombre: 'Ayelem Gomez', equipo: '7-04'}, { nombre: 'Maria Barros', equipo: '6-03', mvp: 2 }, {nombre: 'Daniel Yirene', equipo: '6-03'}, {nombre: 'Thiago Gonzales', equipo: '6-01', mvp: 2}, {nombre: 'Rafaella Agamez', equipo: '6-01'}, {nombre: 'Matias Medina', equipo: '6-01'}, {nombre: 'Thaliana Galindo', equipo: '6-01'}, {nombre: 'Juan Guillen', equipo: '6-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, {nombre: 'Valeria Martinez', equipo: '6-02'}, {nombre: 'Emanuel Paramo', equipo: '6-02'}, { nombre: 'Jhonder Chourio', equipo: '9-03', mvp: 2 }, { nombre: 'Isabella Zarate', equipo: '9-03', mvp: 2 }, { nombre: 'Abigail Rangel', equipo: '9-03'}, { nombre: 'Sara Olivares', equipo: '8-03' }, { nombre: 'Yesbelis Guzman', equipo: '8-02' }, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Juan Bolaño', equipo: '9-01', mvp: 3}, {nombre: 'Alfonso Garcia', equipo: '9-01', mvp: 2}, {nombre: 'Juan Villar', equipo: '9-01'}, { nombre: 'Anyeli Pacheco', equipo: '9-02', mvp: 6 }, { nombre: 'Victor Barrios', equipo: '9-02', mvp: 3}, {nombre: 'Jose Urbina', equipo: '9-02'}, {nombre: 'Laura Romo', equipo: '10-01', mvp: 3}, {nombre: 'Harold Buelvas', equipo: '10-01', mvp: 2}, {nombre: 'Valeria Sierra', equipo: '10-01'}, {nombre: 'Andrea Torrijo', equipo: '10-02', mvp: 5}, {nombre: 'Mariangel Arias', equipo: '10-02'}, {nombre: 'Felipe Zuñiga', equipo: '10-02'}, {nombre: 'Brayan Pineda', equipo: '10-02'}, {nombre: 'Duvan Riccioly', equipo: '10-02'}, {nombre: 'Sebastian Madariaga', equipo: '11-01', mvp: 3}, {nombre: 'Dylan casas', equipo: '11-01'}, {nombre: 'Zohe Mendoza', equipo: '11-01'}, {nombre: 'Isabella Padilla', equipo: '11-01'}
+      mvp: [{ nombre: 'Isabel Ochoa', equipo: '7-02'}, { nombre: 'Salome Cantillo', equipo: '7-02', mvp: 2 }, { nombre: 'Oriana Rosado', equipo: '7-02', mvp: 2 }, { nombre: 'Luis Daniel Linares', equipo: '7-02', mvp: 3 }, { nombre: 'Hellen Quintero 🌟', equipo: '7-01', mvp: 2 }, { nombre: 'Luis Orozco', equipo: '7-03', mvp: 3 }, {nombre: 'Mauricio Pinto', equipo: '7-03'}, { nombre: 'Juan David Rodriguez', equipo: '7-04'}, { nombre: 'Ayelem Gomez', equipo: '7-04'}, { nombre: 'Maria Barros', equipo: '6-03', mvp: 2 }, {nombre: 'Daniel Yirene', equipo: '6-03'}, {nombre: 'Thiago Gonzales', equipo: '6-01', mvp: 2}, {nombre: 'Rafaella Agamez', equipo: '6-01'}, {nombre: 'Matias Medina', equipo: '6-01'}, {nombre: 'Thaliana Galindo', equipo: '6-01'}, {nombre: 'Juan Guillen', equipo: '6-01'}, { nombre: 'Shaylen Salas', equipo: '6-02'}, {nombre: 'Valeria Martinez', equipo: '6-02'}, {nombre: 'Emanuel Paramo', equipo: '6-02'}, { nombre: 'Jhonder Chourio', equipo: '9-03', mvp: 2 }, { nombre: 'Isabella Zarate', equipo: '9-03', mvp: 2 }, { nombre: 'Abigail Rangel', equipo: '9-03'}, { nombre: 'Sara Olivares', equipo: '8-03' }, { nombre: 'Yesbelis Guzman', equipo: '8-02' }, { nombre: 'Valery Mendoza', equipo: '8-02'}, { nombre: 'Juan Bolaño', equipo: '9-01', mvp: 3}, {nombre: 'Alfonso Garcia', equipo: '9-01', mvp: 2}, {nombre: 'Juan Villar', equipo: '9-01'}, { nombre: 'Anyeli Pacheco', equipo: '9-02', mvp: 6 }, { nombre: 'Victor Barrios', equipo: '9-02', mvp: 3}, {nombre: 'Jose Urbina', equipo: '9-02'}, {nombre: 'Laura Romo', equipo: '10-01', mvp: 3}, {nombre: 'Harold Buelvas', equipo: '10-01', mvp: 2}, {nombre: 'Valeria Sierra', equipo: '10-01'}, {nombre: 'Andrea Torrijo', equipo: '10-02', mvp: 5}, {nombre: 'Mariangel Arias', equipo: '10-02'}, {nombre: 'Felipe Zuñiga', equipo: '10-02'}, {nombre: 'Brayan Pineda', equipo: '10-02'}, {nombre: 'Duvan Riccioly', equipo: '10-02'}, {nombre: 'Sebastian Madariaga', equipo: '11-01', mvp: 3}, {nombre: 'Dylan casas', equipo: '11-01'}, {nombre: 'Zohe Mendoza', equipo: '11-01'}, {nombre: 'Isabella Padilla', equipo: '11-01'},  { nombre: 'Luis Angarita', equipo: '11-02', mvp: 3 }, { nombre: 'Isabel Duarte', equipo: '11-02', mvp: 3 }, { nombre: 'Juan Pablo Guerrero', equipo: '11-02'}
+
+
 ],
 
       maximosAnotadores: [
@@ -801,18 +803,20 @@ const TORNEO_DATA = {
 
 
 
-        { nombre: 'Manuel Pallares', equipo: '11-02', canastas: 10 },
-        { nombre: 'Samuel Agamez', equipo: '11-02', canastas: 17 },
-        { nombre: 'Edinson Parra', equipo: '11-02', canastas: 1 }, 
-        { nombre: 'Juan Pablo Guerrero', equipo: '11-02', canastas: 10 },
-        { nombre: 'Rosaelina Romero', equipo: '11-02', canastas: 1 },
-        { nombre: 'Luis Angarita', equipo: '11-02', canastas: 14 },
-        { nombre: 'Carlos Mazenett', equipo: '11-02', canastas: 3 },
-        { nombre: 'Danella Alandette', equipo: '11-02', canastas: 3 },
-        { nombre: 'Orlando Rondon', equipo: '11-02', canastas: 2 },
-        { nombre: 'Obed Quiroz 🩶', equipo: '11-02', canastas: 1 },   
-        { nombre: 'Nicolle Pineda', equipo: '11-02', canastas: 1},
-        { nombre: 'Isabel Duarte', equipo: '11-02', canastas: 5},   
+        { nombre: 'Manuel Pallares', equipo: '11-02', canastas: 17 },
+        { nombre: 'Samuel Agamez', equipo: '11-02', canastas: 37 },
+        { nombre: 'Edinson Parra', equipo: '11-02', canastas: 2 }, 
+        { nombre: 'Juan Pablo Guerrero', equipo: '11-02', canastas: 30 },
+        { nombre: 'Rosaelina Romero', equipo: '11-02', canastas: 2 },
+        { nombre: 'Luis Angarita', equipo: '11-02', canastas: 54 },
+        { nombre: 'Carlos Mazenett', equipo: '11-02', canastas: 6 },
+        { nombre: 'Danella Alandette', equipo: '11-02', canastas: 4 },
+        { nombre: 'Orlando Rondon', equipo: '11-02', canastas: 4 },
+        { nombre: 'Obed Quiroz 🩶', equipo: '11-02', canastas: 2 },   
+        { nombre: 'Nicolle Pineda', equipo: '11-02', canastas: 2},
+        { nombre: 'Isabel Duarte', equipo: '11-02', canastas: 12},  
+        { nombre: 'Kaesee Marquez', equipo: '11-02', canastas: 4 },
+
 
       ]
     },
