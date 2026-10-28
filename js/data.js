@@ -437,7 +437,20 @@ const TORNEO_DATA = {
     { id: 'p247', fecha: '2026-10-23', fechaTexto: '23 OCT', hora: 'Recreo', deporte: 'baloncesto', categoria: 'infantil', genero: 'mujeres', local: '6-03',  visitante: '7-02', fase: 'Final', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 6 },
     { id: 'p248', fecha: '2026-10-23', fechaTexto: '23 OCT', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '11-01', fase: 'Semifinales', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 0 },
     
-  
+    { id: 'p249', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '2:00 - 2:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '11-02', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 12, marcadorVisitante: 1 },
+    { id: 'p250', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '', deporte: 'baloncesto', categoria: 'juvenil', genero: 'mujeres', local: '10-01',  visitante: '10-02', fase: 'Final', estado: 'jugado', marcadorLocal: 15, marcadorVisitante: 17 },
+    { id: 'p251', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '5:00 - 5:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-01', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 23, marcadorVisitante: 20 },
+    { id: 'p252', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '6:00 - 6:40', deporte: 'baloncesto', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-02', fase: 'Final', estado: 'jugado', marcadorLocal: 59, marcadorVisitante: 30 },
+
+    { id: 'p253', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '3:00 - 3:40', deporte: 'futbol', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '11-01', fase: 'Final', estado: 'jugado', marcadorLocal: 6, marcadorVisitante: 2 },
+    { id: 'p254', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '4:00 - 4:40', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-02',  visitante: '10-02', fase: 'Semifinal', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 3 },
+
+    { id: 'p255', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '6:00 - 6:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '10-03',  visitante: '10-01', fase: 'Final', estado: 'jugado', marcadorLocal: 0, marcadorVisitante: 2 },
+    { id: 'p256', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '1:00 - 1:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-02',  visitante: '10-01', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+    { id: 'p257', fecha: '2026-10-24', fechaTexto: '24 OCT', hora: '5:00 - 5:40', deporte: 'voleibol', categoria: 'juvenil', genero: 'hombres', local: '11-01',  visitante: '10-03', fase: 'Final', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 2 },
+
+
+
 
   ],
 
