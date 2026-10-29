@@ -455,6 +455,7 @@ const TORNEO_DATA = {
     { id: 'p260', fecha: '2026-10-27', fechaTexto: '27 OCT', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '10-02',  visitante: '10-03', fase: 'Final', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 3 },
     { id: 'p261', fecha: '2026-10-27', fechaTexto: '27 OCT', hora: 'Recreo', deporte: 'voleibol', categoria: 'juvenil', genero: 'mujeres', local: '11-01',  visitante: '11-02', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 2, marcadorVisitante: 1 },
     
+    { id: '262', fecha: '2026-10-28', fechaTexto: '28 OCT', hora: 'Recreo', deporte: 'futbol', categoria: 'juvenil', genero: 'mujeres', local: '11-02', visitante: '10-01', fase: 'Tercer puesto', estado: 'jugado', marcadorLocal: 1, marcadorVisitante: 0 },
   ],
 
   // Equipos eliminados en la fase de grupos, por categoría + deporte + género
@@ -501,7 +502,7 @@ const TORNEO_DATA = {
   estadisticasIndividuales: {
     futbol: {
       mvp: [{ nombre: 'Nicole Rumie', equipo: '10-03', mvp: 2 }, { nombre: 'Nathaly Moscote', equipo: '10-03'}, { nombre: 'Andrea Torrijo', equipo: '10-02', mvp: 3 }, { nombre: 'Daniel Ramos', equipo: '10-02', mvp: 2 }, { nombre: 'Duvan Riccioly', equipo: '10-02' }, { nombre: 'Anyelo Gomez', equipo: '10-02'}, { nombre: 'Elias Gutierrez', equipo: '10-01'}, { nombre: 'Harold Buelvas', equipo: '10-01'}, { nombre: 'Valeria Sierra', equipo: '10-01', mvp: 2}, { nombre: 'María Jose Diaz', equipo: '10-01'}, { nombre: 'Alejandra Velasquez', equipo: '11-01'}, { nombre: 'Daniel Valenzuela', equipo: '11-01'}, { nombre: 'Joao Lopez', equipo: '11-01'}, { nombre: 'Sebastian Barcinilla', equipo: '11-02', mvp: 4}, { nombre: 'Manuel Pallares', equipo: '11-02', mvp: 2}, { nombre: 'Valeria Mendez', equipo: '11-02'}, { nombre: 'Juan Alvarez', equipo: '9-01', mvp: 2}, { nombre: 'Veronik Vizcaino', equipo: '9-01', mvp: 2}, { nombre: 'Jhondailys Briceño', equipo: '9-03', mvp: 3}, { nombre: 'Jose Trujillo', equipo: '9-03', mvp: 4}, { nombre: 'Sergio Contreras', equipo: '9-03'}, { nombre: 'Sebastian Alvarez', equipo: '9-02', mvp: 2}, { nombre: 'Maria Rodriguez', equipo: '9-02'}, { nombre: 'Victor Barrios', equipo: '9-02'}, { nombre: 'Luifer Barraza', equipo: '8-02', mvp: 3}, { nombre: 'Santiago Quintero', equipo: '8-02'}, { nombre: 'Yesbelis Guzman', equipo: '8-02', mvp: 2}, { nombre: 'Ana Gonzales', equipo: '8-02'}, {nombre: 'Sara Olivares', equipo: '8-03'}, {nombre: 'Isabel Moreno', equipo: '8-03'}, {nombre: 'Arolis Rodriguez', equipo: '8-03'}, {nombre: 'Shaylen Salas', equipo: '6-02'}, {nombre: 'Ivana Fajardo', equipo: '6-02'}, {nombre: 'Angel Camargo', equipo: '6-02', mvp: 2}, {nombre: 'Thiago Arzuaga', equipo: '6-02'}, { nombre: 'Maria Valentina Sarmiento', equipo: '6-03', mvp: 2}, { nombre: 'Daniel Yirene', equipo: '6-03'}, { nombre: 'Eilin Hernandez', equipo: '6-04'}, { nombre: 'Valery Guarin', equipo: '6-04'}, { nombre: 'Brandon Lacarro', equipo: '6-04'}, { nombre: 'Thiago Arzuaga', equipo: '6-04'}, { nombre: 'Hellen Quintero 🌟', equipo: '7-01', mvp: 3}, { nombre: 'Isabella Rodriguez', equipo: '7-01'}, {nombre: 'Luis Rojas', equipo: '7-01'}, { nombre: 'Mariana Rois', equipo: '7-02'}, { nombre: 'Sebastian Buelvas', equipo: '7-02'}, { nombre: 'Mauricio Pinto', equipo: '7-03', mvp: 2}, { nombre: 'Luis Orozco', equipo: '7-03'}, { nombre: 'Mariangel Pinto', equipo: '7-04', mvp: 2}, { nombre: 'Liam Castellon', equipo: '7-04', mvp: 2}, {nombre: 'Pablo Luquez', equipo: '7-04'}, 
-        {nombre: 'Sebastian Mieles', equipo: '7-04'}
+        {nombre: 'Sebastian Mieles', equipo: '7-04'}, {nombre: 'Danella Alandette', equipo: '11-02'},
 ],
        goleadores: [
         { nombre: 'Ashley Cassiani', equipo: '10-03', goles: 1 },
@@ -562,7 +563,7 @@ const TORNEO_DATA = {
         { nombre: 'Xavi Nieves', equipo: '11-02', goles: 2},
         { nombre: 'Diego Camargo', equipo: '11-02', goles: 4},
         { nombre: 'Obed Quiroz 🩶', equipo: '11-02', goles: 4},
-        { nombre: 'Danella Alandette', equipo: '11-02', goles: 1},
+        { nombre: 'Danella Alandette', equipo: '11-02', goles: 2},
         { nombre: 'Valeria Mendez', equipo: '11-02', goles: 6},
 
 
